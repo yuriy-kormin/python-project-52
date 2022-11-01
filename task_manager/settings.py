@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-jv6&5d(@%a-)ntx##+=)(oh%4t8w(_9*$iqo9azg2al)95vv!#
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1',
-                 'webserver']
+                 'webserver',
+                 'task-manager.up.railway.app']
 
 
 # Application definition
