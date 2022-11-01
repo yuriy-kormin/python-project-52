@@ -9,19 +9,23 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 from dotenv import dotenv_values
+from os import getenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
+if getenv('PGUSER') or getenv('PGPASSWORD'):
+    env_vars = dict(os.environ)
+else:
+    env_vars = dotenv_values(".env")
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-jv6&5d(@%a-)ntx##+=)(oh%4t8w(_9*$iqo9azg2al)95vv!#'
+# SECRET_KEY = 'django-insecure-jv6&5d(@%a-)ntx##+=)(oh%4t8w(_9*$iqo9azg2al)95vv!#'
+SECRET_KEY = env_vars['DJANGO_SECRET']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,15 +81,14 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-database_config = dotenv_values(".env")
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': database_config['PGDATABASE'],
-        'USER': database_config['PGUSER'],
-        'PASSWORD': database_config['PGPASSWORD'],
-        'HOST': database_config['PGHOST'],
-        'PORT': database_config['PGPORT'],
+        'NAME': env_vars['PGDATABASE'],
+        'USER': env_vars['PGUSER'],
+        'PASSWORD': env_vars['PGPASSWORD'],
+        'HOST': env_vars['PGHOST'],
+        'PORT': env_vars['PGPORT'],
     }
 }
 
