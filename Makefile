@@ -1,4 +1,6 @@
+MANAGE := poetry run python manage.py
+
 start:
-	poetry run python manage.py runserver 127.0.0.1:8000
+	${MANAGE} runserver 127.0.0.1:8000
 shell:
-	poetry run python manage.py shell
+	${MANAGE} shell
