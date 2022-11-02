@@ -16,6 +16,7 @@ dj-database-url = "^1.0.0"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^5.0.4"
+django-extensions = "^3.2.1"
 
 [build-system]
 requires = ["poetry-core"]
