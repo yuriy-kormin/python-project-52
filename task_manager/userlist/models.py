@@ -16,4 +16,3 @@ class User(TimestampedModel):
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=100, null=True)
     last_name = models.CharField(max_length=100, null=True)
-    nickname = models.CharField(max_length=100, null=True)
