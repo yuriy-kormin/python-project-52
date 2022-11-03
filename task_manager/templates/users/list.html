@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block user_list %}
+   <h3> block header</h3>
+   {% for user in users %}
+      <p> {{user.first_name}}</p>
+   {% endfor %}
+{% endblock %}
