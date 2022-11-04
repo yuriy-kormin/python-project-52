@@ -6,3 +6,4 @@ sqlparse==0.4.3
 python-dotenv==0.21.0
 dj-database-url==1.0.0
 django-extensions==3.2.1
+django-bootstrap4==22.2

@@ -13,6 +13,7 @@ python-dotenv = "^0.21.0"
 sqlparse = "^0.4.3"
 psycopg2 = "^2.9.5"
 dj-database-url = "^1.0.0"
+django-bootstrap4 = "^22.2"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^5.0.4"
