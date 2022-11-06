@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Task manager</title>
+    {% load i18n %}
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    <title>{% translate "Task manager" %}</title>
 </head>
-<body>
-<h2>Hello, Friend!</h2>
+<body class="bg-light">
+<h2>{% translate "main_title" %}</h2>
 <div id="user_list">
     {% block user_list %}
     {% endblock %}
 </div>
 </body>
 </html>
+
