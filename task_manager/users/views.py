@@ -1,13 +1,25 @@
 from django.shortcuts import render
-from task_manager.users.models import User
-from django.utils.translation import gettext
+from django.views import View
+from .models import User
+from .forms import UserForm
 
 
-def user_list(request):
-    users = User.objects.all()
-    # users = [{'first_name':'vasya'},
-    #          {'first_name':'fedya'}]
+class UserAddView(View):
+    def get(self, request):
+        pass
+    # if request.method == 'POST':
+    #     form = UserForm(request.POST)
+    #
+    #     if form.is_valid():
+    #         form.save()
+    # else:
+    #     form = UserForm()
+    # return render(request, 'users/list.html', context={'form': form})
 
-    return render(request, 'users/list.html', {
-        'users': users,
-    })
+
+class UserListView(View):
+    def get(self, request):
+        users = User.objects.all()
+        return render(request, 'users/list.html', context={
+            'users': users,
+        })
