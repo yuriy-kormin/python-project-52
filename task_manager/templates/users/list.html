@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-    {% load i18n %}
+{% load i18n %}
 {% block page_content %}
    <h1 class="my-4"> {% translate "Users" %}</h1>
     <table class = "table table-striped">
@@ -16,7 +16,10 @@
                 <td> {{user.nick_name}}</td>
                 <td> {{ user.first_name }}  {{user.last_name}}</td>
                 <td> {{user.created_at}}</td>
-                <td> empty </td>
+                <td>
+                    <a href = "{% url "user_update" user.id %}">{% translate "edit user" %}</a><br>
+                    <a href = "{% url "user_delete" user.id %}">{% translate "remove user" %}</a>
+                </td>
             </tr>
         {% endfor %}
     </table>
