@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import user_list
+from .views import  UserListView
+from django.contrib import admin
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
-    path('', user_list),
+    path('', UserListView.as_view())
 ]
