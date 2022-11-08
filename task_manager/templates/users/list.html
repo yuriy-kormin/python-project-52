@@ -10,7 +10,7 @@
             <th>{% translate 'created_at' %}</th>
             <th></th>
         </tr>
-        {% for user in users %}
+        {% for user in object_list %}
             <tr>
                 <td> {{user.id}}</td>
                 <td> {{user.nick_name}}</td>
@@ -23,4 +23,5 @@
             </tr>
         {% endfor %}
     </table>
+    <a href = "{% url 'user_add' %}">add</a>
 {% endblock %}
