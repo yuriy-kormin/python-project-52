@@ -1,7 +1,23 @@
 {% extends "base.html" %}
-{% block user_list %}
-   <h3> block header</h3>
-   {% for user in users %}
-      <p> {{user.first_name}}</p>
-   {% endfor %}
+    {% load i18n %}
+{% block page_content %}
+   <h1 class="my-4"> {% translate "Users" %}</h1>
+    <table class = "table table-striped">
+        <tr>
+            <th>{% translate 'ID' %}</th>
+            <th>{% translate 'nick_name' %}</th>
+            <th>{% translate 'full_name' %}</th>
+            <th>{% translate 'created_at' %}</th>
+            <th></th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td> {{user.id}}</td>
+                <td> {{user.nick_name}}</td>
+                <td> {{ user.first_name }}  {{user.last_name}}</td>
+                <td> {{user.created_at}}</td>
+                <td> empty </td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
