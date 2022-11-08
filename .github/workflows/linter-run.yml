@@ -1,0 +1,17 @@
+name: linter-run
+on: push
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+            - name: chekout repo
+              uses: actions/checkout@v2
+            - name: setup python 
+              uses: actions/setup-python@v2
+            - name: Install dependencies
+              run: |
+                  pip install poetry
+                  make install
+            - name: run linter check
+              run: |
+                  make lint

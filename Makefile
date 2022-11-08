@@ -7,3 +7,5 @@ shell:
 migrate:
 	${MANAGE} makemigrations
 	${MANAGE} migrate
+lint:
+	poetry run flake8
