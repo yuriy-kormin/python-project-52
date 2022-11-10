@@ -5,7 +5,7 @@
     <table class = "table table-striped">
         <tr>
             <th>{% translate 'ID' %}</th>
-            <th>{% translate 'nick_name' %}</th>
+            <th>{% translate 'username' %}</th>
             <th>{% translate 'full_name' %}</th>
             <th>{% translate 'created_at' %}</th>
             <th></th>
@@ -13,9 +13,9 @@
         {% for user in object_list %}
             <tr>
                 <td> {{user.id}}</td>
-                <td> {{user.nick_name}}</td>
-                <td> {{ user.first_name }}  {{user.last_name}}</td>
-                <td> {{user.created_at}}</td>
+                <td> {{user.username}}</td>
+                <td> {{user.first_name }}  {{user.last_name}}</td>
+                <td> {{user.date_joined}}</td>
                 <td>
                     <a href = "{% url "user_update" user.id %}">{% translate "edit user" %}</a><br>
                     <a href = "{% url "user_delete" user.id %}">{% translate "remove user" %}</a>

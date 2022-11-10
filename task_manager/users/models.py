@@ -11,7 +11,7 @@ class TimestampedModel(models.Model):
         abstract = True
 
 
-class User(TimestampedModel):
+class MyUser(TimestampedModel):
 
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=100, null=True)

@@ -1,9 +1,9 @@
-from django.shortcuts import render
 from django.views import View
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView,UpdateView
 
-from .models import User
+# from .models import User
+from django.contrib.auth.models import User
 from .forms import UserForm
 
 
