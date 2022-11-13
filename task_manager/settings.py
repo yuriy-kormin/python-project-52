@@ -58,6 +58,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'task_manager.urls'
+CSRF_TRUSTED_ORIGINS = ['https://task-manager.up.railway.app']
 
 TEMPLATES = [
     {
