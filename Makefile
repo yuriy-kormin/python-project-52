@@ -7,5 +7,9 @@ shell:
 migrate:
 	${MANAGE} makemigrations
 	${MANAGE} migrate
+#translate:
+#	${MANAGE} makemessages -l ru --no-default-ignore --ignore=*venv*
+#	${MANAGE} compilemessages
+
 lint:
 	poetry run flake8 task_manager

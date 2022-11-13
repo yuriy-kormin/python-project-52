@@ -195,3 +195,8 @@ BOOTSTRAP4 = {
         'inline': 'bootstrap4.renderers.InlineFieldRenderer',
     },
 }
+
+LOCALE_PATHS =(
+    os.path.join(BASE_DIR, "task_manager","locale"),
+    # os.path.join(BASE_DIR, "yourapp/locale"),
+)

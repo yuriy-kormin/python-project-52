@@ -1,8 +1,6 @@
 from django.views import View
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView, DeleteView,UpdateView
-
-# from .models import User
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth.models import User
 from .forms import UserForm
 
@@ -16,26 +14,19 @@ class UserCreateView(CreateView):
     form_class = UserForm
     template_name = 'users/create.html'
     success_url = '/'
-    # def get(self, request):
-    #     if request.method == 'POST':
-    #         form = UserForm(request.POST)
-    #         print (request.POST)
-    #     return render(request, 'users/create.html', context={'form': form})
-    #
-    # def form_valid(self, form):
-    #
-    #     return super().form_valid(form)
 
 
 class UserUpdateView(UpdateView):
     model = User
-    fields = '__all__'
-    # for
-    template_name = 'users/create.html'
+    form_class = UserForm
+    template_name = 'users/edit.html'
+    success_url = '/'
 
 
 class UserDeleteView(DeleteView):
     model = User
+    template_name = 'users/delete.html'
+    success_url = '/'
 
 
 class UserLoginView(View):

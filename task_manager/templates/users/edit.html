@@ -3,12 +3,12 @@
 {% block page_content %}
     <form method="post" action=".">
     {% csrf_token %}
+{#    {{ form.as_div }}#}
         <div class = "form">
             {%  for field in form %}
-                <p>
-                {{ field.label_tag }}<br>{{ field }}
+                <p>{{ field.label_tag }}<br>{{ field }}</p>
             {% endfor %}
         </div>
-    <input type="submit" value="{% translate "Add user" %}">
+    <input type="submit" value="{% translate "submit" %}">
     </form>
 {% endblock %}

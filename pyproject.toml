@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Task manager web-app"
 authors = ["Yuriy Kormin <yuriy.kormin@gmail.com>"]
 readme = "README.md"
-packages = [{include = "hexlet_code"}]
+packages = [{include = "task-manager"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block page_content %}
+    <form method="post" action=".">
+    {% csrf_token %}
+        <p>{% translate "Are you sure delete" %} "{{ object }}" ?</p>
+    <input type="submit" value="{% translate "remove" %}">
+    </form>
+{% endblock %}
