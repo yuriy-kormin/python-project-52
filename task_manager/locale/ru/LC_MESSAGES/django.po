@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-13 22:00+0400\n"
+"POT-Creation-Date: 2022-11-15 16:14+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
 #: templates/base.html:9 templates/base.html:15
 msgid "Task manager"
 msgstr "Менеджер задач"
@@ -35,7 +36,7 @@ msgstr "Войти"
 msgid "Register"
 msgstr "Регистрация"
 
-#: templates/users/create.html:12
+#: templates/users/create.html:18
 msgid "Add user"
 msgstr "Добавить"
 
@@ -47,9 +48,9 @@ msgstr "Вы точно хотите удалить"
 msgid "remove"
 msgstr "удалить"
 
-#: templates/users/edit.html:12
-msgid "submit"
-msgstr "Редактировать"
+#: templates/users/edit.html:11
+msgid "Refresh"
+msgstr "Обновить"
 
 #: templates/users/list.html:7
 msgid "ID"
@@ -74,3 +75,10 @@ msgstr "Редактировать"
 #: templates/users/list.html:21
 msgid "remove user"
 msgstr "Удалить"
+
+#: templates/users/login.html:30
+msgid "login"
+msgstr "Войти"
+
+#~ msgid "submit"
+#~ msgstr "Редактировать"

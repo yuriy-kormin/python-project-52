@@ -33,6 +33,18 @@
     </div>
 </nav>
 
+{% if messages %}
+    <div class = "flash_messages" id = "flash_messages">
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+            {{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+    </div>
+{% endif %}
+
 <div class = "container wrapper flex-grow-1" id="page_content">
     {% block page_content %}
     {% endblock %}
