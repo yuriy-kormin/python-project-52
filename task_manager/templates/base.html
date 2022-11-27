@@ -38,22 +38,24 @@
             </li>
         </ul>
     </div>
+  </div>
 </nav>
 
+<div class = "container wrapper flex-grow-1" id="page_content">
 {% if messages %}
-{#    <div class = "flash_messages" id = "flash_messages">#}
-    <div class ="alert alert-success fade show">
-    <ul style="list-style: none;">
-        {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+    <div class = "flash_messages" id = "flash_messages">
+    {% for message in messages %}
+        {% if message.level < 30 %}
+            <div class ="alert alert-success fade show">
+        {% else %}
+            <div class ="alert alert-danger fade show">
+        {% endif %}
             {{ message }}
-        </li>
-        {% endfor %}
-    </ul>
+            </div>
+    {% endfor %}
+
     </div>
 {% endif %}
-
-<div class = "container wrapper flex-grow-1" id="page_content">
     {% block page_content %}
     {% endblock %}
 </div>
