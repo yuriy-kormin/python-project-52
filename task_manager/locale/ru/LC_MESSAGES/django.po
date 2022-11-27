@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-18 16:15+0400\n"
+"POT-Creation-Date: 2022-11-27 11:24+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,19 +84,22 @@ msgstr "Удалить"
 msgid "login"
 msgstr "Войти"
 
-#: users/views.py:23
-msgid "User created succesfully"
-msgstr "Пользователь создан"
+#: users/views.py:24
+msgid "User created successfully"
+msgstr "Профиль создан"
 
-#: users/views.py:46
-msgid "You are logged in"
-msgstr "Вход выполнен"
+#: users/views.py:28
+msgid "Please fill form correctly"
+msgstr "Заполните форму праильно"
 
-#: users/views.py:53
-#, fuzzy
-#| msgid "User created succesfully"
+#: users/views.py:43
+msgid "You cannot edit another user"
+msgstr "Вы не можете редактировать другого пользователя"
+
+#: users/views.py:70
+msgid "Login successfully"
+msgstr "Успешный вход"
+
+#: users/views.py:77
 msgid "Logged out succesfully"
-msgstr "Вы вышли из профиля"
-
-#~ msgid "submit"
-#~ msgstr "Редактировать"
+msgstr "Успешный выход"

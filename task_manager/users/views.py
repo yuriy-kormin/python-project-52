@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import AccessMixin, LoginRequiredMixin, UserPass
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import redirect
-from django.utils.translation import gettext_lazy
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .forms import UserCreationForm, UserUpdateForm
@@ -21,8 +21,12 @@ class UserCreateView(CreateView):
     success_url = '/login/'
 
     def form_valid(self, form):
-        messages.success(self.request, gettext_lazy('User created successfully'))
+        messages.success(self.request, _('User created successfully'))
         return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, _('Please fill form correctly'))
+        return super().form_invalid(form)
 
 
 class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -36,7 +40,7 @@ class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def test_func(self):
         obj = self.get_object()
         if obj != self.request.user:
-            messages.info(self.request, gettext_lazy('You cannot edit another user'))
+            messages.info(self.request, _('You cannot edit another user'))
             # redirect("/")
         return obj == self.request.user
 
@@ -63,12 +67,12 @@ class UserLoginView(LoginView):
 
     def post(self, request, *args, **kwargs):
         if self.get_form().is_valid():
-            messages.info(request, gettext_lazy('Login successfully'))
+            messages.info(request, _('Login successfully'))
         return super().post(self, request, *args, **kwargs)
 
 
 class UserLogoutView(LogoutView):
     def get(self, request):
         logout(request)
-        messages.info(request, gettext_lazy('Logged out succesfully'))
+        messages.info(request, _('Logged out succesfully'))
         return redirect('/')
