@@ -1,6 +1,7 @@
 from django import forms
 # from .models import User
 # from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
@@ -32,8 +33,8 @@ from django.http import HttpResponse
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
     fields, plus a repeated password."""
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+    password1 = forms.CharField(label=_('Password'), widget=forms.PasswordInput)
+    password2 = forms.CharField(label=_('Password confirmation'), widget=forms.PasswordInput)
 
     class Meta:
         model = User
@@ -41,15 +42,20 @@ class UserCreationForm(forms.ModelForm):
                   'last_name',
                   'username',
                   )
-        localized_fields = ('__all__')
-
+        # localized_fields = ('__all__')
+        widgets ={
+            'first_name': forms.TextInput(attrs={'placeholder': _('first name')}),
+            'last_name': forms.TextInput(attrs={'placeholder': _('last name')}),
+            'username': forms.TextInput(attrs={'placeholder': _('username')}),
+            # 'password1': forms.CharField(attrs={'placeholder': _('password')})
+            # 'password1':forms.CharField(attrs)
+        }
 
     def clean_password2(self):
-        # Check that the two password entries match
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
-            raise ValidationError("Passwords don't match")
+            raise ValidationError(_("Passwords don't match"))
         return password2
 
     def save(self, commit=True):
@@ -61,8 +67,8 @@ class UserCreationForm(forms.ModelForm):
 
 
 class UserUpdateForm(forms.ModelForm):
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+    password1 = forms.CharField(label=_('Password'), widget=forms.PasswordInput)
+    password2 = forms.CharField(label=_('Password confirmation'), widget=forms.PasswordInput)
 
 
     class Meta:
@@ -79,7 +85,7 @@ class UserUpdateForm(forms.ModelForm):
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
             # messages.info(request, 'User not exist')
-            raise ValidationError("Passwords don't match")
+            raise ValidationError(_("Passwords don't match"))
         return password2
 
     def save(self, commit=True):
