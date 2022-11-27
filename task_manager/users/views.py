@@ -18,11 +18,11 @@ class UserListView(ListView):
 class UserCreateView(CreateView):
     form_class = UserCreationForm
     template_name = 'users/create.html'
-    next = "/"
-    #
-    # def get_success_url(self):
-    #     messages.info(self.request, gettext_lazy('User created successfully'))
-    #     return super().get_success_url(self)
+    success_url = '/login/'
+
+    def form_valid(self, form):
+        messages.success(self.request, gettext_lazy('User created successfully'))
+        return super().form_valid(form)
 
 
 class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -30,6 +30,8 @@ class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     form_class = UserUpdateForm
     template_name = 'users/edit.html'
     success_url = '/'
+    # raise_exception = True
+    login_url = '/login'
 
     def test_func(self):
         obj = self.get_object()
@@ -39,19 +41,20 @@ class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return obj == self.request.user
 
 
-class UserDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class UserDeleteView(DeleteView):
     model = User
     template_name = 'users/delete.html'
     success_url = '/'
-
-    def post(self, request, *args, **kwargs):
-        username = request.user.username
-        if self.get_form().is_valid():
-            user = User.objects.get(pk=2)
-            messages.info(request, gettext_lazy('User was successfully deleted'))
-        return super().post(self, request, *args, **kwargs)
+    #
+    # def post(self, request, *args, **kwargs):
+    #     username = request.user.username
+    #     if self.get_form().is_valid():
+    #         user = User.objects.get(pk=2)
+    #         messages.info(request, gettext_lazy('User was successfully deleted'))
+    #     return super().post(self, request, *args, **kwargs)
 
     # def tes
+
 
 class UserLoginView(LoginView):
     # success_message = gettext_lazy('You are logged in')
