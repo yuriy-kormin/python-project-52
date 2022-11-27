@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-15 16:14+0400\n"
+"POT-Creation-Date: 2022-11-18 16:15+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,11 +28,15 @@ msgstr "Менеджер задач"
 msgid "Users"
 msgstr "Пользователи"
 
-#: templates/base.html:27
+#: templates/base.html:29
 msgid "Enter"
 msgstr "Войти"
 
-#: templates/base.html:30
+#: templates/base.html:34
+msgid "Logout"
+msgstr "Выход"
+
+#: templates/base.html:36
 msgid "Register"
 msgstr "Регистрация"
 
@@ -46,7 +50,7 @@ msgstr "Вы точно хотите удалить"
 
 #: templates/users/delete.html:7
 msgid "remove"
-msgstr "удалить"
+msgstr "Удалить"
 
 #: templates/users/edit.html:11
 msgid "Refresh"
@@ -79,6 +83,20 @@ msgstr "Удалить"
 #: templates/users/login.html:30
 msgid "login"
 msgstr "Войти"
+
+#: users/views.py:23
+msgid "User created succesfully"
+msgstr "Пользователь создан"
+
+#: users/views.py:46
+msgid "You are logged in"
+msgstr "Вход выполнен"
+
+#: users/views.py:53
+#, fuzzy
+#| msgid "User created succesfully"
+msgid "Logged out succesfully"
+msgstr "Вы вышли из профиля"
 
 #~ msgid "submit"
 #~ msgstr "Редактировать"
