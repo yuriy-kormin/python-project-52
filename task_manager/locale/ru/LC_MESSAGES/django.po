@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-27 11:24+0400\n"
+"POT-Creation-Date: 2022-11-27 13:42+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,13 +36,9 @@ msgstr "Войти"
 msgid "Logout"
 msgstr "Выход"
 
-#: templates/base.html:36
+#: templates/base.html:36 users/views.py:23 users/views.py:24
 msgid "Register"
 msgstr "Регистрация"
-
-#: templates/users/create.html:18
-msgid "Add user"
-msgstr "Добавить"
 
 #: templates/users/delete.html:6
 msgid "Are you sure delete"
@@ -60,7 +56,7 @@ msgstr "Обновить"
 msgid "ID"
 msgstr "ID"
 
-#: templates/users/list.html:8
+#: templates/users/list.html:8 users/forms.py:49
 msgid "username"
 msgstr "Имя пользователя"
 
@@ -84,22 +80,53 @@ msgstr "Удалить"
 msgid "login"
 msgstr "Войти"
 
-#: users/views.py:24
+# ##### my own
+#: users/forms.py:36 users/forms.py:69
+msgid "Password"
+msgstr "Пароль"
+
+#: users/forms.py:37 users/forms.py:70
+msgid "Password confirmation"
+msgstr "Подтверждение пароля"
+
+# ##### my own
+#: users/forms.py:37
+#, fuzzy
+#| msgid "Password"
+msgid "password again"
+msgstr "Пароль еще раз"
+
+#: users/forms.py:47
+msgid "first name"
+msgstr "Имя"
+
+#: users/forms.py:48
+msgid "last name"
+msgstr "Фамилия"
+
+#: users/forms.py:57 users/forms.py:87
+msgid "Passwords don't match"
+msgstr "Пароли не совпадают"
+
+#: users/views.py:28
 msgid "User created successfully"
 msgstr "Профиль создан"
 
-#: users/views.py:28
+#: users/views.py:32
 msgid "Please fill form correctly"
-msgstr "Заполните форму праильно"
+msgstr "Заполните форму правильно"
 
-#: users/views.py:43
+#: users/views.py:47
 msgid "You cannot edit another user"
 msgstr "Вы не можете редактировать другого пользователя"
 
-#: users/views.py:70
+#: users/views.py:74
 msgid "Login successfully"
 msgstr "Успешный вход"
 
-#: users/views.py:77
+#: users/views.py:81
 msgid "Logged out succesfully"
 msgstr "Успешный выход"
+
+#~ msgid "Add user"
+#~ msgstr "Добавить"

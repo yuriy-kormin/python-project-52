@@ -19,6 +19,10 @@ class UserCreateView(CreateView):
     form_class = UserCreationForm
     template_name = 'users/create.html'
     success_url = '/login/'
+    extra_context = {
+        'header': _('Register'),
+        'button_title': _('Register'),
+    }
 
     def form_valid(self, form):
         messages.success(self.request, _('User created successfully'))

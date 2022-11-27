@@ -3,21 +3,29 @@
 {% block page_content %}
     <form method="post" action=".">
     {% csrf_token %}
+        <h1 class="my-4"> {{ header }}</h1>
         <div class = "form">
-            <table>
             {%  for field in form %}
-                <tr>
-                    <td>{{ field.label_tag }}</td>
-                </tr>
-                <tr>
-                    <td>{{ field }}</td>
-                </tr>
+                <div class = "form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+{#                      {{ field.__dict__ }}#}
+                </div>
+{#                <tr>#}
+{#                    <td>{{ field.label_tag }}</td>#}
+{#                </tr>#}
+{#                <tr>#}
+{#                    <td>{{ field }}</td>#}
+{#                </tr>#}
             {% endfor %}
-                <tr><td>           </td></tr>
-                <tr>
-                    <td><input type="submit" value="{% translate "Add user" %}"></td>
-                </tr>
-            </table>
+                <div class = "form-group">
+                    <input class="btn btn-primary" type="submit" value="{{ button_title }}">
+                </div>
+{#                <tr><td>           </td></tr>#}
+{#                <tr>#}
+{#                    <td><input type="submit" value="{% translate "Add user" %}"></td>#}
+{#                </tr>#}
+{#            </table>#}
         </div>
     </form>
 {% endblock %}
