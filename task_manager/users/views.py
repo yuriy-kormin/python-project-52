@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import logout
-from django.contrib.auth.mixins import AccessMixin, LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import redirect
@@ -34,11 +34,15 @@ class UserCreateView(CreateView):
         return super().form_invalid(form)
 
 
-class UserUpdateView(UpdateView):
+class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+# class UserUpdateView(UpdateView):
     model = User
     form_class = UserForm
     template_name = 'users/create.html'
     success_url = reverse_lazy('user_list')
+    login_url = reverse_lazy('user_login')
+    # permission_denied_message = _('You cannot edit another user')
+    # raise_exception = True
     extra_context = {
         'header': _('Edit user'),
         'button_title': _('Update'),
@@ -51,6 +55,37 @@ class UserUpdateView(UpdateView):
     def form_invalid(self, form):
         messages.error(self.request, _('Please fill form correctly'))
         return super().form_invalid(form)
+
+    def get_login_url(self):
+        messages.error(self.request, _('Please login to modify user'))
+        return super().get_login_url()
+
+    def test_func(self):
+        obj = self.get_object()
+        if obj != self.request.user:
+            messages.error(self.request, _('You cannot edit another user'))
+        return obj == self.request.user
+
+    def handle_no_permission(self):
+        if self.request.user.is_authenticated:
+            return redirect(self.success_url)
+        messages.error(self.request, _('Please login to modify user'))
+        return redirect(self.login_url)
+
+    # def dispatch(self, request, *args, **kwargs):
+    #     if request.user.is_authenticated:
+    #         raise ConnectionError
+    #         if request.get_object != self.request.user:
+    #             messages.error(self.request, _('You cannot edit another user'))
+    #             return redirect(reverse_lazy('user_list'))
+    #     return super().dispatch(request,*args,**kwargs)
+    # def handle_no_permission(self):
+    #     if self.request.user.is_authenticated:
+    #         if self.request.object != self.request.user:
+    #             messages.error(self.request, _('You cannot edit another user'))
+    #             return redirect(reverse_lazy('user_list'))
+    #     else:
+    #         return redirect(reverse_lazy('user_login'))
 
 
 # class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -117,5 +152,5 @@ class UserLogoutView(LogoutView):
 
     def get(self, request):
         logout(request)
-        messages.info(request, _('Logged out succesfully'))
+        messages.info(request, _('Logged out successfully'))
         return redirect('/')

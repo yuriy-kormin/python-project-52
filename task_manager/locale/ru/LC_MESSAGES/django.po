@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-28 14:13+0400\n"
+"POT-Creation-Date: 2022-11-28 16:09+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgstr "Менеджер задач"
 msgid "Users"
 msgstr "Список пользователей"
 
-#: templates/base.html:29 users/views.py:97 users/views.py:98
+#: templates/base.html:29 users/views.py:133 users/views.py:134
 msgid "Enter"
 msgstr "Вход"
 
@@ -106,39 +106,46 @@ msgstr "Пароли не совпадают"
 msgid "User created successfully"
 msgstr "Пользователь создан"
 
-#: users/views.py:33 users/views.py:52
+#: users/views.py:33 users/views.py:56
 msgid "Please fill form correctly"
 msgstr "Пожалуйста, заполните форму правильно"
 
-#: users/views.py:43
+#: users/views.py:47
 msgid "Edit user"
 msgstr "Редактировать"
 
-#: users/views.py:44
+#: users/views.py:48
 msgid "Update"
 msgstr "Сохранить"
 
-#: users/views.py:48
+#: users/views.py:52
 msgid "User update successfully"
 msgstr "Данные пользователя обновлены"
 
-#: users/views.py:78
+#: users/views.py:60 users/views.py:73
+msgid "Please login to modify user"
+msgstr "Пожалуйста, выполните вход для изменения данных пользователя"
+
+#: users/views.py:66
+msgid "You cannot edit another user"
+msgstr "Извините, Вы не можете изменять данные другого пользователя"
+
+#: users/views.py:114
 msgid "Remove user"
 msgstr "Удалить"
 
-#: users/views.py:79
+#: users/views.py:115
 msgid "Remove"
 msgstr "Удалить"
 
-#: users/views.py:80
+#: users/views.py:116
 msgid "Are you sure delete"
 msgstr "Вы точно уверены, что хотите удалить "
 
-#: users/views.py:102
+#: users/views.py:138
 msgid "Login successfully"
 msgstr "Успешный вход"
 
-#: users/views.py:120
-msgid "Logged out succesfully"
+#: users/views.py:156
+msgid "Logged out successfully"
 msgstr "Успешный выход"
-
