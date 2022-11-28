@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-27 13:42+0400\n"
+"POT-Creation-Date: 2022-11-28 11:18+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,14 +19,13 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-
 #: templates/base.html:9 templates/base.html:15
 msgid "Task manager"
 msgstr "Менеджер задач"
 
 #: templates/base.html:22 templates/users/list.html:4
 msgid "Users"
-msgstr "Пользователи"
+msgstr "Список пользователей"
 
 #: templates/base.html:29
 msgid "Enter"
@@ -42,7 +41,7 @@ msgstr "Регистрация"
 
 #: templates/users/delete.html:6
 msgid "Are you sure delete"
-msgstr "Вы точно хотите удалить"
+msgstr "Вы уверены, что хотите удалить пользователя?"
 
 #: templates/users/delete.html:7
 msgid "remove"
@@ -56,7 +55,7 @@ msgstr "Обновить"
 msgid "ID"
 msgstr "ID"
 
-#: templates/users/list.html:8 users/forms.py:49
+#: templates/users/list.html:8 users/forms.py:79
 msgid "username"
 msgstr "Имя пользователя"
 
@@ -78,47 +77,51 @@ msgstr "Удалить"
 
 #: templates/users/login.html:30
 msgid "login"
-msgstr "Войти"
+msgstr "Вход"
 
-# ##### my own
-#: users/forms.py:36 users/forms.py:69
+#: users/forms.py:37 users/forms.py:41 users/forms.py:101
 msgid "Password"
 msgstr "Пароль"
 
-#: users/forms.py:37 users/forms.py:70
+#: users/forms.py:42
+msgid "Password must contains at least 3 chars"
+msgstr "Ваш пароль должен содержать как минимум 3 символа."
+
+#: users/forms.py:47 users/forms.py:51 users/forms.py:102
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-# ##### my own
-#: users/forms.py:37
-#, fuzzy
-#| msgid "Password"
-msgid "password again"
-msgstr "Пароль еще раз"
+#: users/forms.py:52
+msgid "Please, type your password again"
+msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
 
-#: users/forms.py:47
+#: users/forms.py:67
 msgid "first name"
 msgstr "Имя"
 
-#: users/forms.py:48
+#: users/forms.py:73
 msgid "last name"
 msgstr "Фамилия"
 
-#: users/forms.py:57 users/forms.py:87
+#: users/forms.py:80
+msgid "Not an option"
+msgstr "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."
+
+#: users/forms.py:89 users/forms.py:118
 msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
 #: users/views.py:28
 msgid "User created successfully"
-msgstr "Профиль создан"
+msgstr "Пользователь создан"
 
 #: users/views.py:32
 msgid "Please fill form correctly"
-msgstr "Заполните форму правильно"
+msgstr "Пожалуйста, заполните форму правильно"
 
 #: users/views.py:47
 msgid "You cannot edit another user"
-msgstr "Вы не можете редактировать другого пользователя"
+msgstr "Вы не можете редактировать другого другого пользователя"
 
 #: users/views.py:74
 msgid "Login successfully"
@@ -127,6 +130,3 @@ msgstr "Успешный вход"
 #: users/views.py:81
 msgid "Logged out succesfully"
 msgstr "Успешный выход"
-
-#~ msgid "Add user"
-#~ msgstr "Добавить"
