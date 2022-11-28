@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from .views import IndexView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('task_manager.users.urls'))
+    path('', IndexView.as_view(), name='root'),
+    path('users/', include('task_manager.users.urls')),
+
 ]

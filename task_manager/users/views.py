@@ -4,10 +4,11 @@ from django.contrib.auth.mixins import AccessMixin, LoginRequiredMixin, UserPass
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from .forms import UserCreationForm, UserUpdateForm
+from .forms import UserForm
 
 
 class UserListView(ListView):
@@ -16,9 +17,9 @@ class UserListView(ListView):
 
 
 class UserCreateView(CreateView):
-    form_class = UserCreationForm
+    form_class = UserForm
     template_name = 'users/create.html'
-    success_url = '/login/'
+    success_url = reverse_lazy('user_login')
     extra_context = {
         'header': _('Register'),
         'button_title': _('Register'),
@@ -33,21 +34,41 @@ class UserCreateView(CreateView):
         return super().form_invalid(form)
 
 
-class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class UserUpdateView(UpdateView):
     model = User
-    form_class = UserUpdateForm
-    template_name = 'users/edit.html'
-    success_url = '/'
-    # raise_exception = True
-    login_url = '/login'
+    form_class = UserForm
+    template_name = 'users/create.html'
+    success_url = reverse_lazy('user_list')
+    extra_context = {
+        'header': _('Edit user'),
+        'button_title': _('Update'),
+    }
 
-    def test_func(self):
-        obj = self.get_object()
-        if obj != self.request.user:
-            messages.info(self.request, _('You cannot edit another user'))
-            # redirect("/")
-        return obj == self.request.user
+    def form_valid(self, form):
+        messages.success(self.request, _('User updated successfully'))
+        return super().form_valid(form)
 
+    def form_invalid(self, form):
+        messages.error(self.request, _('Please fill form correctly'))
+        return super().form_invalid(form)
+
+
+# class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+# class UserUpdateView(UpdateView):
+#     model = User
+#     form_class = UserForm
+#     template_name = 'users/edit.html'
+#     success_url = '/'
+#     # raise_exception = True
+#     login_url = '/login'
+#
+#     def test_func(self):
+#         obj = self.get_object()
+#         if obj != self.request.user:
+#             messages.info(self.request, _('You cannot edit another user'))
+#             # redirect("/")
+#         return obj == self.request.user
+#
 
 class UserDeleteView(DeleteView):
     model = User
@@ -67,7 +88,7 @@ class UserDeleteView(DeleteView):
 class UserLoginView(LoginView):
     # success_message = gettext_lazy('You are logged in')
     template_name = 'users/login.html'
-    next_page = '/'
+    next_page = reverse_lazy('root')
 
     def post(self, request, *args, **kwargs):
         if self.get_form().is_valid():

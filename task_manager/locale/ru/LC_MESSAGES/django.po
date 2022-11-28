@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-28 11:18+0400\n"
+"POT-Creation-Date: 2022-11-28 12:38+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,8 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
-#: templates/base.html:9 templates/base.html:15
+
+#: templates/base.html:9 templates/base.html:15 views.py:8
 msgid "Task manager"
 msgstr "Менеджер задач"
 
@@ -27,17 +28,21 @@ msgstr "Менеджер задач"
 msgid "Users"
 msgstr "Список пользователей"
 
-#: templates/base.html:29
+#: templates/base.html:29 templates/users/login.html:15
 msgid "Enter"
-msgstr "Войти"
+msgstr "Вход"
 
 #: templates/base.html:34
 msgid "Logout"
 msgstr "Выход"
 
-#: templates/base.html:36 users/views.py:23 users/views.py:24
+#: templates/base.html:36 users/views.py:24 users/views.py:25
 msgid "Register"
 msgstr "Регистрация"
+
+#: templates/index.html:7
+msgid "It's a study django project"
+msgstr "Это учебный проект на Django"
 
 #: templates/users/delete.html:6
 msgid "Are you sure delete"
@@ -79,7 +84,7 @@ msgstr "Удалить"
 msgid "login"
 msgstr "Вход"
 
-#: users/forms.py:37 users/forms.py:41 users/forms.py:101
+#: users/forms.py:37 users/forms.py:41
 msgid "Password"
 msgstr "Пароль"
 
@@ -87,7 +92,7 @@ msgstr "Пароль"
 msgid "Password must contains at least 3 chars"
 msgstr "Ваш пароль должен содержать как минимум 3 символа."
 
-#: users/forms.py:47 users/forms.py:51 users/forms.py:102
+#: users/forms.py:47 users/forms.py:51
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
@@ -105,28 +110,38 @@ msgstr "Фамилия"
 
 #: users/forms.py:80
 msgid "Not an option"
-msgstr "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."
+msgstr ""
+"Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./"
+"+/-/_."
 
-#: users/forms.py:89 users/forms.py:118
+#: users/forms.py:89
 msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
-#: users/views.py:28
+#: users/views.py:29
 msgid "User created successfully"
 msgstr "Пользователь создан"
 
-#: users/views.py:32
+#: users/views.py:33 users/views.py:52
 msgid "Please fill form correctly"
 msgstr "Пожалуйста, заполните форму правильно"
 
-#: users/views.py:47
-msgid "You cannot edit another user"
-msgstr "Вы не можете редактировать другого другого пользователя"
+#: users/views.py:43
+msgid "Edit user"
+msgstr "Редактировать"
 
-#: users/views.py:74
+#: users/views.py:44
+msgid "Update"
+msgstr "Сохранить"
+
+#: users/views.py:48
+msgid "User updated successfully"
+msgstr "Пользователь создан"
+
+#: users/views.py:95
 msgid "Login successfully"
 msgstr "Успешный вход"
 
-#: users/views.py:81
+#: users/views.py:102
 msgid "Logged out succesfully"
 msgstr "Успешный выход"
