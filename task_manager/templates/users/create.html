@@ -7,25 +7,16 @@
         <div class = "form">
             {%  for field in form %}
                 <div class = "form-group">
-                    {{ field.label_tag }}
-                    {{ field }}
-{#                      {{ field.__dict__ }}#}
+                        {{ field.label_tag }}<br>
+                        {{ field }}
+                {% if 'title' in field.field.widget.attrs %}
+                    <small>{{ field.field.widget.attrs.title }}</small>
+                {% endif %}
                 </div>
-{#                <tr>#}
-{#                    <td>{{ field.label_tag }}</td>#}
-{#                </tr>#}
-{#                <tr>#}
-{#                    <td>{{ field }}</td>#}
-{#                </tr>#}
             {% endfor %}
                 <div class = "form-group">
                     <input class="btn btn-primary" type="submit" value="{{ button_title }}">
                 </div>
-{#                <tr><td>           </td></tr>#}
-{#                <tr>#}
-{#                    <td><input type="submit" value="{% translate "Add user" %}"></td>#}
-{#                </tr>#}
-{#            </table>#}
         </div>
     </form>
 {% endblock %}
