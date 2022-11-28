@@ -33,8 +33,26 @@ from django.http import HttpResponse
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
     fields, plus a repeated password."""
-    password1 = forms.CharField(label=_('Password'), widget=forms.PasswordInput)
-    password2 = forms.CharField(label=_('Password confirmation'), widget=forms.PasswordInput)
+    password1 = forms.CharField(
+        label=_('Password'),
+        widget=forms.PasswordInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': _('Password'),
+                'title': _('Password must contains at least 3 chars')
+            }
+        )
+    )
+    password2 = forms.CharField(
+        label=_('Password confirmation'),
+        widget=forms.PasswordInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': _('Password confirmation'),
+                'title': _('Please, type your password again'),
+            }
+        )
+    )
 
     class Meta:
         model = User
@@ -42,13 +60,26 @@ class UserCreationForm(forms.ModelForm):
                   'last_name',
                   'username',
                   )
-        # localized_fields = ('__all__')
         widgets ={
-            'first_name': forms.TextInput(attrs={'placeholder': _('first name')}),
-            'last_name': forms.TextInput(attrs={'placeholder': _('last name')}),
-            'username': forms.TextInput(attrs={'placeholder': _('username')}),
-            # 'password1': forms.CharField(attrs={'placeholder': _('password')})
-            # 'password1':forms.CharField(attrs)
+            'first_name': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': _('first name'),
+                }
+            ),
+            'last_name': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': _('last name')
+                }
+            ),
+            'username': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': _('username'),
+                    'title': _('Not an option')
+                }
+            ),
         }
 
     def clean_password2(self):
@@ -67,9 +98,8 @@ class UserCreationForm(forms.ModelForm):
 
 
 class UserUpdateForm(forms.ModelForm):
-    password1 = forms.CharField(label=_('Password'), widget=forms.PasswordInput)
-    password2 = forms.CharField(label=_('Password confirmation'), widget=forms.PasswordInput)
-
+    password1 = forms.CharField(max_length=150, label=_('Password'), widget=forms.PasswordInput)
+    password2 = forms.CharField(max_length=150, label=_('Password confirmation'), widget=forms.PasswordInput)
 
     class Meta:
         model = User
