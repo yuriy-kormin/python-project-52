@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-28 12:38+0400\n"
+"POT-Creation-Date: 2022-11-28 14:13+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgstr "Менеджер задач"
 msgid "Users"
 msgstr "Список пользователей"
 
-#: templates/base.html:29 templates/users/login.html:15
+#: templates/base.html:29 users/views.py:97 users/views.py:98
 msgid "Enter"
 msgstr "Вход"
 
@@ -43,18 +43,6 @@ msgstr "Регистрация"
 #: templates/index.html:7
 msgid "It's a study django project"
 msgstr "Это учебный проект на Django"
-
-#: templates/users/delete.html:6
-msgid "Are you sure delete"
-msgstr "Вы уверены, что хотите удалить пользователя?"
-
-#: templates/users/delete.html:7
-msgid "remove"
-msgstr "Удалить"
-
-#: templates/users/edit.html:11
-msgid "Refresh"
-msgstr "Обновить"
 
 #: templates/users/list.html:7
 msgid "ID"
@@ -79,10 +67,6 @@ msgstr "Редактировать"
 #: templates/users/list.html:21
 msgid "remove user"
 msgstr "Удалить"
-
-#: templates/users/login.html:30
-msgid "login"
-msgstr "Вход"
 
 #: users/forms.py:37 users/forms.py:41
 msgid "Password"
@@ -135,13 +119,26 @@ msgid "Update"
 msgstr "Сохранить"
 
 #: users/views.py:48
-msgid "User updated successfully"
-msgstr "Пользователь создан"
+msgid "User update successfully"
+msgstr "Данные пользователя обновлены"
 
-#: users/views.py:95
+#: users/views.py:78
+msgid "Remove user"
+msgstr "Удалить"
+
+#: users/views.py:79
+msgid "Remove"
+msgstr "Удалить"
+
+#: users/views.py:80
+msgid "Are you sure delete"
+msgstr "Вы точно уверены, что хотите удалить "
+
+#: users/views.py:102
 msgid "Login successfully"
 msgstr "Успешный вход"
 
-#: users/views.py:102
+#: users/views.py:120
 msgid "Logged out succesfully"
 msgstr "Успешный выход"
+

@@ -1,18 +1,15 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block page_content %}
-    {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
-    {% if next %}
-        {% if user.is_authenticated %}
-            <p>Your account doesn't have access to this page. To proceed,
-            please login with an account that has access.</p>
-            {% else %}
-            <p>Please login to see this page.</p>
-        {% endif %}
-    {% endif %}
-    <h1 class="my-4"> {% translate "Enter" %}</h1>
+{#    {% if next %}#}
+{#        {% if user.is_authenticated %}#}
+{#            <p>Your account doesn't have access to this page. To proceed,#}
+{#            please login with an account that has access.</p>#}
+{#            {% else %}#}
+{#            <p>Please login to see this page.</p>#}
+{#        {% endif %}#}
+{#    {% endif %}#}
+    <h1 class="my-4"> {{ header }}</h1>
     <form method="post" action=".">
     {% csrf_token %}
         <div class = "form">
@@ -27,7 +24,7 @@
             {% endfor %}
                 <tr><td>           </td></tr>
                 <tr>
-                    <td><input type="submit" value="{% translate "login" %}"></td>
+                    <td><input class="btn btn-primary" type="submit" value="{{ button_title }}"></td>
                 </tr>
 
             </table>

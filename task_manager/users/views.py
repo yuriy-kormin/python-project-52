@@ -45,7 +45,7 @@ class UserUpdateView(UpdateView):
     }
 
     def form_valid(self, form):
-        messages.success(self.request, _('User updated successfully'))
+        messages.success(self.request, _('User update successfully'))
         return super().form_valid(form)
 
     def form_invalid(self, form):
@@ -74,6 +74,11 @@ class UserDeleteView(DeleteView):
     model = User
     template_name = 'users/delete.html'
     success_url = '/'
+    extra_context = {
+        'header': _('Remove user'),
+        'button_title': _('Remove'),
+        'message': _('Are you sure delete'),
+    }
     #
     # def post(self, request, *args, **kwargs):
     #     username = request.user.username
@@ -86,17 +91,30 @@ class UserDeleteView(DeleteView):
 
 
 class UserLoginView(LoginView):
-    # success_message = gettext_lazy('You are logged in')
     template_name = 'users/login.html'
     next_page = reverse_lazy('root')
+    extra_context = {
+        'header': _('Enter'),
+        'button_title': _('Enter'),
+    }
 
-    def post(self, request, *args, **kwargs):
-        if self.get_form().is_valid():
-            messages.info(request, _('Login successfully'))
-        return super().post(self, request, *args, **kwargs)
+    def form_valid(self, form):
+        messages.info(self.request, _('Login successfully'))
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'Login Error')
+        return super().form_invalid(form)
+
+    # def post(self, request, *args, **kwargs):
+    #     if self.get_form().is_valid():
+    #         messages.info(request, _('Login successfully'))
+    #     elif self.get_form()
+    #     return super().post(self, request, *args, **kwargs)
 
 
 class UserLogoutView(LogoutView):
+
     def get(self, request):
         logout(request)
         messages.info(request, _('Logged out succesfully'))
