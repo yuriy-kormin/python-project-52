@@ -1,14 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block page_content %}
-{#    {% if next %}#}
-{#        {% if user.is_authenticated %}#}
-{#            <p>Your account doesn't have access to this page. To proceed,#}
-{#            please login with an account that has access.</p>#}
-{#            {% else %}#}
-{#            <p>Please login to see this page.</p>#}
-{#        {% endif %}#}
-{#    {% endif %}#}
     <h1 class="my-4"> {{ header }}</h1>
     <form method="post" action=".">
     {% csrf_token %}
@@ -29,6 +21,5 @@
 
             </table>
         </div>
-{#        {{ form.as_p }}#}
     </form>
 {% endblock %}

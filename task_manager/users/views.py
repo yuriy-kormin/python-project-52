@@ -1,8 +1,6 @@
 from django.contrib import messages
-from django.contrib.auth import logout
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import User
-from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -34,7 +32,7 @@ class UserCreateView(CreateView):
         return super().form_invalid(form)
 
 
-class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class UserUpdateView(UserPassesTestMixin, UpdateView):
 # class UserUpdateView(UpdateView):
     model = User
     form_class = UserForm
@@ -55,10 +53,6 @@ class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def form_invalid(self, form):
         messages.error(self.request, _('Please fill form correctly'))
         return super().form_invalid(form)
-
-    def get_login_url(self):
-        messages.error(self.request, _('Please login to modify user'))
-        return super().get_login_url()
 
     def test_func(self):
         obj = self.get_object()
@@ -88,23 +82,6 @@ class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     #         return redirect(reverse_lazy('user_login'))
 
 
-# class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
-# class UserUpdateView(UpdateView):
-#     model = User
-#     form_class = UserForm
-#     template_name = 'users/edit.html'
-#     success_url = '/'
-#     # raise_exception = True
-#     login_url = '/login'
-#
-#     def test_func(self):
-#         obj = self.get_object()
-#         if obj != self.request.user:
-#             messages.info(self.request, _('You cannot edit another user'))
-#             # redirect("/")
-#         return obj == self.request.user
-#
-
 class UserDeleteView(DeleteView):
     model = User
     template_name = 'users/delete.html'
@@ -114,6 +91,7 @@ class UserDeleteView(DeleteView):
         'button_title': _('Remove'),
         'message': _('Are you sure delete'),
     }
+
     #
     # def post(self, request, *args, **kwargs):
     #     username = request.user.username
@@ -123,34 +101,3 @@ class UserDeleteView(DeleteView):
     #     return super().post(self, request, *args, **kwargs)
 
     # def tes
-
-
-class UserLoginView(LoginView):
-    template_name = 'users/login.html'
-    next_page = reverse_lazy('root')
-    extra_context = {
-        'header': _('Enter'),
-        'button_title': _('Enter'),
-    }
-
-    def form_valid(self, form):
-        messages.info(self.request, _('Login successfully'))
-        return super().form_valid(form)
-
-    def form_invalid(self, form):
-        messages.error(self.request, 'Login Error')
-        return super().form_invalid(form)
-
-    # def post(self, request, *args, **kwargs):
-    #     if self.get_form().is_valid():
-    #         messages.info(request, _('Login successfully'))
-    #     elif self.get_form()
-    #     return super().post(self, request, *args, **kwargs)
-
-
-class UserLogoutView(LogoutView):
-
-    def get(self, request):
-        logout(request)
-        messages.info(request, _('Logged out successfully'))
-        return redirect('/')
