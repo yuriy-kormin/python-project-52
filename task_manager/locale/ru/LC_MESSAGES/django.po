@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-28 16:09+0400\n"
+"POT-Creation-Date: 2022-12-03 18:21+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: templates/base.html:9 templates/base.html:15 views.py:8
+#: templates/base.html:9 templates/base.html:15 views.py:14
 msgid "Task manager"
 msgstr "Менеджер задач"
 
@@ -28,7 +28,7 @@ msgstr "Менеджер задач"
 msgid "Users"
 msgstr "Список пользователей"
 
-#: templates/base.html:29 users/views.py:133 users/views.py:134
+#: templates/base.html:29 views.py:22 views.py:23
 msgid "Enter"
 msgstr "Вход"
 
@@ -36,7 +36,7 @@ msgstr "Вход"
 msgid "Logout"
 msgstr "Выход"
 
-#: templates/base.html:36 users/views.py:24 users/views.py:25
+#: templates/base.html:36 users/views.py:22 users/views.py:23
 msgid "Register"
 msgstr "Регистрация"
 
@@ -102,50 +102,58 @@ msgstr ""
 msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
-#: users/views.py:29
+#: users/views.py:27
 msgid "User created successfully"
 msgstr "Пользователь создан"
 
-#: users/views.py:33 users/views.py:56
+#: users/views.py:31 users/views.py:54
 msgid "Please fill form correctly"
 msgstr "Пожалуйста, заполните форму правильно"
 
-#: users/views.py:47
+#: users/views.py:45
 msgid "Edit user"
 msgstr "Редактировать"
 
-#: users/views.py:48
+#: users/views.py:46
 msgid "Update"
 msgstr "Сохранить"
 
-#: users/views.py:52
+#: users/views.py:50
 msgid "User update successfully"
 msgstr "Данные пользователя обновлены"
 
-#: users/views.py:60 users/views.py:73
-msgid "Please login to modify user"
-msgstr "Пожалуйста, выполните вход для изменения данных пользователя"
-
-#: users/views.py:66
+#: users/views.py:60
 msgid "You cannot edit another user"
 msgstr "Извините, Вы не можете изменять данные другого пользователя"
 
-#: users/views.py:114
+#: users/views.py:66
+msgid "Please login to modify user"
+msgstr "Пожалуйста, выполните вход для изменения данных пользователя"
+
+#: users/views.py:90
 msgid "Remove user"
 msgstr "Удалить"
 
-#: users/views.py:115
+#: users/views.py:91
 msgid "Remove"
 msgstr "Удалить"
 
-#: users/views.py:116
+#: users/views.py:92
 msgid "Are you sure delete"
 msgstr "Вы точно уверены, что хотите удалить "
 
-#: users/views.py:138
+#: views.py:27
 msgid "Login successfully"
-msgstr "Успешный вход"
+msgstr "Вход выполнен"
 
-#: users/views.py:156
+#: views.py:31
+msgid "Login Error"
+msgstr "Логин+пароль нераспознаны"
+
+#: views.py:40
 msgid "Logged out successfully"
-msgstr "Успешный выход"
+msgstr "Выход осуществлён"
+
+#: views.py:42
+msgid "You aren't logged in"
+msgstr "Вы не вошли в систему"
