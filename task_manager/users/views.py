@@ -85,7 +85,7 @@ class UserUpdateView(UserPassesTestMixin, UpdateView):
 class UserDeleteView(DeleteView):
     model = User
     template_name = 'users/delete.html'
-    success_url = '/'
+    success_url = reverse_lazy('user_list')
     extra_context = {
         'header': _('Remove user'),
         'button_title': _('Remove'),
