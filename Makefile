@@ -7,6 +7,8 @@ shell:
 migrate:
 	${MANAGE} makemigrations
 	${MANAGE} migrate
+test:
+	${MANAGE} test
 #translate:
 #	${MANAGE} makemessages -l ru --no-default-ignore --ignore=*venv*
 #	${MANAGE} compilemessages
