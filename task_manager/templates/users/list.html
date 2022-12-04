@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block page_content %}
-   <h1 class="my-4"> {% translate "Users" %}</h1>
+   <h1 class="my-4"> {{ header }}</h1>
     <table class = "table table-striped">
         <tr>
-            <th>{% translate 'ID' %}</th>
-            <th>{% translate 'username' %}</th>
-            <th>{% translate 'full_name' %}</th>
-            <th>{% translate 'created_at' %}</th>
+            <th>{{ ID }}</th>
+            <th>{{ username }}</th>
+            <th>{{ full_name }}</th>
+            <th>{{ created_at }}</th>
             <th></th>
         </tr>
         {% for user in object_list %}
@@ -17,8 +17,8 @@
                 <td> {{user.first_name }}  {{user.last_name}}</td>
                 <td> {{user.date_joined}}</td>
                 <td>
-                    <a href = "{% url "user_update" user.id %}">{% translate "edit user" %}</a><br>
-                    <a href = "{% url "user_delete" user.id %}">{% translate "remove user" %}</a>
+                    <a href = "{% url "user_update" user.id %}">{% translate "edit" %}</a><br>
+                    <a href = "{% url "user_delete" user.id %}">{% translate "remove" %}</a>
                 </td>
             </tr>
         {% endfor %}
