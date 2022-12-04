@@ -9,9 +9,7 @@ migrate:
 	${MANAGE} migrate
 test:
 	${MANAGE} test
-#translate:
-#	${MANAGE} makemessages -l ru --no-default-ignore --ignore=*venv*
-#	${MANAGE} compilemessages
-
+install:
+	poetry install
 lint:
 	poetry run flake8 task_manager
