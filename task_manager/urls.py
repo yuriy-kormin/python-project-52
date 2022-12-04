@@ -23,14 +23,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='root'),
     path('users/', include('task_manager.users.urls')),
+    path('statuses/', include('task_manager.statuses.urls')),
     path(
-        'login/',
-        task_manager.views.UserLoginView.as_view(),
+        'login/', task_manager.views.UserLoginView.as_view(),
         name='user_login'
     ),
     path(
-        'logout/',
-        task_manager.views.UserLogoutView.as_view(),
+        'logout/', task_manager.views.UserLogoutView.as_view(),
         name='user_logout'
     ),
 ]
