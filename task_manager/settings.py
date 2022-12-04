@@ -14,7 +14,6 @@ from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
 
-
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
@@ -86,7 +85,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'task_manager.wsgi.application'
 
 DATABASES = {'default': dj_database_url.config()}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -192,7 +190,7 @@ BOOTSTRAP4 = {
     'success_css_class': 'is-valid',
 
     # Renderers (only set these if you have studied the source and understand the inner workings)
-    'formset_renderers':{
+    'formset_renderers': {
         'default': 'bootstrap4.renderers.FormsetRenderer',
     },
     'form_renderers': {
@@ -204,7 +202,7 @@ BOOTSTRAP4 = {
     },
 }
 
-LOCALE_PATHS =(
-    os.path.join(BASE_DIR, "task_manager","locale"),
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, "task_manager", "locale"),
     # os.path.join(BASE_DIR, "yourapp/locale"),
 )
