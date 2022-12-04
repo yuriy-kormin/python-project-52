@@ -8,20 +8,20 @@ class Delete(TestCase):
     def setUp(self):
         User.objects.create_user(username='john', password='smith')
 
-    def test_delete(self):
+    def test_delete_without_login(self):
         response = self.client.post(
             reverse(
                 'user_delete',
                 kwargs={'pk': 1}
             )
         )
-        self.assertRedirects(response, reverse('user_list'))
+        self.assertRedirects(response, reverse('user_login'))
         users = User.objects.all()
-        self.assertEqual(len(users), 0)
+        self.assertEqual(len(users), 1)
 
     def test_delete_only_himself(self):
         user1 = User.objects.get(pk=1)
-        User.objects.create_user(username='john2', password='smith')
+        user2 = User.objects.create_user(username='john2', password='smith')
         self.client.login(username='john2', password='smith')
         response = self.client.post(
             reverse(
@@ -32,3 +32,10 @@ class Delete(TestCase):
         self.assertRedirects(response, reverse('user_list'))
         users = User.objects.all()
         self.assertIn(user1, users)
+        response = self.client.post(
+            reverse(
+                'user_delete',
+                kwargs={'pk': 2}
+            )
+        )
+        self.assertNotIn(user2, User.objects.all())

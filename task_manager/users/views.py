@@ -33,14 +33,11 @@ class UserCreateView(CreateView):
 
 
 class UserUpdateView(UserPassesTestMixin, UpdateView):
-# class UserUpdateView(UpdateView):
     model = User
     form_class = UserForm
     template_name = 'users/create.html'
     success_url = reverse_lazy('user_list')
     login_url = reverse_lazy('user_login')
-    # permission_denied_message = _('You cannot edit another user')
-    # raise_exception = True
     extra_context = {
         'header': _('Edit user'),
         'button_title': _('Update'),
@@ -55,34 +52,22 @@ class UserUpdateView(UserPassesTestMixin, UpdateView):
         return super().form_invalid(form)
 
     def test_func(self):
-        obj = self.get_object()
-        if obj != self.request.user:
+        user = self.request.user
+        if user.is_authenticated:
+            if user == self.get_object():
+                return True
             messages.error(self.request, _('You cannot edit another user'))
-        return obj == self.request.user
+        else:
+            messages.error(self.request, _('Please login to modify user'))
+        return False
 
     def handle_no_permission(self):
         if self.request.user.is_authenticated:
             return redirect(self.success_url)
-        messages.error(self.request, _('Please login to modify user'))
         return redirect(self.login_url)
 
-    # def dispatch(self, request, *args, **kwargs):
-    #     if request.user.is_authenticated:
-    #         raise ConnectionError
-    #         if request.get_object != self.request.user:
-    #             messages.error(self.request, _('You cannot edit another user'))
-    #             return redirect(reverse_lazy('user_list'))
-    #     return super().dispatch(request,*args,**kwargs)
-    # def handle_no_permission(self):
-    #     if self.request.user.is_authenticated:
-    #         if self.request.object != self.request.user:
-    #             messages.error(self.request, _('You cannot edit another user'))
-    #             return redirect(reverse_lazy('user_list'))
-    #     else:
-    #         return redirect(reverse_lazy('user_login'))
 
-
-class UserDeleteView(DeleteView):
+class UserDeleteView(UserPassesTestMixin, DeleteView):
     model = User
     template_name = 'users/delete.html'
     success_url = reverse_lazy('user_list')
@@ -91,13 +76,23 @@ class UserDeleteView(DeleteView):
         'button_title': _('Remove'),
         'message': _('Are you sure delete'),
     }
+    raise_exception = False
 
-    #
-    # def post(self, request, *args, **kwargs):
-    #     username = request.user.username
-    #     if self.get_form().is_valid():
-    #         user = User.objects.get(pk=2)
-    #         messages.info(request, gettext_lazy('User was successfully deleted'))
-    #     return super().post(self, request, *args, **kwargs)
+    def test_func(self):
+        user = self.request.user
+        if user.is_authenticated:
+            if user == self.get_object():
+                return True
+            messages.error(self.request, _('You cannot delete another user'))
+        else:
+            messages.error(self.request, _('Please login to delete user'))
+        return False
 
-    # def tes
+    def handle_no_permission(self):
+        if self.request.user.is_authenticated:
+            return redirect(reverse_lazy('user_list'))
+        return redirect(reverse_lazy('user_login'))
+
+    def form_valid(self, form):
+        messages.info(self.request, _('User was successfully deleted'))
+        return super().form_valid(form)
