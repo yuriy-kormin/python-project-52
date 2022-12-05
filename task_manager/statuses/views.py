@@ -20,7 +20,7 @@ class StatusListView(LoginRequiredMixin, ListView):
     }
 
 
-class StatusCreateView(LoginRequiredMixin,CreateView):
+class StatusCreateView(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('user_login')
     form_class = StatusForm
     template_name = "statuses/create.html"
@@ -39,7 +39,7 @@ class StatusCreateView(LoginRequiredMixin,CreateView):
         return super().form_invalid(form)
 
 
-class StatusUpdateView(LoginRequiredMixin,UpdateView):
+class StatusUpdateView(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('user_login')
     model = Status
     form_class = StatusForm
