@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 FIXTURE_DIR = os.path.join(
     os.path.dirname(os.path.realpath(__file__)),
-    'fixtures'
+    '../fixtures'
 )
 
 

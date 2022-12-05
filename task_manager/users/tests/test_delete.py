@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 
 
 class Delete(TestCase):
-
-    def setUp(self):
-        User.objects.create_user(username='john', password='smith')
+    fixtures = ['db.json']
+    # def setUp(self):
+    #     User.objects.create_user(username='john', password='smith')
 
     def test_delete_without_login(self):
         response = self.client.post(
@@ -21,8 +21,8 @@ class Delete(TestCase):
 
     def test_delete_only_himself(self):
         user1 = User.objects.get(pk=1)
-        user2 = User.objects.create_user(username='john2', password='smith')
-        self.client.login(username='john2', password='smith')
+        user2 = User.objects.create_user(username='john', password='smith')
+        self.client.login(username='john', password='smith')
         response = self.client.post(
             reverse(
                 'user_delete',
@@ -32,7 +32,7 @@ class Delete(TestCase):
         self.assertRedirects(response, reverse('user_list'))
         users = User.objects.all()
         self.assertIn(user1, users)
-        response = self.client.post(
+        self.client.post(
             reverse(
                 'user_delete',
                 kwargs={'pk': 2}
