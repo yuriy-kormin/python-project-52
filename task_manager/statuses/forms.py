@@ -22,4 +22,3 @@ class StatusForm(forms.ModelForm):
         labels = {
             'name': _('name'),
         }
-

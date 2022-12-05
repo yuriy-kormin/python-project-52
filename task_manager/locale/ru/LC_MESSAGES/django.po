@@ -86,7 +86,7 @@ msgstr "Менеджер задач"
 
 #: templates/base.html:22 users/views.py:16
 msgid "Users"
-msgstr "Список пользователей"
+msgstr "Пользователи"
 
 #: templates/base.html:26
 msgid "Statuses"

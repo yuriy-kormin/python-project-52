@@ -21,7 +21,6 @@ class UserListView(ListView):
     }
 
 
-
 class UserCreateView(CreateView):
     form_class = UserForm
     template_name = 'users/create.html'
