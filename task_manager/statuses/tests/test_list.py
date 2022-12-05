@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy as reverse
 from django.test import TestCase
-from ..models import Status
 
 
 class List(TestCase):
