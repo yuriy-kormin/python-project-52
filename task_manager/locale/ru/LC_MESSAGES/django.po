@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-05 01:24+0400\n"
+"POT-Creation-Date: 2022-12-05 13:17+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,21 +20,65 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: statuses/views.py:10
-msgid "statuses"
-msgstr "Статусы"
-
-#: statuses/views.py:11 users/views.py:17
-msgid "ID"
-msgstr "ID"
-
-#: statuses/views.py:12
+#: statuses/forms.py:18 statuses/forms.py:23 statuses/views.py:18
 msgid "name"
 msgstr "Имя"
 
-#: statuses/views.py:13
+#: statuses/views.py:16
+msgid "statuses"
+msgstr "Статусы"
+
+#: statuses/views.py:17 users/views.py:17
+msgid "ID"
+msgstr "ID"
+
+#: statuses/views.py:19
 msgid "created at"
 msgstr "Дата создания"
+
+#: statuses/views.py:29
+msgid "create status"
+msgstr "Добавление статуса"
+
+#: statuses/views.py:30
+msgid "create"
+msgstr "Добавить"
+
+#: statuses/views.py:34
+msgid "Status created successfully"
+msgstr "Пользователь создан"
+
+#: statuses/views.py:38 statuses/views.py:58
+msgid "Status name already exists"
+msgstr "Такое статус уже существует"
+
+#: statuses/views.py:49
+msgid "update status"
+msgstr "Изменить статус"
+
+#: statuses/views.py:50
+msgid "update"
+msgstr "Сохранить"
+
+#: statuses/views.py:54
+msgid "Status updated successfully"
+msgstr "Данные пользователя обновлены"
+
+#: statuses/views.py:68
+msgid "Remove status"
+msgstr "Удалить"
+
+#: statuses/views.py:69 users/views.py:84
+msgid "Remove"
+msgstr "Удалить"
+
+#: statuses/views.py:70 users/views.py:85
+msgid "Are you sure delete"
+msgstr "Вы точно уверены, что хотите удалить "
+
+#: statuses/views.py:75
+msgid "status was deleted successfully"
+msgstr "Статус успешно удален"
 
 #: templates/base.html:9 templates/base.html:15 views.py:14
 msgid "Task manager"
@@ -44,15 +88,19 @@ msgstr "Менеджер задач"
 msgid "Users"
 msgstr "Список пользователей"
 
-#: templates/base.html:29 views.py:22 views.py:23
+#: templates/base.html:26
+msgid "Statuses"
+msgstr "Статусы"
+
+#: templates/base.html:39 views.py:22 views.py:23
 msgid "Enter"
 msgstr "Вход"
 
-#: templates/base.html:34
+#: templates/base.html:44
 msgid "Logout"
 msgstr "Выход"
 
-#: templates/base.html:36 users/views.py:30 users/views.py:31
+#: templates/base.html:46 users/views.py:30 users/views.py:31
 msgid "Register"
 msgstr "Регистрация"
 
@@ -60,49 +108,53 @@ msgstr "Регистрация"
 msgid "It's a study django project"
 msgstr "Это учебный проект на Django"
 
-#: templates/statuses/list.html:18 templates/users/list.html:20
+#: templates/statuses/list.html:5
+msgid "Create status"
+msgstr "Создать статус"
+
+#: templates/statuses/list.html:19 templates/users/list.html:20
 msgid "edit"
 msgstr "Изменить"
 
-#: templates/statuses/list.html:19 templates/users/list.html:21
+#: templates/statuses/list.html:20 templates/users/list.html:21
 msgid "remove"
 msgstr "Удалить"
 
-#: users/forms.py:34 users/forms.py:38
+#: users/forms.py:11 users/forms.py:15
 msgid "Password"
 msgstr "Пароль"
 
-#: users/forms.py:39
+#: users/forms.py:16
 msgid "Password must contains at least 3 chars"
 msgstr "Ваш пароль должен содержать как минимум 3 символа."
 
-#: users/forms.py:44 users/forms.py:48
+#: users/forms.py:21 users/forms.py:25
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: users/forms.py:49
+#: users/forms.py:26
 msgid "Please, type your password again"
 msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
 
-#: users/forms.py:64
+#: users/forms.py:41
 msgid "first name"
 msgstr "Имя"
 
-#: users/forms.py:70
+#: users/forms.py:47
 msgid "last name"
 msgstr "Фамилия"
 
-#: users/forms.py:76 users/views.py:18
+#: users/forms.py:53 users/views.py:18
 msgid "username"
 msgstr "Имя пользователя"
 
-#: users/forms.py:77
+#: users/forms.py:54
 msgid "Not an option"
 msgstr ""
 "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./"
 "+/-/_."
 
-#: users/forms.py:86
+#: users/forms.py:63
 msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
@@ -146,14 +198,6 @@ msgstr "Пожалуйста, выполните вход для изменен�
 msgid "Remove user"
 msgstr "Удалить"
 
-#: users/views.py:84
-msgid "Remove"
-msgstr "Удалить"
-
-#: users/views.py:85
-msgid "Are you sure delete"
-msgstr "Вы точно уверены, что хотите удалить "
-
 #: users/views.py:94
 msgid "You cannot delete another user"
 msgstr "Извините, Вы не можете удалить другого пользователя"
@@ -181,3 +225,6 @@ msgstr "Выход осуществлён"
 #: views.py:42
 msgid "You aren't logged in"
 msgstr "Вы не вошли в систему"
+
+#~ msgid "namee"
+#~ msgstr "Имя"
