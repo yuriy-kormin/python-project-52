@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block page_content %}
+    <h1 class="my-4"> {{ header }}</h1>
+    <form method="post" action=".">
+    {% csrf_token %}
+        <p>{{ message }} "{{ object.name }}"  ?</p>
+    <input class="btn btn-primary" type="submit" value="{{ button_title }}">
+    </form>
+{% endblock %}

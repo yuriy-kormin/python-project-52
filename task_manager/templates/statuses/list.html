@@ -2,6 +2,7 @@
 {% load i18n %}
 {% block page_content %}
    <h1 class="my-4"> {{ statuses }}</h1>
+    <a class="nav-link" href="{% url "status_add" %}">{% translate "Create status" %}</a>
     <table class = "table table-striped">
         <tr>
             <th>{{ ID }}</th>

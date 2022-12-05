@@ -4,29 +4,6 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
 
-# class UserForm(forms.ModelForm):
-#     class Meta:
-#         model = User
-#         fields = ('first_name',
-#                   'last_name',
-#                   'username',
-#                   'password'
-#                   )
-#         widgets = {
-#            # 'username': forms.TextInput(attrs={'placeholder': 'username'}),
-#             'password': forms.TextInput(),
-#         # .widget.attrs['placeholder'] = 'username'
-#         }
-#
-#     def save(self, commit=True):
-#         user = super().save(commit=False)
-#         user.set_password(self.cleaned_data['password'])
-#         if commit:
-#             user.save()
-#         return user
-#
-
-
 class UserForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
     fields, plus a repeated password."""
