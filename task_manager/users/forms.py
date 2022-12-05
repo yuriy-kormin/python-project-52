@@ -55,6 +55,11 @@ class UserForm(forms.ModelForm):
                 }
             ),
         }
+        labels = {
+            'first_name': _('first name'),
+            'last_name': _('last name'),
+            'username': _('username'),
+        }
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
