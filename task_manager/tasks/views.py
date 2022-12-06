@@ -1,8 +1,5 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.shortcuts import render, redirect
-
-# Create your views here.
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, \
     DeleteView, DetailView
@@ -55,7 +52,7 @@ class TaskListView(LoginRequiredMixin, ListView):
         return super().get_login_url()
 
 
-class TaskUpdateView(LoginRequiredMixin,UpdateView):
+class TaskUpdateView(LoginRequiredMixin, UpdateView):
     model = Task
     form_class = TaskForm
     template_name = 'tasks/create.html'

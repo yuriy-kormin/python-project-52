@@ -15,11 +15,15 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='task',
             name='author',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='author', to='users.taskuser'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name='author', to='users.taskuser'),
         ),
         migrations.AlterField(
             model_name='task',
             name='performer',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='performer', to='users.taskuser'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                related_name='performer', to='users.taskuser'),
         ),
     ]
