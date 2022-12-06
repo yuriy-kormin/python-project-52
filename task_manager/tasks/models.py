@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from task_manager.users.models import TaskUser as User
 from task_manager.statuses.models import Status
 
 
