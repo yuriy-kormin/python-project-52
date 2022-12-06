@@ -5,8 +5,7 @@ from django.core.exceptions import ValidationError
 
 
 class UserForm(forms.ModelForm):
-    """A form for creating new users. Includes all the required
-    fields, plus a repeated password."""
+
     password1 = forms.CharField(
         label=_('Password'),
         widget=forms.PasswordInput(
