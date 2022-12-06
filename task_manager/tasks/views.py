@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, \
     DeleteView, DetailView
@@ -73,12 +74,44 @@ class TaskUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class TaskDeleteView(UserPassesTestMixin, DeleteView):
-    pass
+    model = Task
+    template_name = 'tasks/delete.html'
+    success_url = reverse_lazy('task_list')
+    extra_context = {
+        'header': _('Remove task'),
+        'button_title': _('Remove'),
+        'message': _('Are you sure delete task '),
+    }
+    raise_exception = False
+
+    def test_func(self):
+        if self.request.user.is_authenticated:
+            author_id = self.get_object().author_id
+            author = User.objects.get(pk=author_id)
+            user_id = self.request.user.id
+            user = User.objects.get(pk=user_id)
+            if user == author:
+                return True
+            messages.error(self.request,
+                           _('You cannot delete another user tasks'))
+        else:
+            messages.error(self.request, _('Please login to delete tasks'))
+        return False
+
+    def handle_no_permission(self):
+        if self.request.user.is_authenticated:
+            return redirect(reverse_lazy('task_list'))
+        return redirect(reverse_lazy('user_login'))
+
+    def form_valid(self, form):
+        messages.info(self.request, _('Task was successfully deleted'))
+        return super().form_valid(form)
 
 
 class TaskView(LoginRequiredMixin, DetailView):
     model = Task
     template_name = 'tasks/detail.html'
+    login_url = reverse_lazy('user_login')
     extra_context = {
         'header': _('Task view'),
         'author': _('author'),
@@ -86,3 +119,7 @@ class TaskView(LoginRequiredMixin, DetailView):
         'status': _('status'),
         'created': _('created'),
     }
+
+    def get_login_url(self):
+        messages.error(self.request, _('Please login to view tasks'))
+        return super().get_login_url()

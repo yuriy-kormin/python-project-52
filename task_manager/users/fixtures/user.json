@@ -3,5 +3,6 @@
   "last_name": "Norris",
   "username": "chacknorris",
   "password1": "superpsw",
-  "password2": "superpsw"
+  "password2": "superpsw",
+  "password": "superpsw"
 }

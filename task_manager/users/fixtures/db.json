@@ -6,5 +6,12 @@
       "first_name": "John",
       "last_name": "Lennon"
     }
+  },
+  {
+    "model": "users.taskuser",
+    "pk": 1,
+    "fields": {
+
+    }
   }
 ]

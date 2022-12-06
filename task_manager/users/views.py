@@ -61,7 +61,10 @@ class UserUpdateView(UserPassesTestMixin, UpdateView):
     def test_func(self):
         user = self.request.user
         if user.is_authenticated:
-            if user == self.get_object():
+            user_instance = User.objects.get(pk=user.id)
+            obj = self.get_object()
+            object_instance = User.objects.get(pk=obj.id)
+            if user_instance == object_instance:
                 return True
             messages.error(self.request, _('You cannot edit another user'))
         else:
@@ -88,7 +91,10 @@ class UserDeleteView(UserPassesTestMixin, DeleteView):
     def test_func(self):
         user = self.request.user
         if user.is_authenticated:
-            if user == self.get_object():
+            user_instance = User.objects.get(pk=user.id)
+            obj = self.get_object()
+            object_instance = User.objects.get(pk=obj.id)
+            if user_instance == object_instance:
                 return True
             messages.error(self.request, _('You cannot delete another user'))
         else:
