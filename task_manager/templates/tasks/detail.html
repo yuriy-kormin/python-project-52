@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block page_content %}
+    <form method="post" action=".">
+    {% csrf_token %}
+        <h1 class="my-4"> {{ header }}</h1>
+        <div class = "card">
+            <div class="card-header">
+                <h2>{{ task.name }}</h2>
+            </div>
+            <div class="card-body">
+                <p>{{ task.description }}</p>
+            <hr>
+        <div class="container">
+            <div class="row p-2">
+                <div class="col">{{  author }}</div>
+                <div class="col">{{ task.author }}</div>
+              </div>
+            <div class="row p-2">
+                <div class="col">{{  performer }}</div>
+                <div class="col">{{ task.performer }}</div>
+              </div>
+            <div class="row p-2">
+                <div class="col">{{ status }}</div>
+                <div class="col">{{ task.status }}</div>
+              </div>
+            <div class="row p-2">
+                <div class="col">{{ created }}</div>
+                <div class="col">{{ task.date_joined }}</div>
+              </div>
+
+            <div class="row p-2">
+                <div class="col">
+                    <a href="{% url "task_update" task.id %}">{% translate "edit" %}</a>
+                <br>
+                    <a href="{% url "task_delete" task.id %}">{% translate "remove" %}</a>
+            </div>
+      </div>
+{% endblock %}

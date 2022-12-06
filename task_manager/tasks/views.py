@@ -77,4 +77,12 @@ class TaskDeleteView(UserPassesTestMixin, DeleteView):
 
 
 class TaskView(LoginRequiredMixin, DetailView):
-    pass
+    model = Task
+    template_name = 'tasks/detail.html'
+    extra_context = {
+        'header': _('Task view'),
+        'author': _('author'),
+        'performer': _('performer'),
+        'status': _('status'),
+        'created': _('created'),
+    }

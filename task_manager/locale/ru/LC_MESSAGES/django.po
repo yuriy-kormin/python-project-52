@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-06 11:36+0400\n"
+"POT-Creation-Date: 2022-12-06 15:45+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,12 +16,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
-
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
 #: statuses/forms.py:18 statuses/forms.py:23 statuses/views.py:18
-#: tasks/views.py:21
+#: tasks/forms.py:22 tasks/forms.py:45 tasks/views.py:45
 msgid "name"
 msgstr "Имя"
 
@@ -29,7 +28,7 @@ msgstr "Имя"
 msgid "statuses"
 msgstr "Статусы"
 
-#: statuses/views.py:17 tasks/views.py:20 users/views.py:17
+#: statuses/views.py:17 tasks/views.py:44 users/views.py:17
 msgid "ID"
 msgstr "ID"
 
@@ -47,11 +46,11 @@ msgstr "Добавить"
 
 #: statuses/views.py:34
 msgid "Status created successfully"
-msgstr "Пользователь создан"
+msgstr "Статус успешно создан"
 
 #: statuses/views.py:38 statuses/views.py:58
 msgid "Status name already exists"
-msgstr "Такое статус уже существует"
+msgstr "Такой статус уже существует"
 
 #: statuses/views.py:49
 msgid "update status"
@@ -63,7 +62,7 @@ msgstr "Сохранить"
 
 #: statuses/views.py:54
 msgid "Status updated successfully"
-msgstr "Данные пользователя обновлены"
+msgstr "Название статуса изменено"
 
 #: statuses/views.py:68
 msgid "Remove status"
@@ -79,19 +78,75 @@ msgstr "Вы точно уверены, что хотите удалить "
 
 #: statuses/views.py:75
 msgid "status was deleted successfully"
-msgstr "Статус успешно удален"
+msgstr "Статус удален"
 
-#: tasks/views.py:19 templates/base.html:33
+#: tasks/forms.py:28 tasks/forms.py:46
+msgid "description"
+msgstr "Описание"
+
+#: tasks/forms.py:47 tasks/views.py:86
+msgid "status"
+msgstr "Статус"
+
+#: tasks/forms.py:48 tasks/views.py:85
+msgid "performer"
+msgstr "Исполнитель"
+
+#: tasks/views.py:19
+msgid "Add Task"
+msgstr "Создать задачу"
+
+#: tasks/views.py:20
+msgid "Create"
+msgstr "Добавить"
+
+#: tasks/views.py:26
+msgid "Task created successfully"
+msgstr "Задача успешно создана"
+
+#: tasks/views.py:30 tasks/views.py:71 users/views.py:38 users/views.py:58
+msgid "Please fill form correctly"
+msgstr "Пожалуйста, заполните форму правильно"
+
+#: tasks/views.py:34
+msgid "Please login to create tasks"
+msgstr "Пожалуйста, выполните вход для создания задач"
+
+#: tasks/views.py:43 templates/base.html:33
 msgid "Tasks"
 msgstr "Задачи"
 
-#: tasks/views.py:22
+#: tasks/views.py:46
 msgid "Status"
 msgstr "Статус"
 
-#: tasks/views.py:23
+#: tasks/views.py:47 tasks/views.py:84
 msgid "author"
 msgstr "Автор"
+
+#: tasks/views.py:51
+msgid "Please login to view tasks"
+msgstr "Пожалуйста, выполните вход для просмотра задач"
+
+#: tasks/views.py:62
+msgid "Edit task"
+msgstr "Редактировать"
+
+#: tasks/views.py:63 users/views.py:50
+msgid "Update"
+msgstr "Сохранить"
+
+#: tasks/views.py:67
+msgid "Task update successfully"
+msgstr "Задача успешно обновлена"
+
+#: tasks/views.py:83
+msgid "Task view"
+msgstr "Просмотр задачи"
+
+#: tasks/views.py:87
+msgid "created"
+msgstr "Дата создания"
 
 #: templates/base.html:9 templates/base.html:14 views.py:14
 msgid "Task manager"
@@ -125,11 +180,13 @@ msgstr "Это учебный проект на Django"
 msgid "Create status"
 msgstr "Создать статус"
 
-#: templates/statuses/list.html:19 templates/users/list.html:20
+#: templates/statuses/list.html:19 templates/tasks/detail.html:34
+#: templates/users/list.html:20
 msgid "edit"
 msgstr "Изменить"
 
-#: templates/statuses/list.html:20 templates/users/list.html:21
+#: templates/statuses/list.html:20 templates/tasks/detail.html:36
+#: templates/users/list.html:21
 msgid "remove"
 msgstr "Удалить"
 
@@ -137,41 +194,39 @@ msgstr "Удалить"
 msgid "Create task"
 msgstr "Создать задачу"
 
-#: users/forms.py:11 users/forms.py:15
+#: users/forms.py:10 users/forms.py:14
 msgid "Password"
 msgstr "Пароль"
 
-#: users/forms.py:16
+#: users/forms.py:15
 msgid "Password must contains at least 3 chars"
 msgstr "Ваш пароль должен содержать как минимум 3 символа."
 
-#: users/forms.py:21 users/forms.py:25
+#: users/forms.py:20 users/forms.py:24
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: users/forms.py:26
+#: users/forms.py:25
 msgid "Please, type your password again"
-msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
+msgstr "Пожалуйста, введите пароль еще раз"
 
-#: users/forms.py:41 users/forms.py:59
+#: users/forms.py:40 users/forms.py:58
 msgid "first name"
 msgstr "Имя"
 
-#: users/forms.py:47 users/forms.py:60
+#: users/forms.py:46 users/forms.py:59
 msgid "last name"
 msgstr "Фамилия"
 
-#: users/forms.py:53 users/forms.py:61 users/views.py:18
+#: users/forms.py:52 users/forms.py:60 users/views.py:18
 msgid "username"
 msgstr "Имя пользователя"
 
-#: users/forms.py:54
+#: users/forms.py:53
 msgid "Not an option"
-msgstr ""
-"Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./"
-"+/-/_."
+msgstr "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./"
 
-#: users/forms.py:68
+#: users/forms.py:67
 msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
@@ -187,17 +242,9 @@ msgstr "Дата создания"
 msgid "User created successfully"
 msgstr "Пользователь создан"
 
-#: users/views.py:38 users/views.py:58
-msgid "Please fill form correctly"
-msgstr "Пожалуйста, заполните форму правильно"
-
 #: users/views.py:49
 msgid "Edit user"
 msgstr "Редактировать"
-
-#: users/views.py:50
-msgid "Update"
-msgstr "Сохранить"
 
 #: users/views.py:54
 msgid "User update successfully"
@@ -225,7 +272,7 @@ msgstr "Пожалуйста, выполните вход для удалени�
 
 #: users/views.py:104
 msgid "User was successfully deleted"
-msgstr "Данные пользователя обновлены"
+msgstr "Пользователь успешно удален"
 
 #: views.py:27
 msgid "Login successfully"
@@ -233,11 +280,11 @@ msgstr "Вход выполнен"
 
 #: views.py:31
 msgid "Login Error"
-msgstr "Логин+пароль нераспознаны"
+msgstr "Ошибка аутентификации"
 
 #: views.py:40
 msgid "Logged out successfully"
-msgstr "Выход осуществлён"
+msgstr "Вы выщли из системы"
 
 #: views.py:42
 msgid "You aren't logged in"
