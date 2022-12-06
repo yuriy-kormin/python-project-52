@@ -4,6 +4,9 @@ from django.shortcuts import render
 from django.views.generic import CreateView, UpdateView, \
     DeleteView, DetailView
 from django.views.generic import ListView
+from django.utils.translation import gettext_lazy as _
+
+from task_manager.tasks.models import Task
 
 
 class TaskCreateView(CreateView):
@@ -11,7 +14,15 @@ class TaskCreateView(CreateView):
 
 
 class TaskListView(ListView):
-    pass
+    model = Task
+    template_name = "tasks/list.html"
+    extra_context = {
+        'header': _('Tasks'),
+        'ID': _('ID'),
+        'name': _('name'),
+        'status': _('status'),
+        'author': _('author'),
+    }
 
 
 class TaskUpdateView(UpdateView):

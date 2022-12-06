@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block page_content %}
+   <h1 class="my-4"> {{ header }}</h1>
+    <a class="nav-link" href="{% url "task_add" %}">{% translate "Create task" %}</a>
+    <table class = "table table-striped">
+        <tr>
+            <th>{{ ID }}</th>
+            <th>{{ name }}</th>
+            <th>{{ status }}</th>
+            <th>{{ author }}</th>
+        </tr>
+        {% for task in object_list %}
+            <tr>
+                <td> {{task.id}} </td>
+                <td><a href = "{% url "task_view" task.id %}">{{task.name}}</a></td>
+                <td> {{task.status}} </td>
+                <td> {{task.author}} </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
