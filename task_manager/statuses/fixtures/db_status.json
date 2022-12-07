@@ -9,7 +9,13 @@
       "password": "pbkdf2_sha256$390000$FYpJwDwyepioDOtb4ieK57$dKDAWrjZB61wihLJ9XCLzvzqBJVQNsjCSMLZp87adh8="
     }
   },
-   {
+  {
+    "model": "users.taskuser",
+    "pk": 1,
+    "fields": {
+    }
+  },
+  {
      "model": "statuses.status",
      "pk": 1,
      "fields": {
