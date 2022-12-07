@@ -7,7 +7,7 @@
 
 # Task Manager
 
-It's a classic task manager project with opportunity to set marks and set executor for each task.
+It's a classic task manager project with opportunity to set marks and set performer for each task.
 
 ## STATUS
 
