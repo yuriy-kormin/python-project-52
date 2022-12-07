@@ -43,9 +43,11 @@ class TaskListView(LoginRequiredMixin, ListView):
     extra_context = {
         'header': _('Tasks'),
         'ID': _('ID'),
-        'task_name': _('name'),
-        'status_name': _('Status'),
-        'author_name': _('author'),
+        'task_header': _('name'),
+        'status_header': _('Status'),
+        'author_header': _('author'),
+        'performer_header': _('performer'),
+        'created_date_header': _('created at')
     }
 
     def get_login_url(self):

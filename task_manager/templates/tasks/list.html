@@ -6,9 +6,12 @@
     <table class = "table table-striped">
         <tr>
             <th>{{ ID }}</th>
-            <th>{{ task_name }}</th>
-            <th>{{ status_name }}</th>
-            <th>{{ author_name }}</th>
+            <th>{{ task_header }}</th>
+            <th>{{ status_header }}</th>
+            <th>{{ author_header }}</th>
+            <th>{{ performer_header }}</th>
+            <th>{{ created_date_header }}</th>
+            <th></th>
         </tr>
         {% for task in object_list %}
             <tr>
@@ -16,6 +19,19 @@
                 <td><a href = "{% url "task_view" task.id %}">{{task.name}}</a></td>
                 <td> {{task.status.name}} </td>
                 <td> {{task.author}} </td>
+                <td>
+                    {% if task.performer %}
+                        {{task.performer}}
+                        {% else %}
+
+                    {% endif %}
+                </td>
+                <td> {{task.date_joined}} </td>
+                <td>
+                    <a href="{% url "task_update" task.id %}">{% translate "edit" %}</a>
+                    <br>
+                    <a href="{% url "task_delete" task.id %}">{% translate "remove" %}</a>
+                </td>
             </tr>
         {% endfor %}
     </table>
