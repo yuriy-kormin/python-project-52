@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from task_manager.users.models import TaskUser as User
 from django.urls import reverse_lazy as reverse
 from django.test import TestCase
 from ..models import Status
