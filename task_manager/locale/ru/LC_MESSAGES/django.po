@@ -324,7 +324,7 @@ msgstr "Ошибка аутентификации"
 
 #: views.py:40
 msgid "Logged out successfully"
-msgstr "Вы выщли из системы"
+msgstr "Вы вышли из системы"
 
 #: views.py:42
 msgid "You aren't logged in"
