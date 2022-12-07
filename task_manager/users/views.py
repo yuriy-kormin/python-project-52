@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import UserPassesTestMixin
+from django.db.models import ProtectedError
 from .models import TaskUser as User
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
@@ -103,9 +104,15 @@ class UserDeleteView(UserPassesTestMixin, DeleteView):
 
     def handle_no_permission(self):
         if self.request.user.is_authenticated:
-            return redirect(reverse_lazy('user_list'))
+            return redirect(self.success_url)
         return redirect(reverse_lazy('user_login'))
 
     def form_valid(self, form):
-        messages.info(self.request, _('User was successfully deleted'))
-        return super().form_valid(form)
+        try:
+            self.object.delete()
+        except ProtectedError:
+            messages.error(self.request, _(
+                'User can\'t be deleted - on use now'))
+        else:
+            messages.info(self.request, _('User was successfully deleted'))
+        return redirect(self.get_success_url())

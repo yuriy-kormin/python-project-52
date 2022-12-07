@@ -20,13 +20,13 @@ class Delete(TransactionTestCase):
         self.assertEqual(users, 1)
 
     def test_delete_only_himself(self):
-        user1 = User.objects.get(pk=1)
+        user1 = User.objects.all().first()
         user2 = User.objects.create_user(username='john', password='smith')
         self.client.login(username='john', password='smith')
         response = self.client.post(
             reverse(
                 'user_delete',
-                kwargs={'pk': 1}
+                kwargs={'pk': user1.id}
             )
         )
         self.assertRedirects(response, reverse('user_list'))

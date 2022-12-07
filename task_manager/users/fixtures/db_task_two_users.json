@@ -1,0 +1,50 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "first_name": "John",
+      "last_name": "Lennon",
+      "username": "lennon"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+      "first_name": "Ringo",
+      "last_name": "Starr",
+      "username": "starr"
+    }
+  },
+  {
+    "model": "users.taskuser",
+    "pk": 1,
+    "fields": {
+    }
+  },  {
+    "model": "users.taskuser",
+    "pk": 4,
+    "fields": {
+    }
+  },
+  {
+    "model": "statuses.status",
+    "pk": 1,
+    "fields": {
+      "name": "open",
+      "date_joined": "2022-12-06T15:16:39.083Z"
+    }
+  },
+  {
+    "model": "tasks.task",
+    "pk": 1,
+    "fields": {
+      "name": "first task",
+      "date_joined": "2022-12-06T15:16:39.083Z",
+      "author": 1,
+      "status": 1,
+      "performer": 4
+    }
+  }
+]
