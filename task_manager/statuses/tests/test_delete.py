@@ -4,7 +4,7 @@ from django.test import TestCase
 from ..models import Status
 
 
-class DeleteTask(TestCase):
+class Deletestatus(TestCase):
     fixtures = ['db_status.json']
 
     def test_delete_open_without_login(self):

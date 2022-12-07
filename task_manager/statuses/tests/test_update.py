@@ -4,7 +4,7 @@ from django.test import TestCase
 from ..models import Status
 
 
-class UpdateTask(TestCase):
+class UpdateStatus(TestCase):
     fixtures = ['db_status.json']
 
     def test_update_open_without_login(self):
