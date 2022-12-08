@@ -5,19 +5,19 @@ from ..models import Mark
 
 
 class DeleteMark(TestCase):
-    fixtures = ['db_status.json']
+    fixtures = ['db_mark.json']
 
     def test_delete_open_without_login(self):
-        response = self.client.get(reverse('status_delete', kwargs={'pk': 1}))
+        response = self.client.get(reverse('mark_delete', kwargs={'pk': 1}))
         self.assertEqual(response.status_code, 302)
 
     def test_delete_task(self):
-        user = User.objects.get(pk=1)
+        user = User.objects.all().first()
         self.client.force_login(user=user)
-        response = self.client.get(reverse('status_delete', kwargs={'pk': 1}))
+        response = self.client.get(reverse('mark_delete', kwargs={'pk': 1}))
         self.assertEqual(response.status_code, 200)
         response = self.client.post(
-            reverse('status_delete', kwargs={'pk': 1})
+            reverse('mark_delete', kwargs={'pk': 1})
         )
-        statuses = Status.objects.all()
+        statuses = Mark.objects.all()
         self.assertEqual(len(statuses), 0)

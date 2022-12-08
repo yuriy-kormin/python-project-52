@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block page_content %}
+   <h1 class="my-4"> {{ marks }}</h1>
+    <a class="nav-link" href="{% url "mark_add" %}">{% translate "Create mark" %}</a>
+    <table class = "table table-striped">
+        <tr>
+            <th>{{ ID }}</th>
+            <th>{{ name }}</th>
+            <th>{{ created_at }}</th>
+            <th></th>
+        </tr>
+        {% for mark in object_list %}
+            <tr>
+                <td> {{mark.id}}</td>
+                <td> {{mark.name}}</td>
+                <td> {{mark.date_joined}}</td>
+                <td>
+                    <a href = "{% url "mark_update" mark.id %}">{% translate "edit" %}</a><br>
+                    <a href = "{% url "mark_delete" mark.id %}">{% translate "remove" %}</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

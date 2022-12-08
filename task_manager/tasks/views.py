@@ -120,6 +120,7 @@ class TaskView(LoginRequiredMixin, DetailView):
         'performer': _('performer'),
         'status': _('status'),
         'created': _('created'),
+        'marks': _('marks'),
     }
 
     def get_login_url(self):

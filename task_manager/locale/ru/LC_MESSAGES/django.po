@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-07 14:37+0400\n"
+"POT-Creation-Date: 2022-12-08 15:39+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,30 +20,89 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: statuses/forms.py:18 statuses/forms.py:23 statuses/views.py:20
-#: tasks/forms.py:22 tasks/forms.py:45 tasks/views.py:46
+#: marks/forms.py:17 marks/forms.py:22 marks/views.py:40 statuses/forms.py:18
+#: statuses/forms.py:23 statuses/views.py:20 tasks/forms.py:22
+#: tasks/forms.py:45 tasks/views.py:46
 msgid "name"
 msgstr "Имя"
+
+#: marks/views.py:20
+msgid "create mark"
+msgstr "Добавление метки"
+
+#: marks/views.py:21 statuses/views.py:32
+msgid "create"
+msgstr "Добавить"
+
+#: marks/views.py:25
+msgid "Mark created successfully"
+msgstr "Метка успешно создана"
+
+#: marks/views.py:29 marks/views.py:61
+msgid "Mark name already exists"
+msgstr "Такая метка уже существует"
+
+#: marks/views.py:38
+msgid "marks"
+msgstr "Метки"
+
+#: marks/views.py:39 statuses/views.py:19 tasks/views.py:45 users/views.py:18
+msgid "ID"
+msgstr "ID"
+
+#: marks/views.py:41 statuses/views.py:21 tasks/views.py:50
+msgid "created at"
+msgstr "Дата создания"
+
+#: marks/views.py:52
+#, fuzzy
+#| msgid "update"
+msgid "update mark"
+msgstr "Сохранить"
+
+#: marks/views.py:53 statuses/views.py:52
+msgid "update"
+msgstr "Сохранить"
+
+#: marks/views.py:57
+#, fuzzy
+#| msgid "Task update successfully"
+msgid "Mark updated successfully"
+msgstr "Метка успешно обновлена"
+
+#: marks/views.py:71
+#, fuzzy
+#| msgid "Remove status"
+msgid "Remove mark"
+msgstr "Удалить"
+
+#: marks/views.py:72 statuses/views.py:71 tasks/views.py:84 users/views.py:87
+msgid "Remove"
+msgstr "Удалить"
+
+#: marks/views.py:73 statuses/views.py:72 users/views.py:88
+msgid "Are you sure delete"
+msgstr "Вы точно уверены, что хотите удалить "
+
+#: marks/views.py:82
+#, fuzzy
+#| msgid "User can't be deleted - on use now"
+msgid "Mark can't be deleted - on use now"
+msgstr "Невозможно удалить метку, потому что она используется"
+
+#: marks/views.py:84
+#, fuzzy
+#| msgid "status was deleted successfully"
+msgid "Mark was deleted successfully"
+msgstr "Метка удалена"
 
 #: statuses/views.py:18
 msgid "statuses"
 msgstr "Статусы"
 
-#: statuses/views.py:19 tasks/views.py:45 users/views.py:18
-msgid "ID"
-msgstr "ID"
-
-#: statuses/views.py:21 tasks/views.py:50
-msgid "created at"
-msgstr "Дата создания"
-
 #: statuses/views.py:31
 msgid "create status"
 msgstr "Добавление статуса"
-
-#: statuses/views.py:32
-msgid "create"
-msgstr "Добавить"
 
 #: statuses/views.py:36
 msgid "Status created successfully"
@@ -57,10 +116,6 @@ msgstr "Такой статус уже существует"
 msgid "update status"
 msgstr "Изменить статус"
 
-#: statuses/views.py:52
-msgid "update"
-msgstr "Сохранить"
-
 #: statuses/views.py:56
 msgid "Status updated successfully"
 msgstr "Название статуса изменено"
@@ -68,14 +123,6 @@ msgstr "Название статуса изменено"
 #: statuses/views.py:70
 msgid "Remove status"
 msgstr "Удалить"
-
-#: statuses/views.py:71 tasks/views.py:84 users/views.py:87
-msgid "Remove"
-msgstr "Удалить"
-
-#: statuses/views.py:72 users/views.py:88
-msgid "Are you sure delete"
-msgstr "Вы точно уверены, что хотите удалить "
 
 #: statuses/views.py:81
 msgid "Status can't be deleted - on use now"
@@ -117,7 +164,7 @@ msgstr "Пожалуйста, заполните форму правильно"
 msgid "Please login to create tasks"
 msgstr "Пожалуйста, выполните вход для создания задач"
 
-#: tasks/views.py:44 templates/base.html:33
+#: tasks/views.py:44 templates/base.html:32
 msgid "Tasks"
 msgstr "Задачи"
 
@@ -195,15 +242,19 @@ msgstr "Пользователи"
 msgid "Statuses"
 msgstr "Статусы"
 
-#: templates/base.html:42 views.py:22 views.py:23
+#: templates/base.html:29
+msgid "Marks"
+msgstr "Метки"
+
+#: templates/base.html:41 views.py:22 views.py:23
 msgid "Enter"
 msgstr "Вход"
 
-#: templates/base.html:47
+#: templates/base.html:46
 msgid "Logout"
 msgstr "Выход"
 
-#: templates/base.html:49 users/views.py:30 users/views.py:31
+#: templates/base.html:48 users/views.py:30 users/views.py:31
 msgid "Register"
 msgstr "Регистрация"
 
@@ -211,19 +262,25 @@ msgstr "Регистрация"
 msgid "It's a study django project"
 msgstr "Это учебный проект на Django"
 
-#: templates/statuses/list.html:5
-msgid "Create status"
-msgstr "Создать статус"
+#: templates/marks/list.html:5
+msgid "Create mark"
+msgstr "Создать метку"
 
-#: templates/statuses/list.html:19 templates/tasks/detail.html:34
-#: templates/tasks/list.html:31 templates/users/list.html:20
+#: templates/marks/list.html:19 templates/statuses/list.html:19
+#: templates/tasks/detail.html:34 templates/tasks/list.html:31
+#: templates/users/list.html:20
 msgid "edit"
 msgstr "Изменить"
 
-#: templates/statuses/list.html:20 templates/tasks/detail.html:36
-#: templates/tasks/list.html:33 templates/users/list.html:21
+#: templates/marks/list.html:20 templates/statuses/list.html:20
+#: templates/tasks/detail.html:36 templates/tasks/list.html:33
+#: templates/users/list.html:21
 msgid "remove"
 msgstr "Удалить"
+
+#: templates/statuses/list.html:5
+msgid "Create status"
+msgstr "Создать статус"
 
 #: templates/tasks/list.html:5
 msgid "Create task"

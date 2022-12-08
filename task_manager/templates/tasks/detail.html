@@ -28,6 +28,18 @@
                 <div class="col">{{ created }}</div>
                 <div class="col">{{ task.date_joined }}</div>
               </div>
+            <div class="row p-2">
+                <div class="col">{{ marks }}:
+                {% if task.mark %}
+                    <ul>
+                    {%  for mark in task.mark.all %}
+                        <li>{{ mark.name }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+                </div>
+
+              </div>
 
             <div class="row p-2">
                 <div class="col">

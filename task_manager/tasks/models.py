@@ -1,5 +1,4 @@
 from django.db import models
-
 from task_manager.marks.models import Mark
 from task_manager.users.models import TaskUser as User
 from task_manager.statuses.models import Status
@@ -14,12 +13,13 @@ class Task(models.Model):
         blank=False, null=False)
     status = models.ForeignKey(to=Status, on_delete=models.PROTECT,
                                blank=False, null=False)
-    mark = models.ManyToManyField(to=Mark, through='Bond')
+    mark = models.ManyToManyField(to=Mark, through='Bond',
+                                  blank=True, null=True)
     performer = models.ForeignKey(
         to=User, on_delete=models.PROTECT, related_name='performer',
         blank=True, null=True)
 
 
 class Bond(models.Model):
-    user = models.ForeignKey(Task,on_delete=models.PROTECT)
-    mark = models.ForeignKey(Mark, on_delete=models.CASCADE)
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    mark = models.ForeignKey(Mark, on_delete=models.PROTECT)

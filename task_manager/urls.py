@@ -24,6 +24,7 @@ urlpatterns = [
     path('', IndexView.as_view(), name='root'),
     path('users/', include('task_manager.users.urls')),
     path('statuses/', include('task_manager.statuses.urls')),
+    path('marks/', include('task_manager.marks.urls')),
     path('tasks/', include('task_manager.tasks.urls')),
     path(
         'login/', task_manager.views.UserLoginView.as_view(),

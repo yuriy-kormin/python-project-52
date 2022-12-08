@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block page_content %}
+    <form method="post" action=".">
+    {% csrf_token %}
+        <h1 class="my-4"> {{ header }}</h1>
+        <div class = "form">
+            {%  for field in form %}
+                <div class = "form-group">
+                        {{ field.label_tag }}<br>
+                        {{ field }}
+                </div>
+            {% endfor %}
+                <div class = "form-group">
+                    <input class="btn btn-primary" type="submit" value="{{ button_title }}">
+                </div>
+        </div>
+    </form>
+{% endblock %}

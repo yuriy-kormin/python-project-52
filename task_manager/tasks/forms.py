@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from task_manager.statuses.models import Status
 from task_manager.users.models import TaskUser as User
 from .models import Task
+from task_manager.marks.models import Mark
 
 
 class TaskForm(forms.ModelForm):
@@ -14,6 +15,7 @@ class TaskForm(forms.ModelForm):
             'description',
             'status',
             'performer',
+            'mark',
         )
         widgets = {
             'name': forms.TextInput(
@@ -40,10 +42,18 @@ class TaskForm(forms.ModelForm):
                     'choices': User,
                 }
             ),
+            'mark': forms.SelectMultiple(
+                attrs={
+                    # 'multiple': True,
+                    'class': 'form-control',
+                    'choices': Mark,
+                }
+            ),
         }
         labels = {
             'name': _('name'),
             'description': _('description'),
             'status': _('status'),
             'performer': _('performer'),
+            'mark': _('Marks')
         }
