@@ -7,10 +7,18 @@
         <div class = "form">
             {%  for field in form %}
                 <div class = "form-group">
-                        {{ field.label_tag }}<br>
+                    {{ field.label_tag }}<br>
                         {{ field }}
-                {% if 'title' in field.field.widget.attrs %}
+                    {% if  form.errors %}
+                        <div class="invalid-feedback">
+                            {% for error in field.errors %}
+                                {{ error }}<br>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if 'title' in field.field.widget.attrs %}
                     <small>{{ field.field.widget.attrs.title }}</small>
+
                 {% endif %}
                 </div>
             {% endfor %}

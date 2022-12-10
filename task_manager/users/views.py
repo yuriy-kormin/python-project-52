@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import ProtectedError
 from .models import TaskUser as User
 from django.shortcuts import redirect
@@ -22,21 +23,23 @@ class UserListView(ListView):
     }
 
 
-class UserCreateView(CreateView):
+class UserCreateView(SuccessMessageMixin, CreateView):
     form_class = UserForm
     template_name = 'users/create.html'
     success_url = reverse_lazy('user_login')
+
     extra_context = {
         'header': _('Register'),
         'button_title': _('Register'),
     }
-
-    def form_valid(self, form):
-        messages.success(self.request, _('User created successfully'))
-        return super().form_valid(form)
+    success_message = _('User created successfully')
 
     def form_invalid(self, form):
-        messages.error(self.request, _('Please fill form correctly'))
+        for field in form.fields:
+            if field in form.errors:
+                form[field].field.widget.attrs['class'] += ' is-invalid '
+            else:
+                form[field].field.widget.attrs['class'] += ' is-valid '
         return super().form_invalid(form)
 
 

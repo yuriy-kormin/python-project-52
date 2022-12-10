@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-08 15:39+0400\n"
+"POT-Creation-Date: 2022-12-10 18:26+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,9 +20,9 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: marks/forms.py:17 marks/forms.py:22 marks/views.py:40 statuses/forms.py:18
-#: statuses/forms.py:23 statuses/views.py:20 tasks/forms.py:22
-#: tasks/forms.py:45 tasks/views.py:46
+#: marks/forms.py:17 marks/forms.py:22 marks/views.py:40 statuses/forms.py:17
+#: statuses/forms.py:22 statuses/views.py:20 tasks/forms.py:24
+#: tasks/forms.py:54 tasks/views.py:46
 msgid "name"
 msgstr "Имя"
 
@@ -42,11 +42,11 @@ msgstr "Метка успешно создана"
 msgid "Mark name already exists"
 msgstr "Такая метка уже существует"
 
-#: marks/views.py:38
+#: marks/views.py:38 tasks/views.py:123
 msgid "marks"
 msgstr "Метки"
 
-#: marks/views.py:39 statuses/views.py:19 tasks/views.py:45 users/views.py:18
+#: marks/views.py:39 statuses/views.py:19 tasks/views.py:45 users/views.py:19
 msgid "ID"
 msgstr "ID"
 
@@ -65,8 +65,6 @@ msgid "update"
 msgstr "Сохранить"
 
 #: marks/views.py:57
-#, fuzzy
-#| msgid "Task update successfully"
 msgid "Mark updated successfully"
 msgstr "Метка успешно обновлена"
 
@@ -76,23 +74,19 @@ msgstr "Метка успешно обновлена"
 msgid "Remove mark"
 msgstr "Удалить"
 
-#: marks/views.py:72 statuses/views.py:71 tasks/views.py:84 users/views.py:87
+#: marks/views.py:72 statuses/views.py:71 tasks/views.py:84 users/views.py:90
 msgid "Remove"
 msgstr "Удалить"
 
-#: marks/views.py:73 statuses/views.py:72 users/views.py:88
+#: marks/views.py:73 statuses/views.py:72 users/views.py:91
 msgid "Are you sure delete"
 msgstr "Вы точно уверены, что хотите удалить "
 
 #: marks/views.py:82
-#, fuzzy
-#| msgid "User can't be deleted - on use now"
 msgid "Mark can't be deleted - on use now"
 msgstr "Невозможно удалить метку, потому что она используется"
 
 #: marks/views.py:84
-#, fuzzy
-#| msgid "status was deleted successfully"
 msgid "Mark was deleted successfully"
 msgstr "Метка удалена"
 
@@ -132,17 +126,21 @@ msgstr "Невозможно удалить статус - он связан с 
 msgid "status was deleted successfully"
 msgstr "Статус удален"
 
-#: tasks/forms.py:28 tasks/forms.py:46
+#: tasks/forms.py:30 tasks/forms.py:55
 msgid "description"
 msgstr "Описание"
 
-#: tasks/forms.py:47 tasks/views.py:121
+#: tasks/forms.py:56 tasks/views.py:121
 msgid "status"
 msgstr "Статус"
 
-#: tasks/forms.py:48 tasks/views.py:49 tasks/views.py:120
+#: tasks/forms.py:57 tasks/views.py:49 tasks/views.py:120
 msgid "performer"
 msgstr "Исполнитель"
+
+#: tasks/forms.py:58 templates/nav.html:18
+msgid "Marks"
+msgstr "Метки"
 
 #: tasks/views.py:20
 msgid "Add Task"
@@ -156,7 +154,7 @@ msgstr "Добавить"
 msgid "Task created successfully"
 msgstr "Задача успешно создана"
 
-#: tasks/views.py:31 tasks/views.py:74 users/views.py:39 users/views.py:59
+#: tasks/views.py:31 tasks/views.py:74 users/views.py:62
 msgid "Please fill form correctly"
 msgstr "Пожалуйста, заполните форму правильно"
 
@@ -164,7 +162,7 @@ msgstr "Пожалуйста, заполните форму правильно"
 msgid "Please login to create tasks"
 msgstr "Пожалуйста, выполните вход для создания задач"
 
-#: tasks/views.py:44 templates/base.html:32
+#: tasks/views.py:44 templates/nav.html:21
 msgid "Tasks"
 msgstr "Задачи"
 
@@ -176,7 +174,7 @@ msgstr "Статус"
 msgid "author"
 msgstr "Автор"
 
-#: tasks/views.py:54 tasks/views.py:126
+#: tasks/views.py:54 tasks/views.py:127
 msgid "Please login to view tasks"
 msgstr "Пожалуйста, выполните вход для просмотра задач"
 
@@ -184,7 +182,7 @@ msgstr "Пожалуйста, выполните вход для просмот�
 msgid "Edit task"
 msgstr "Редактировать"
 
-#: tasks/views.py:66 users/views.py:51
+#: tasks/views.py:66 users/views.py:54
 msgid "Update"
 msgstr "Сохранить"
 
@@ -230,33 +228,9 @@ msgstr "Просмотр задачи"
 msgid "created"
 msgstr "Дата создания"
 
-#: templates/base.html:9 templates/base.html:14 views.py:14
+#: templates/base.html:10 templates/nav.html:4 views.py:14
 msgid "Task manager"
 msgstr "Менеджер задач"
-
-#: templates/base.html:21 users/views.py:17
-msgid "Users"
-msgstr "Пользователи"
-
-#: templates/base.html:26
-msgid "Statuses"
-msgstr "Статусы"
-
-#: templates/base.html:29
-msgid "Marks"
-msgstr "Метки"
-
-#: templates/base.html:41 views.py:22 views.py:23
-msgid "Enter"
-msgstr "Вход"
-
-#: templates/base.html:46
-msgid "Logout"
-msgstr "Выход"
-
-#: templates/base.html:48 users/views.py:30 users/views.py:31
-msgid "Register"
-msgstr "Регистрация"
 
 #: templates/index.html:7
 msgid "It's a study django project"
@@ -267,16 +241,36 @@ msgid "Create mark"
 msgstr "Создать метку"
 
 #: templates/marks/list.html:19 templates/statuses/list.html:19
-#: templates/tasks/detail.html:34 templates/tasks/list.html:31
+#: templates/tasks/detail.html:46 templates/tasks/list.html:31
 #: templates/users/list.html:20
 msgid "edit"
 msgstr "Изменить"
 
 #: templates/marks/list.html:20 templates/statuses/list.html:20
-#: templates/tasks/detail.html:36 templates/tasks/list.html:33
+#: templates/tasks/detail.html:48 templates/tasks/list.html:33
 #: templates/users/list.html:21
 msgid "remove"
 msgstr "Удалить"
+
+#: templates/nav.html:11 users/views.py:18
+msgid "Users"
+msgstr "Пользователи"
+
+#: templates/nav.html:15
+msgid "Statuses"
+msgstr "Статусы"
+
+#: templates/nav.html:29
+msgid "Logout"
+msgstr "Выход"
+
+#: templates/nav.html:31 views.py:22 views.py:23
+msgid "Enter"
+msgstr "Вход"
+
+#: templates/nav.html:32 users/views.py:32 users/views.py:33
+msgid "Register"
+msgstr "Регистрация"
 
 #: templates/statuses/list.html:5
 msgid "Create status"
@@ -286,48 +280,56 @@ msgstr "Создать статус"
 msgid "Create task"
 msgstr "Создать задачу"
 
-#: users/forms.py:10 users/forms.py:14
+#: users/forms.py:13 users/forms.py:28
+msgid "Password is too short"
+msgstr "Пароль слишком короткий"
+
+#: users/forms.py:15 users/forms.py:19
 msgid "Password"
 msgstr "Пароль"
 
-#: users/forms.py:15
+#: users/forms.py:20
 msgid "Password must contains at least 3 chars"
-msgstr "Ваш пароль должен содержать как минимум 3 символа."
+msgstr "Пароль должен содержать как минимум 3 символа."
 
-#: users/forms.py:20 users/forms.py:24
+#: users/forms.py:25 users/forms.py:33
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: users/forms.py:25
+#: users/forms.py:34
 msgid "Please, type your password again"
 msgstr "Пожалуйста, введите пароль еще раз"
 
-#: users/forms.py:40 users/forms.py:58
+#: users/forms.py:49 users/forms.py:67
 msgid "first name"
 msgstr "Имя"
 
-#: users/forms.py:46 users/forms.py:59
+#: users/forms.py:55 users/forms.py:68
 msgid "last name"
 msgstr "Фамилия"
 
-#: users/forms.py:52 users/forms.py:60 users/views.py:19
+#: users/forms.py:61 users/forms.py:69 users/views.py:20
 msgid "username"
 msgstr "Имя пользователя"
 
-#: users/forms.py:53
+#: users/forms.py:62
 msgid "Not an option"
 msgstr ""
 "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./"
 
-#: users/forms.py:67
+#: users/forms.py:76
 msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
-#: users/views.py:20
+#: users/forms.py:82
+msgid "Username already exists"
+msgstr "Пользователь с таким именем уже существует"
+
+#: users/views.py:21
 msgid "full name"
 msgstr "Полное имя"
 
-#: users/views.py:21
+#: users/views.py:22
 msgid "create at"
 msgstr "Дата создания"
 
@@ -335,39 +337,39 @@ msgstr "Дата создания"
 msgid "User created successfully"
 msgstr "Пользователь создан"
 
-#: users/views.py:50
+#: users/views.py:53
 msgid "Edit user"
 msgstr "Редактировать"
 
-#: users/views.py:55
+#: users/views.py:58
 msgid "User update successfully"
 msgstr "Данные пользователя обновлены"
 
-#: users/views.py:70
+#: users/views.py:73
 msgid "You cannot edit another user"
 msgstr "Извините, Вы не можете изменять данные другого пользователя"
 
-#: users/views.py:72
+#: users/views.py:75
 msgid "Please login to modify user"
 msgstr "Пожалуйста, выполните вход для изменения данных пользователя"
 
-#: users/views.py:86
+#: users/views.py:89
 msgid "Remove user"
 msgstr "Удалить"
 
-#: users/views.py:100
+#: users/views.py:103
 msgid "You cannot delete another user"
 msgstr "Извините, Вы не можете удалить другого пользователя"
 
-#: users/views.py:102
+#: users/views.py:105
 msgid "Please login to delete user"
 msgstr "Пожалуйста, выполните вход для удаления пользователя"
 
-#: users/views.py:115
+#: users/views.py:118
 msgid "User can't be deleted - on use now"
 msgstr "Невозможно удалить пользователя, потому что он используется"
 
-#: users/views.py:117
+#: users/views.py:120
 msgid "User was successfully deleted"
 msgstr "Пользователь успешно удален"
 

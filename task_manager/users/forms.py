@@ -1,12 +1,17 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from .models import TaskUser as User
-from django.core.exceptions import ValidationError
+from django.core.validators import MinLengthValidator
 
 
 class UserForm(forms.ModelForm):
+    password_min_len = 3
 
     password1 = forms.CharField(
+        validators=[
+            MinLengthValidator(password_min_len,
+                               _("Password is too short")),
+        ],
         label=_('Password'),
         widget=forms.PasswordInput(
             attrs={
@@ -18,6 +23,10 @@ class UserForm(forms.ModelForm):
     )
     password2 = forms.CharField(
         label=_('Password confirmation'),
+        validators=[
+            MinLengthValidator(password_min_len,
+                               _("Password is too short")),
+        ],
         widget=forms.PasswordInput(
             attrs={
                 'class': 'form-control',
@@ -64,8 +73,14 @@ class UserForm(forms.ModelForm):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
-            raise ValidationError(_("Passwords don't match"))
+            raise forms.ValidationError(_("Passwords don't match"), code='invalid')
         return password2
+
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if username and User.objects.filter(username=username).exists():
+            raise forms.ValidationError(_('Username already exists'), code='invalid')
+        return username
 
     def save(self, commit=True):
         user = super().save(commit=False)
