@@ -15,6 +15,8 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
+import rollbar
+
 
 
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
@@ -50,7 +52,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_extensions',
     'bootstrap4',
     'task_manager',
     'task_manager.users',
@@ -76,6 +77,7 @@ ROLLBAR = {
     'code_version': '1.0',
     'root': BASE_DIR,
 }
+# rollbar.init(**ROLLBAR)
 
 ROOT_URLCONF = 'task_manager.urls'
 CSRF_TRUSTED_ORIGINS = ['https://task-manager.up.railway.app']
