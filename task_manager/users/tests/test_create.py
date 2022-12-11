@@ -25,5 +25,3 @@ class CreateTest(TestCase):
         self.assertRedirects(response, reverse('user_login'))
         user = User.objects.get(pk=1)
         self.assertEqual(user.username, testuser.get('username'))
-        # messages = get_messages(response)
-        # if messages

@@ -73,13 +73,15 @@ class UserForm(forms.ModelForm):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
-            raise forms.ValidationError(_("Passwords don't match"), code='invalid')
+            raise forms.ValidationError(
+                _("Passwords don't match"), code='invalid')
         return password2
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
         if username and User.objects.filter(username=username).exists():
-            raise forms.ValidationError(_('Username already exists'), code='invalid')
+            raise forms.ValidationError(_('Username already exists'),
+                                        code='invalid')
         return username
 
     def save(self, commit=True):

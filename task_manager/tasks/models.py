@@ -23,5 +23,3 @@ class Task(models.Model):
 class Bond(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     mark = models.ForeignKey(Mark, on_delete=models.PROTECT)
-
-

@@ -11,7 +11,6 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .forms import UserForm
 
 
-
 class UserListView(ListView):
     model = User
     template_name = "users/list.html"
