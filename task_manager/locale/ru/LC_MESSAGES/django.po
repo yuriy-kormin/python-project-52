@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-11 18:54+0400\n"
+"POT-Creation-Date: 2022-12-11 23:38+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -230,7 +230,7 @@ msgstr "Просмотр задачи"
 msgid "created"
 msgstr "Дата создания"
 
-#: templates/base.html:10 templates/nav.html:4 views.py:14
+#: templates/base.html:10 templates/nav.html:4 views.py:13
 msgid "Task manager"
 msgstr "Менеджер задач"
 
@@ -266,11 +266,11 @@ msgstr "Статусы"
 msgid "Logout"
 msgstr "Выход"
 
-#: templates/nav.html:31 views.py:22 views.py:23
+#: templates/nav.html:31 views.py:21
 msgid "Enter"
 msgstr "Вход"
 
-#: templates/nav.html:32 users/views.py:32 users/views.py:33
+#: templates/nav.html:32 users/views.py:32
 msgid "Register"
 msgstr "Регистрация"
 
@@ -282,48 +282,48 @@ msgstr "Создать статус"
 msgid "Create task"
 msgstr "Создать задачу"
 
-#: users/forms.py:13 users/forms.py:28
+#: users/forms.py:17 users/forms.py:32
 msgid "Password is too short"
 msgstr "Пароль слишком короткий"
 
-#: users/forms.py:15 users/forms.py:19
+#: users/forms.py:19 users/forms.py:23
 msgid "Password"
 msgstr "Пароль"
 
-#: users/forms.py:20
+#: users/forms.py:24
 msgid "Password must contains at least 3 chars"
 msgstr "Пароль должен содержать как минимум 3 символа."
 
-#: users/forms.py:25 users/forms.py:33
+#: users/forms.py:29 users/forms.py:37
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: users/forms.py:34
+#: users/forms.py:38
 msgid "Please, type your password again"
 msgstr "Пожалуйста, введите пароль еще раз"
 
-#: users/forms.py:49 users/forms.py:67
+#: users/forms.py:53 users/forms.py:71
 msgid "first name"
 msgstr "Имя"
 
-#: users/forms.py:55 users/forms.py:68
+#: users/forms.py:59 users/forms.py:72
 msgid "last name"
 msgstr "Фамилия"
 
-#: users/forms.py:61 users/forms.py:69 users/views.py:20
+#: users/forms.py:65 users/forms.py:73 users/views.py:20
 msgid "username"
 msgstr "Имя пользователя"
 
-#: users/forms.py:62
+#: users/forms.py:66
 msgid "Not an option"
 msgstr ""
 "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./"
 
-#: users/forms.py:77
+#: users/forms.py:81
 msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
-#: users/forms.py:83
+#: users/forms.py:87
 msgid "Username already exists"
 msgstr "Пользователь с таким именем уже существует"
 
@@ -334,6 +334,10 @@ msgstr "Полное имя"
 #: users/views.py:22
 msgid "create at"
 msgstr "Дата создания"
+
+#: users/views.py:33
+msgid "Register "
+msgstr "Зарегистрировать"
 
 #: users/views.py:35
 msgid "User created successfully"
@@ -375,18 +379,22 @@ msgstr "Невозможно удалить пользователя, потом
 msgid "User was successfully deleted"
 msgstr "Пользователь успешно удален"
 
-#: views.py:27
+#: views.py:22
+msgid "Entrance"
+msgstr "Войти"
+
+#: views.py:26
 msgid "Login successfully"
 msgstr "Вход выполнен"
 
-#: views.py:31
+#: views.py:30
 msgid "Login Error"
 msgstr "Ошибка аутентификации"
 
-#: views.py:40
+#: views.py:39
 msgid "Logged out successfully"
 msgstr "Вы вышли из системы"
 
-#: views.py:42
+#: views.py:41
 msgid "You aren't logged in"
 msgstr "Вы не вошли в систему"

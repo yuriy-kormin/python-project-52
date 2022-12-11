@@ -7,10 +7,14 @@
 
         <form method="post" action=".">
             {% csrf_token %}
-            {% bootstrap_form form %}
-            <div class = "form-group">
-                <input class="mt-3 btn btn-primary" type="submit" value="{{ button_title }}">
-            </div>
+            {%  for field in form %}
+                <div class = "form-group">
+                    {% bootstrap_field field %}
+                </div>
+            {% endfor %}
+                <div class = "form-group">
+                    <input class="mt-3 btn btn-primary" type="submit" value="{{ button_title }}">
+                </div>
     </form>
     </div>
 {% endblock %}
