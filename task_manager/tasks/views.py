@@ -6,9 +6,11 @@ from django.views.generic import CreateView, UpdateView, \
     DeleteView, DetailView
 from django.views.generic import ListView
 from django.utils.translation import gettext_lazy as _
+from .filters import MarkFilter
 from .forms import TaskForm
 from .models import Task
 from task_manager.users.models import TaskUser as User
+from django_filters.views import FilterView
 
 
 class TaskCreateView(LoginRequiredMixin, CreateView):
@@ -36,11 +38,13 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
         return super().get_login_url()
 
 
-class TaskListView(LoginRequiredMixin, ListView):
+class TaskListView(LoginRequiredMixin, FilterView, ListView):
     login_url = reverse_lazy('user_login')
+    filterset_class = MarkFilter
     model = Task
     template_name = "tasks/list.html"
     extra_context = {
+        'select': _('Select'),
         'header': _('Tasks'),
         'ID': _('ID'),
         'task_header': _('name'),

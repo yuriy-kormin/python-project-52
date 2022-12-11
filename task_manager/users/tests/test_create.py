@@ -3,7 +3,6 @@ from django.urls import reverse_lazy as reverse
 from django.test import TestCase
 import os
 from task_manager.users.models import TaskUser as User
-
 FIXTURE_DIR = os.path.join(
     os.path.dirname(os.path.realpath(__file__)),
     '../fixtures'
@@ -26,3 +25,5 @@ class CreateTest(TestCase):
         self.assertRedirects(response, reverse('user_login'))
         user = User.objects.get(pk=1)
         self.assertEqual(user.username, testuser.get('username'))
+        # messages = get_messages(response)
+        # if messages

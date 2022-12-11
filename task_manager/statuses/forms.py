@@ -7,10 +7,7 @@ class StatusForm(forms.ModelForm):
 
     class Meta:
         model = Status
-        fields = (
-                  'name',
-                  # 'date_joined',
-                  )
+        fields = 'name',
         widgets = {
             'name': forms.TextInput(
                 attrs={
