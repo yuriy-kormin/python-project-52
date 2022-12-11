@@ -268,7 +268,7 @@ msgstr "Выход"
 
 #: templates/nav.html:31 views.py:21
 msgid "Enter"
-msgstr "Войти"
+msgstr "Вход"
 
 #: templates/nav.html:32 users/views.py:32
 msgid "Register"
