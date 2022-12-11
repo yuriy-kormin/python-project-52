@@ -1,19 +1,16 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load bootstrap4 %}
 {% block page_content %}
     <div class="container wrapper flex-grow-1">
     <h1 class="my-4"> {{ header }}</h1>
-    <form method="post" action=".">
-    {% csrf_token %}
-            {%  for field in form %}
-                <div class = "form-group">
-                    {{ field.label_tag }}<br>
-                    {{ field }}
-                </div>
-            {% endfor %}
-                <div class = "form-group">
-                    <input class="mt-3 btn btn-primary" type="submit" value="{{ button_title }}">
-                </div>
+
+        <form method="post" action=".">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <div class = "form-group">
+                <input class="mt-3 btn btn-primary" type="submit" value="{{ button_title }}">
+            </div>
     </form>
     </div>
 {% endblock %}

@@ -7,18 +7,28 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from django.utils.translation import gettext_lazy as _
 
-from django import forms
+# from django import forms
 
+from task_manager.forms import LoginForm
+#
+# from django.forms import BaseForm
+#
+# orig_init = BaseForm.__init__
+# def BaseForm_init(*args, **kwargs):
+#     kwargs.setdefault("label_suffix", "")
+#     orig_init(*args, **kwargs)
+# BaseForm.__init__ = BaseForm_init
 
-class BaseFormForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        kwargs.setdefault('label_suffix', '')
-        super(BaseForm, self).__init__(*args, **kwargs)
-
-class BaseModelForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        kwargs.setdefault('label_suffix', '')
-        super(BaseModelForm, self).__init__(*args, **kwargs)
+#
+# class BaseFormForm(forms.ModelForm):
+#     def __init__(self, *args, **kwargs):
+#         kwargs.setdefault('label_suffix', '')
+#         super(BaseForm, self).__init__(*args, **kwargs)
+#
+# class BaseModelForm(forms.ModelForm):
+#     def __init__(self, *args, **kwargs):
+#         kwargs.setdefault('label_suffix', '')
+#         super(BaseModelForm, self).__init__(*args, **kwargs)
 
 
 class IndexView(TemplateView):
