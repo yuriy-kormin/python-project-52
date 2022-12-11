@@ -385,7 +385,7 @@ msgstr "Войти"
 
 #: views.py:26
 msgid "Login successfully"
-msgstr "Вход выполнен"
+msgstr "Вы залогинены"
 
 #: views.py:30
 msgid "Login Error"
