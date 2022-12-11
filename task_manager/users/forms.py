@@ -5,6 +5,10 @@ from django.core.validators import MinLengthValidator
 
 
 class UserForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault('label_suffix', '')
+        super().__init__(*args, **kwargs)
+
     password_min_len = 3
 
     password1 = forms.CharField(
