@@ -29,9 +29,6 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
         messages.success(self.request, _('Task created successfully'))
         return super().form_valid(form)
 
-    def form_invalid(self, form):
-        messages.error(self.request, _('Please fill form correctly'))
-        return super().form_invalid(form)
 
     def get_login_url(self):
         messages.error(self.request, _('Please login to create tasks'))
@@ -47,11 +44,11 @@ class TaskListView(LoginRequiredMixin, FilterView, ListView):
         'select': _('Select'),
         'header': _('Tasks'),
         'ID': _('ID'),
-        'task_header': _('name'),
+        'task_header': _('Name'),
         'status_header': _('Status'),
-        'author_header': _('author'),
-        'performer_header': _('performer'),
-        'created_date_header': _('created at')
+        'author_header': _('Author'),
+        'performer_header': _('Performer'),
+        'created_date_header': _('Created at')
     }
 
     def get_login_url(self):
@@ -73,10 +70,6 @@ class TaskUpdateView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         messages.success(self.request, _('Task update successfully'))
         return super().form_valid(form)
-
-    def form_invalid(self, form):
-        messages.error(self.request, _('Please fill form correctly'))
-        return super().form_invalid(form)
 
 
 class TaskDeleteView(UserPassesTestMixin, DeleteView):

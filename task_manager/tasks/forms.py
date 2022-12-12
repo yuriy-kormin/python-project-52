@@ -21,7 +21,7 @@ class TaskForm(forms.ModelForm):
             'name': forms.TextInput(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': _('name'),
+                    'placeholder': _('Name'),
                 }
             ),
             'description': forms.Textarea(
@@ -44,14 +44,13 @@ class TaskForm(forms.ModelForm):
             ),
             'mark': forms.SelectMultiple(
                 attrs={
-                    # 'multiple': True,
                     'class': 'form-control',
                     'choices': Mark,
                 }
             ),
         }
         labels = {
-            'name': _('name'),
+            'name': _('Name'),
             'description': _('description'),
             'status': _('status'),
             'performer': _('performer'),
