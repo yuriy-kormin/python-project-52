@@ -58,10 +58,6 @@ class UserUpdateView(UserPassesTestMixin, UpdateView):
         messages.success(self.request, _('User update successfully'))
         return super().form_valid(form)
 
-    def form_invalid(self, form):
-        messages.error(self.request, _('Please fill form correctly'))
-        return super().form_invalid(form)
-
     def test_func(self):
         user = self.request.user
         if user.is_authenticated:
