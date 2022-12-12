@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load bootstrap4 %}
 {% block page_content %}
     <form method="post" action=".">
     {% csrf_token %}
@@ -7,8 +8,7 @@
         <div class = "form">
             {%  for field in form %}
                 <div class = "form-group">
-                    {{ field.label_tag }}<br>
-                        {{ field }}
+                    {% bootstrap_field field %}
                     {% if  form.errors %}
                         <div class="invalid-feedback">
                             {% for error in field.errors %}
