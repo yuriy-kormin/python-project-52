@@ -83,7 +83,7 @@ class UserDeleteView(UserPassesTestMixin, DeleteView):
     success_url = reverse_lazy('user_list')
     extra_context = {
         'header': _('Remove user'),
-        'button_title': _('Remove'),
+        'button_title': _('Yes, remove'),
         'message': _('Are you sure delete'),
     }
     raise_exception = False

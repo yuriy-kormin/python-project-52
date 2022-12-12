@@ -29,7 +29,6 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
         messages.success(self.request, _('Task created successfully'))
         return super().form_valid(form)
 
-
     def get_login_url(self):
         messages.error(self.request, _('Please login to create tasks'))
         return super().get_login_url()
