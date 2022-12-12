@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-12 16:18+0400\n"
+"POT-Creation-Date: 2022-12-12 16:45+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,7 +65,9 @@ msgid "Remove status"
 msgstr "Удаление статуса"
 
 #: statuses/views.py:63
-msgid "Remove"
+#, fuzzy
+#| msgid "Remove"
+msgid "Yes, remove"
 msgstr "Да, удалить"
 
 #: statuses/views.py:64
