@@ -34,9 +34,5 @@ class UserLoginView(LoginView):
 class UserLogoutView(LogoutView):
 
     def get(self, request):
-        if self.request.user.is_authenticated:
-            logout(request)
-            messages.info(request, _('Logged out successfully'))
-        else:
-            messages.error(request, _('You aren\'t logged in'))
+        messages.info(request, _('Logged out successfully'))
         return redirect('/')

@@ -1,0 +1,144 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-12 12:50+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+#: users/forms.py:17 users/forms.py:32
+msgid "Password is too short"
+msgstr ""
+
+#: users/forms.py:19 users/forms.py:23
+msgid "Password"
+msgstr ""
+
+#: users/forms.py:24
+msgid "Password must contains at least 3 chars"
+msgstr ""
+
+#: users/forms.py:29 users/forms.py:37
+msgid "Password confirmation"
+msgstr ""
+
+#: users/forms.py:38
+msgid "Please, type your password again"
+msgstr ""
+
+#: users/forms.py:53 users/forms.py:71
+msgid "first name"
+msgstr ""
+
+#: users/forms.py:59 users/forms.py:72
+msgid "last name"
+msgstr ""
+
+#: users/forms.py:65 users/forms.py:73 users/views.py:20
+msgid "username"
+msgstr ""
+
+#: users/forms.py:66
+msgid "Not an option"
+msgstr ""
+
+#: users/forms.py:81
+msgid "Passwords don't match"
+msgstr ""
+
+#: users/forms.py:87
+msgid "Username already exists"
+msgstr ""
+
+#: users/views.py:18
+msgid "Users"
+msgstr ""
+
+#: users/views.py:19
+msgid "ID"
+msgstr ""
+
+#: users/views.py:21
+msgid "full name"
+msgstr ""
+
+#: users/views.py:22
+msgid "create at"
+msgstr ""
+
+#: users/views.py:32
+msgid "Register"
+msgstr ""
+
+#: users/views.py:33
+msgid "Register "
+msgstr ""
+
+#: users/views.py:35
+msgid "User created successfully"
+msgstr ""
+
+#: users/views.py:53
+msgid "Edit user"
+msgstr ""
+
+#: users/views.py:54
+msgid "Update"
+msgstr ""
+
+#: users/views.py:58
+msgid "User update successfully"
+msgstr ""
+
+#: users/views.py:62
+msgid "Please fill form correctly"
+msgstr ""
+
+#: users/views.py:73
+msgid "You cannot edit another user"
+msgstr ""
+
+#: users/views.py:75
+msgid "Please login to modify user"
+msgstr ""
+
+#: users/views.py:89
+msgid "Remove user"
+msgstr ""
+
+#: users/views.py:90
+msgid "Remove"
+msgstr ""
+
+#: users/views.py:91
+msgid "Are you sure delete"
+msgstr ""
+
+#: users/views.py:103
+msgid "You cannot delete another user"
+msgstr ""
+
+#: users/views.py:105
+msgid "Please login to delete user"
+msgstr ""
+
+#: users/views.py:118
+msgid "User can't be deleted - on use now"
+msgstr ""
+
+#: users/views.py:120
+msgid "User was successfully deleted"
+msgstr ""

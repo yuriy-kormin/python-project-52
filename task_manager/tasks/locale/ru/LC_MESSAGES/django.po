@@ -1,0 +1,148 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-12 12:50+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+#: tasks/filters.py:13 tasks/views.py:51
+msgid "Status"
+msgstr ""
+
+#: tasks/filters.py:17
+msgid "Performer"
+msgstr ""
+
+#: tasks/filters.py:21
+msgid "Mark"
+msgstr ""
+
+#: tasks/filters.py:26
+msgid "Only self tasks"
+msgstr ""
+
+#: tasks/forms.py:24 tasks/forms.py:54 tasks/views.py:50
+msgid "name"
+msgstr ""
+
+#: tasks/forms.py:30 tasks/forms.py:55
+msgid "description"
+msgstr ""
+
+#: tasks/forms.py:56 tasks/views.py:125
+msgid "status"
+msgstr ""
+
+#: tasks/forms.py:57 tasks/views.py:53 tasks/views.py:124
+msgid "performer"
+msgstr ""
+
+#: tasks/forms.py:58
+msgid "Marks"
+msgstr ""
+
+#: tasks/views.py:22
+msgid "Add Task"
+msgstr ""
+
+#: tasks/views.py:23
+msgid "Create"
+msgstr ""
+
+#: tasks/views.py:29
+msgid "Task created successfully"
+msgstr ""
+
+#: tasks/views.py:33 tasks/views.py:78
+msgid "Please fill form correctly"
+msgstr ""
+
+#: tasks/views.py:37
+msgid "Please login to create tasks"
+msgstr ""
+
+#: tasks/views.py:47
+msgid "Select"
+msgstr ""
+
+#: tasks/views.py:48
+msgid "Tasks"
+msgstr ""
+
+#: tasks/views.py:49
+msgid "ID"
+msgstr ""
+
+#: tasks/views.py:52 tasks/views.py:123
+msgid "author"
+msgstr ""
+
+#: tasks/views.py:54
+msgid "created at"
+msgstr ""
+
+#: tasks/views.py:58 tasks/views.py:131
+msgid "Please login to view tasks"
+msgstr ""
+
+#: tasks/views.py:69
+msgid "Edit task"
+msgstr ""
+
+#: tasks/views.py:70
+msgid "Update"
+msgstr ""
+
+#: tasks/views.py:74
+msgid "Task update successfully"
+msgstr ""
+
+#: tasks/views.py:87
+msgid "Remove task"
+msgstr ""
+
+#: tasks/views.py:88
+msgid "Remove"
+msgstr ""
+
+#: tasks/views.py:89
+msgid "Are you sure delete task "
+msgstr ""
+
+#: tasks/views.py:102
+msgid "You cannot delete another user tasks"
+msgstr ""
+
+#: tasks/views.py:104
+msgid "Please login to delete tasks"
+msgstr ""
+
+#: tasks/views.py:113
+msgid "Task was successfully deleted"
+msgstr ""
+
+#: tasks/views.py:122
+msgid "Task view"
+msgstr ""
+
+#: tasks/views.py:126
+msgid "created"
+msgstr ""
+
+#: tasks/views.py:127
+msgid "marks"
+msgstr ""
