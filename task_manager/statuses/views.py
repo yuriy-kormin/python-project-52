@@ -15,10 +15,10 @@ class StatusListView(LoginRequiredMixin, ListView):
     model = Status
     template_name = "statuses/list.html"
     extra_context = {
-        'statuses': _('statuses'),
+        'statuses': _('Statuses'),
         'ID': _('ID'),
-        'name': _('name'),
-        'created_at': _('created at'),
+        'name': _('Name'),
+        'created_at': _('Created at'),
     }
 
 
@@ -28,8 +28,8 @@ class StatusCreateView(LoginRequiredMixin, CreateView):
     template_name = "statuses/create.html"
     success_url = reverse_lazy('status_list')
     extra_context = {
-        'header': _('create status'),
-        'button_title': _('create'),
+        'header': _('Create status'),
+        'button_title': _('Create'),
     }
 
     def form_valid(self, form):
@@ -44,17 +44,13 @@ class StatusUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "statuses/create.html"
     success_url = reverse_lazy('status_list')
     extra_context = {
-        'header': _('update status'),
-        'button_title': _('update'),
+        'header': _('Update status'),
+        'button_title': _('Update'),
     }
 
     def form_valid(self, form):
         messages.success(self.request, _('Status updated successfully'))
         return super().form_valid(form)
-
-    def form_invalid(self, form):
-        messages.error(self.request, _('Status name already exists'))
-        return super().form_invalid(form)
 
 
 class StatusDeleteView(LoginRequiredMixin, DeleteView):
@@ -76,5 +72,5 @@ class StatusDeleteView(LoginRequiredMixin, DeleteView):
             messages.error(self.request, _(
                 'Status can\'t be deleted - on use now'))
         else:
-            messages.info(self.request, _('status was deleted successfully'))
+            messages.info(self.request, _('Status was deleted successfully'))
         return redirect(self.get_success_url())

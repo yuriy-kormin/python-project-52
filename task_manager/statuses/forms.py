@@ -12,10 +12,10 @@ class StatusForm(forms.ModelForm):
             'name': forms.TextInput(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': _('name')
+                    'placeholder': _('Name')
                 }
             ),
         }
         labels = {
-            'name': _('name'),
+            'name': _('Name'),
         }

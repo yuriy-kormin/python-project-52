@@ -16,8 +16,8 @@ class MarkCreateView(LoginRequiredMixin, CreateView):
     template_name = "marks/create.html"
     success_url = reverse_lazy('mark_list')
     extra_context = {
-        'header': _('create mark'),
-        'button_title': _('create'),
+        'header': _('Create mark'),
+        'button_title': _('Create'),
     }
 
     def form_valid(self, form):
@@ -30,10 +30,10 @@ class MarkListView(LoginRequiredMixin, ListView):
     model = Mark
     template_name = "marks/list.html"
     extra_context = {
-        'marks': _('marks'),
+        'marks': _('Marks'),
         'ID': _('ID'),
-        'name': _('name'),
-        'created_at': _('created at'),
+        'name': _('Name'),
+        'created_at': _('Created at'),
     }
 
 
@@ -44,17 +44,13 @@ class MarkUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "marks/create.html"
     success_url = reverse_lazy('mark_list')
     extra_context = {
-        'header': _('update mark'),
-        'button_title': _('update'),
+        'header': _('Update mark'),
+        'button_title': _('Update'),
     }
 
     def form_valid(self, form):
         messages.success(self.request, _('Mark updated successfully'))
         return super().form_valid(form)
-
-    def form_invalid(self, form):
-        messages.error(self.request, _('Mark name already exists'))
-        return super().form_invalid(form)
 
 
 class MarkDeleteView(LoginRequiredMixin, DeleteView):
@@ -64,7 +60,7 @@ class MarkDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('mark_list')
     extra_context = {
         'header': _('Remove mark'),
-        'button_title': _('Remove'),
+        'button_title': _('Yes, remove'),
         'message': _('Are you sure delete'),
     }
     raise_exception = False
