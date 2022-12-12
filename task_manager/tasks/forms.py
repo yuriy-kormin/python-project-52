@@ -36,7 +36,7 @@ class TaskForm(forms.ModelForm):
                     'choices': Status,
                 }
             ),
-            'performer': forms.Select(
+            'executor': forms.Select(
                 attrs={
                     'class': 'form-control',
                     'choices': User,
@@ -53,6 +53,6 @@ class TaskForm(forms.ModelForm):
             'name': _('Name'),
             'description': _('description'),
             'status': _('status'),
-            'performer': _('performer'),
+            'executor': _('performer'),
             'mark': _('Marks')
         }
