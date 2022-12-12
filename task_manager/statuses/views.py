@@ -36,10 +36,6 @@ class StatusCreateView(LoginRequiredMixin, CreateView):
         messages.success(self.request, _('Status created successfully'))
         return super().form_valid(form)
 
-    def form_invalid(self, form):
-        messages.error(self.request, _('Status name already exists'))
-        return super().form_invalid(form)
-
 
 class StatusUpdateView(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('user_login')

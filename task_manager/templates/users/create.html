@@ -9,20 +9,11 @@
             {%  for field in form %}
                 <div class = "form-group">
                     {% bootstrap_field field %}
-                    {% if  form.errors %}
-                        <div class="invalid-feedback">
-                            {% for error in field.errors %}
-                                {{ error }}<br>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                    {% if 'title' in field.field.widget.attrs %}
-                    <small>{{ field.field.widget.attrs.title }}</small>
-                {% endif %}
+                    {% bootstrap_form_errors form field_errors %}
                 </div>
             {% endfor %}
                 <div class = "form-group">
-                    <input class="mt-3 btn btn-primary" type="submit" value="{{ button_title }}">
+                     {% bootstrap_button button_title button_type="submit" button_class="mt-3 btn btn-primary" %}
                 </div>
         </div>
     </form>
