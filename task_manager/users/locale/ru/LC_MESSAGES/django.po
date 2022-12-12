@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-12 13:14+0400\n"
+"POT-Creation-Date: 2022-12-12 13:56+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,15 +42,15 @@ msgid "Please, type your password again"
 msgstr "Подтверждение пароля"
 
 #: users/forms.py:53 users/forms.py:71
-msgid "first name"
+msgid "First name"
 msgstr "Имя"
 
 #: users/forms.py:59 users/forms.py:72
-msgid "last name"
+msgid "Last name"
 msgstr "Фамилия"
 
-#: users/forms.py:65 users/forms.py:73 users/views.py:20
-msgid "username"
+#: users/forms.py:65 users/forms.py:73
+msgid "Username"
 msgstr "Имя пользователя"
 
 #: users/forms.py:66
@@ -74,6 +74,10 @@ msgstr "Пользователи"
 #: users/views.py:19
 msgid "ID"
 msgstr "ID"
+
+#: users/views.py:20
+msgid "username"
+msgstr "ИИмя пользователя"
 
 #: users/views.py:21
 msgid "full name"

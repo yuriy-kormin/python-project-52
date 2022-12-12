@@ -50,27 +50,27 @@ class UserForm(forms.ModelForm):
             'first_name': forms.TextInput(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': _('first name'),
+                    'placeholder': _('First name'),
                 }
             ),
             'last_name': forms.TextInput(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': _('last name')
+                    'placeholder': _('Last name')
                 }
             ),
             'username': forms.TextInput(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': _('username'),
+                    'placeholder': _('Username'),
                     'title': _('Not an option')
                 }
             ),
         }
         labels = {
-            'first_name': _('first name'),
-            'last_name': _('last name'),
-            'username': _('username'),
+            'first_name': _('First name'),
+            'last_name': _('Last name'),
+            'username': _('Username'),
         }
 
     def clean_password2(self):
