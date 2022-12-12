@@ -4,7 +4,6 @@ from .models import Task
 from task_manager.statuses.models import Status
 from task_manager.users.models import TaskUser as User
 from django.utils.translation import gettext_lazy as _
-
 from task_manager.marks.models import Mark
 
 
@@ -16,10 +15,12 @@ class MarkFilter(django_filters.FilterSet):
     executor = django_filters.ModelChoiceFilter(
         label=_('Performer'),
         queryset=lambda req: User.objects.all(),
+        field_name='performer',
     )
-    mark = django_filters.ModelChoiceFilter(
+    label = django_filters.ModelChoiceFilter(
         label=_('Mark'),
         queryset=lambda req: Mark.objects.all(),
+        field_name='mark'
     )
     self_tasks = django_filters.BooleanFilter(
         widget=forms.CheckboxInput,
