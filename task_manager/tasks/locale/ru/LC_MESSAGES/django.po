@@ -98,7 +98,7 @@ msgstr "Вы не авторизованы! Пожалуйста, выполни
 
 #: tasks/views.py:65
 msgid "Edit task"
-msgstr "Изменить"
+msgstr "Изменение задачи"
 
 #: tasks/views.py:66
 msgid "Update"
