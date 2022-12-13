@@ -18,8 +18,8 @@
                 <div class="col">{{ task.author }}</div>
               </div>
             <div class="row p-2">
-                <div class="col">{{  performer }}</div>
-                <div class="col">{{ task.performer }}</div>
+                <div class="col">{{  executor }}</div>
+                <div class="col">{{ task.executor }}</div>
               </div>
             <div class="row p-2">
                 <div class="col">{{ status }}</div>
@@ -30,11 +30,11 @@
                 <div class="col">{{ task.date_joined }}</div>
               </div>
             <div class="row p-2">
-                <div class="col">{{ marks }}:
+                <div class="col">{{ labels }}:
                 {% if task.mark %}
                     <ul>
-                    {%  for mark in task.mark.all %}
-                        <li>{{ mark.name }}</li>
+                    {%  for label in task.label.all %}
+                        <li>{{ label.name }}</li>
                     {% endfor %}
                     </ul>
                 {% endif %}
