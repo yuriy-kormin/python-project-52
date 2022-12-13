@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-12 18:06+0400\n"
+"POT-Creation-Date: 2022-12-13 12:36+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Status"
 msgstr "Статус"
 
-#: tasks/filters.py:16 tasks/forms.py:56
+#: tasks/filters.py:16 tasks/forms.py:55
 msgid "Executor"
 msgstr "Исполнитель"
 
@@ -36,19 +36,19 @@ msgstr "Метки"
 msgid "Only self tasks"
 msgstr "Только свои задачи"
 
-#: tasks/forms.py:24 tasks/forms.py:53 tasks/views.py:46
+#: tasks/forms.py:23 tasks/forms.py:52 tasks/views.py:46
 msgid "Name"
 msgstr "Имя"
 
-#: tasks/forms.py:30 tasks/forms.py:54
+#: tasks/forms.py:29 tasks/forms.py:53
 msgid "description"
 msgstr "Описание"
 
-#: tasks/forms.py:55 tasks/views.py:117
+#: tasks/forms.py:54 tasks/views.py:117
 msgid "status"
 msgstr "Статус"
 
-#: tasks/forms.py:57
+#: tasks/forms.py:56
 msgid "Labels"
 msgstr "Метки"
 
@@ -141,7 +141,7 @@ msgid "author"
 msgstr "Автор"
 
 #: tasks/views.py:116
-msgid "performer"
+msgid "executor"
 msgstr "Исполнитель"
 
 #: tasks/views.py:118
@@ -149,6 +149,5 @@ msgid "created"
 msgstr "Дата создания"
 
 #: tasks/views.py:119
-msgid "marks"
+msgid "labels"
 msgstr "Метки"
-

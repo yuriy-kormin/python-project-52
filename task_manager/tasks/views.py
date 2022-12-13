@@ -113,10 +113,10 @@ class TaskView(LoginRequiredMixin, DetailView):
     extra_context = {
         'header': _('Task view'),
         'author': _('author'),
-        'performer': _('performer'),
+        'executor': _('executor'),
         'status': _('status'),
         'created': _('created'),
-        'marks': _('marks'),
+        'labels': _('labels'),
     }
 
     def get_login_url(self):
