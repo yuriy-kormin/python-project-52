@@ -40,7 +40,7 @@
       "description": "some desc",
       "author": 1,
       "status": 1,
-      "performer": null
+      "executor": null
     }
   },
   {

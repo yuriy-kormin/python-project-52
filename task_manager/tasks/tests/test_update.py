@@ -24,7 +24,7 @@ class UpdateTask(TransactionTestCase):
         task2 = {
             'name': 'test_task',
             'status': status.id,
-            'performer': user2.id,
+            'executor': user2.id,
         }
         response = self.client.post(
             reverse('task_update', kwargs={'pk': task.id}),
@@ -34,4 +34,4 @@ class UpdateTask(TransactionTestCase):
         self.assertEqual(response.status_code, 302)
         task = Task.objects.get(pk=task.id)
         self.assertEqual(task.name, task2['name'])
-        self.assertEqual(task.performer_id, task2['performer'])
+        self.assertEqual(task.executor_id, task2['executor'])
