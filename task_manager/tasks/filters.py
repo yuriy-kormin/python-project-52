@@ -13,14 +13,12 @@ class MarkFilter(django_filters.FilterSet):
         queryset=lambda req: Status.objects.all(),
     )
     executor = django_filters.ModelChoiceFilter(
-        label=_('Performer'),
+        label=_('Executor'),
         queryset=lambda req: User.objects.all(),
-        field_name='performer',
     )
     label = django_filters.ModelChoiceFilter(
-        label=_('Mark'),
+        label=_('Label'),
         queryset=lambda req: Mark.objects.all(),
-        field_name='mark'
     )
     self_tasks = django_filters.BooleanFilter(
         widget=forms.CheckboxInput,

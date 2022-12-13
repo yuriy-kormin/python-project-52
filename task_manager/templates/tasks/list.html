@@ -22,10 +22,8 @@
                 <td> {{task.status.name}} </td>
                 <td> {{task.author}} </td>
                 <td>
-                    {% if task.performer %}
-                        {{task.performer}}
-                        {% else %}
-
+                    {% if task.executor %}
+                        {{task.executor}}
                     {% endif %}
                 </td>
                 <td> {{task.date_joined}} </td>

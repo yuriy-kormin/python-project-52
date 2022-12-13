@@ -7,15 +7,14 @@ from task_manager.marks.models import Mark
 
 
 class TaskForm(forms.ModelForm):
-
     class Meta:
         model = Task
         fields = (
             'name',
             'description',
             'status',
-            'performer',
-            'mark',
+            'executor',
+            'label',
         )
         widgets = {
             'name': forms.TextInput(
@@ -42,7 +41,7 @@ class TaskForm(forms.ModelForm):
                     'choices': User,
                 }
             ),
-            'mark': forms.SelectMultiple(
+            'label': forms.SelectMultiple(
                 attrs={
                     'class': 'form-control',
                     'choices': Mark,
@@ -53,6 +52,6 @@ class TaskForm(forms.ModelForm):
             'name': _('Name'),
             'description': _('description'),
             'status': _('status'),
-            'executor': _('performer'),
-            'mark': _('Marks')
+            'executor': _('Executor'),
+            'label': _('Labels')
         }
