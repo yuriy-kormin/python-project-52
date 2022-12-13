@@ -30,7 +30,7 @@ msgstr "Исполнитель"
 
 #: tasks/filters.py:20
 msgid "Label"
-msgstr "Метки"
+msgstr "Метка"
 
 #: tasks/filters.py:25
 msgid "Only self tasks"
