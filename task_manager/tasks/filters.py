@@ -16,7 +16,7 @@ class MarkFilter(django_filters.FilterSet):
         label=_('Executor'),
         queryset=lambda req: User.objects.all(),
     )
-    label = django_filters.ModelChoiceFilter(
+    labels = django_filters.ModelChoiceFilter(
         label=_('Label'),
         queryset=lambda req: Mark.objects.all(),
     )

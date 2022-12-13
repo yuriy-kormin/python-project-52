@@ -13,8 +13,8 @@ class Task(models.Model):
         blank=False, null=False)
     status = models.ForeignKey(to=Status, on_delete=models.PROTECT,
                                blank=False, null=False)
-    label = models.ManyToManyField(to=Mark, through='Bond',
-                                   blank=True, null=True)
+    labels = models.ManyToManyField(to=Mark, through='Bond',
+                                    blank=True, null=True)
     executor = models.ForeignKey(
         to=User, on_delete=models.PROTECT,
         blank=True, null=True)

@@ -14,7 +14,7 @@ class TaskForm(forms.ModelForm):
             'description',
             'status',
             'executor',
-            'label',
+            'labels',
         )
         widgets = {
             'name': forms.TextInput(
@@ -41,7 +41,7 @@ class TaskForm(forms.ModelForm):
                     'choices': User,
                 }
             ),
-            'label': forms.SelectMultiple(
+            'labels': forms.SelectMultiple(
                 attrs={
                     'class': 'form-control',
                     'choices': Mark,
@@ -53,5 +53,5 @@ class TaskForm(forms.ModelForm):
             'description': _('description'),
             'status': _('status'),
             'executor': _('Executor'),
-            'label': _('Labels')
+            'labels': _('Labels')
         }
