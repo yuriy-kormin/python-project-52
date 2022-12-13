@@ -7,9 +7,7 @@ class MarkForm(forms.ModelForm):
 
     class Meta:
         model = Mark
-        fields = (
-                  'name',
-                  )
+        fields = ['name']
         widgets = {
             'name': forms.TextInput(
                 attrs={
