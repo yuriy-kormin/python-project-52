@@ -77,7 +77,7 @@ class TaskDeleteView(UserPassesTestMixin, DeleteView):
     success_url = reverse_lazy('task_list')
     extra_context = {
         'header': _('Remove task'),
-        'button_title': _('Remove'),
+        'button_title': _('Remove '),
         'message': _('Are you sure delete task '),
     }
     raise_exception = False
