@@ -31,9 +31,9 @@
               </div>
             <div class="row p-2">
                 <div class="col">{{ labels }}:
-                {% if task.label %}
+                {% if task.labels %}
                     <ul>
-                    {%  for label in task.label.all %}
+                    {%  for label in task.labels.all %}
                         <li>{{ label.name }}</li>
                     {% endfor %}
                     </ul>
