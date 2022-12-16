@@ -1,3 +1,6 @@
+<style>
+red { color: red }
+</style>
 ### Badges:
 [![Actions Status](https://github.com/yuriy-kormin/python-project-52/workflows/hexlet-check/badge.svg)](https://github.com/yuriy-kormin/python-project-52/actions)
 [![Actions Status](https://github.com/yuriy-kormin/python-project-52/workflows/linter-run/badge.svg)](https://github.com/yuriy-kormin/python-project-52/actions)
@@ -11,5 +14,30 @@ It's a classic task manager project with opportunity to set marks and set perfor
 
 ## STATUS
 
-Project in development right now, but You can view work copy on 
-[link](https://task-manager.up.railway.app/) 
+Project <red>in development</red> right now, but You can view work copy on [link](https://task-manager.tk/)
+
+## INSTALLATION
+
+Need to  [poetry](https://python-poetry.org/docs/#installation) is to be installed 
+
+
+ 
+    git clone https://github.com/yuriy-kormin/python-project-52.git
+    cd python-project-52
+    make install
+    make migrate
+    make start
+
+enjoy app on http://localhost:8000
+
+### Settings
+Environment variables
+- database
+- django-secret 
+- rollbar token
+
+can be set in environment or by rename file .env_example and set values in it. 
+    
+    task_manager/.env_example -> task_manager/.env
+
+

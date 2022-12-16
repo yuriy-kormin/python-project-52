@@ -19,7 +19,7 @@ import rollbar
 
 
 
-dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env_example')
 load_dotenv(dotenv_path)
 
 # load_dotenv()
@@ -36,7 +36,9 @@ SECRET_KEY = 'jJ3iFu3yeKZnY9D9GzTq52SP46vA1m6KBOhXqF4U'
 SECRET_KEY_ENV = os.environ.get('DJANGO_SECRET')
 if SECRET_KEY_ENV:
     SECRET_KEY = SECRET_KEY_ENV
-
+else:
+    print('have not secret in env')
+    print (dotenv_path)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -109,7 +111,8 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-DATABASES['default']: dj_database_url.config()
+
+DATABASES['default'] = dj_database_url.config()
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
