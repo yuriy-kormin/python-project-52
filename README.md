@@ -38,6 +38,6 @@ Environment variables
 
 can be set in environment or by rename file .env_example and set values in it. 
     
-    task_manager/.env_example -> task_manager/.env
+    /.env_example -> /.env
 
 

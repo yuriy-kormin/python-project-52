@@ -34,9 +34,7 @@ SECRET_KEY = 'jJ3iFu3yeKZnY9D9GzTq52SP46vA1m6KBOhXqF4U'
 SECRET_KEY_ENV = os.environ.get('DJANGO_SECRET')
 if SECRET_KEY_ENV:
     SECRET_KEY = SECRET_KEY_ENV
-else:
-    print('have not secret in env')
-print (os.environ)
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -112,7 +110,6 @@ DATABASES = {
 
 DATABASES['default'] = dj_database_url.config()
 
-print (DATABASES)
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
