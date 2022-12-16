@@ -36,7 +36,7 @@ if SECRET_KEY_ENV:
     SECRET_KEY = SECRET_KEY_ENV
 else:
     print('have not secret in env')
-    print (os.environ)
+print (os.environ)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
