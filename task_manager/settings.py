@@ -17,8 +17,8 @@ from dotenv import load_dotenv
 import dj_database_url
 import rollbar
 
-dotenv_path = os.path.join(os.path.dirname(__file__), '.env_example')
-load_dotenv(dotenv_path)
+# dotenv_path = os.path.join(os.path.dirname(__file__), '.env_example')
+load_dotenv()
 
 # load_dotenv()
 
@@ -36,7 +36,7 @@ if SECRET_KEY_ENV:
     SECRET_KEY = SECRET_KEY_ENV
 else:
     print('have not secret in env')
-    print (dotenv_path)
+    print (os.environ)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
