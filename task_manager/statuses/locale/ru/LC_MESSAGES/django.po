@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-12 16:45+0400\n"
+"POT-Creation-Date: 2022-12-23 10:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,64 +20,69 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: statuses/forms.py:15 statuses/forms.py:20 statuses/views.py:20
+#: task_manager/statuses/forms.py:15 task_manager/statuses/forms.py:20
+#: task_manager/statuses/views.py:19
 msgid "Name"
 msgstr "Имя"
 
-#: statuses/views.py:18
+#: task_manager/statuses/views.py:17
 msgid "Statuses"
 msgstr "Статусы"
 
-#: statuses/views.py:19
+#: task_manager/statuses/views.py:18
 msgid "ID"
 msgstr "ID"
 
-#: statuses/views.py:21
+#: task_manager/statuses/views.py:20
 msgid "Created at"
 msgstr "Дата создания"
 
-#: statuses/views.py:31
+#: task_manager/statuses/views.py:22 task_manager/statuses/views.py:36
+msgid "Please login"
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+
+#: task_manager/statuses/views.py:32
 msgid "Create status"
 msgstr "Создать статус"
 
-#: statuses/views.py:32
+#: task_manager/statuses/views.py:33
 msgid "Create"
 msgstr "Создать"
 
-#: statuses/views.py:36
+#: task_manager/statuses/views.py:35
 msgid "Status created successfully"
 msgstr "Статус успешно создан"
 
-#: statuses/views.py:47
+#: task_manager/statuses/views.py:47
 msgid "Update status"
 msgstr "Изменение статуса"
 
-#: statuses/views.py:48
+#: task_manager/statuses/views.py:48
 msgid "Update"
 msgstr "Изменить"
 
-#: statuses/views.py:52
+#: task_manager/statuses/views.py:50
 msgid "Status updated successfully"
 msgstr "Статус успешно изменён"
 
-#: statuses/views.py:62
+#: task_manager/statuses/views.py:61
 msgid "Remove status"
 msgstr "Удаление статуса"
 
-#: statuses/views.py:63
+#: task_manager/statuses/views.py:62
 #, fuzzy
 #| msgid "Remove"
 msgid "Yes, remove"
 msgstr "Да, удалить"
 
-#: statuses/views.py:64
+#: task_manager/statuses/views.py:63
 msgid "Are you sure delete"
 msgstr "Вы уверены, что хотите удалить"
 
-#: statuses/views.py:73
+#: task_manager/statuses/views.py:67
 msgid "Status can't be deleted - on use now"
 msgstr "Невозможно удалить статус, потому что он используется"
 
-#: statuses/views.py:75
+#: task_manager/statuses/views.py:68
 msgid "Status was deleted successfully"
 msgstr "Статус успешно удалён"

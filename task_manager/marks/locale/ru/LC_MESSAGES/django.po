@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-12 16:31+0400\n"
+"POT-Creation-Date: 2022-12-23 10:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,63 +20,64 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: marks/forms.py:17 marks/forms.py:22 marks/views.py:35
+#: task_manager/marks/forms.py:15 task_manager/marks/forms.py:20
+#: task_manager/marks/views.py:35
 msgid "Name"
 msgstr "Имя"
 
-#: marks/views.py:19
+#: task_manager/marks/views.py:19
 msgid "Create mark"
 msgstr "Создать метку"
 
-#: marks/views.py:20
+#: task_manager/marks/views.py:20
 msgid "Create"
 msgstr "Создать"
 
-#: marks/views.py:24
+#: task_manager/marks/views.py:24
 msgid "Mark created successfully"
 msgstr "Метка успешно создана"
 
-#: marks/views.py:33
+#: task_manager/marks/views.py:33
 msgid "Marks"
 msgstr "Метки"
 
-#: marks/views.py:34
+#: task_manager/marks/views.py:34
 msgid "ID"
 msgstr "ID"
 
-#: marks/views.py:36
+#: task_manager/marks/views.py:36
 msgid "Created at"
 msgstr "Дата создания"
 
-#: marks/views.py:47
+#: task_manager/marks/views.py:47
 msgid "Update mark"
 msgstr "Изменение метки"
 
-#: marks/views.py:48
+#: task_manager/marks/views.py:48
 msgid "Update"
 msgstr "Изменить"
 
-#: marks/views.py:52
+#: task_manager/marks/views.py:52
 msgid "Mark updated successfully"
 msgstr "Метка успешно изменена"
 
-#: marks/views.py:62
+#: task_manager/marks/views.py:62
 msgid "Remove mark"
 msgstr "Удаление метки"
 
-#: marks/views.py:63
+#: task_manager/marks/views.py:63
 msgid "Yes, remove"
 msgstr "Да, удалить"
 
-#: marks/views.py:64
+#: task_manager/marks/views.py:64
 msgid "Are you sure delete"
 msgstr "Вы уверены, что хотите удалить"
 
-#: marks/views.py:73
+#: task_manager/marks/views.py:73
 msgid "Mark can't be deleted - on use now"
 msgstr "Невозможно удалить метку, потому что она используется"
 
-#: marks/views.py:75
+#: task_manager/marks/views.py:75
 msgid "Mark was deleted successfully"
 msgstr "Метка успешно удалена"
 

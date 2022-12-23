@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-12 16:38+0400\n"
+"POT-Creation-Date: 2022-12-23 10:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,129 +20,129 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: users/forms.py:17 users/forms.py:32
+#: task_manager/users/forms.py:17 task_manager/users/forms.py:32
 msgid "Password is too short"
 msgstr ""
 "Введённый пароль слишком короткий. Он должен содержать как минимум 3 символа."
 
-#: users/forms.py:19 users/forms.py:23
+#: task_manager/users/forms.py:19 task_manager/users/forms.py:23
 msgid "Password"
 msgstr "Пароль"
 
-#: users/forms.py:24
+#: task_manager/users/forms.py:24
 msgid "Password must contains at least 3 chars"
 msgstr "Ваш пароль должен содержать как минимум 3 символа."
 
-#: users/forms.py:29 users/forms.py:37
+#: task_manager/users/forms.py:29 task_manager/users/forms.py:37
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: users/forms.py:38
+#: task_manager/users/forms.py:38
 msgid "Please, type your password again"
 msgstr "Подтверждение пароля"
 
-#: users/forms.py:53 users/forms.py:71
+#: task_manager/users/forms.py:53 task_manager/users/forms.py:71
 msgid "First name"
 msgstr "Имя"
 
-#: users/forms.py:59 users/forms.py:72
+#: task_manager/users/forms.py:59 task_manager/users/forms.py:72
 msgid "Last name"
 msgstr "Фамилия"
 
-#: users/forms.py:65 users/forms.py:73
+#: task_manager/users/forms.py:65 task_manager/users/forms.py:73
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: users/forms.py:66
+#: task_manager/users/forms.py:66
 msgid "Not an option"
 msgstr ""
 "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./"
 "+/-/_."
 
-#: users/forms.py:81
+#: task_manager/users/forms.py:81
 msgid "Passwords don't match"
 msgstr "Введенные пароли не совпадают."
 
-#: users/forms.py:87
+#: task_manager/users/forms.py:88
 msgid "Username already exists"
 msgstr "Пользователь с таким именем уже существует."
 
-#: users/views.py:18
+#: task_manager/users/views.py:17
 msgid "Users"
 msgstr "Пользователи"
 
-#: users/views.py:19
+#: task_manager/users/views.py:18
 msgid "ID"
 msgstr "ID"
 
-#: users/views.py:20
+#: task_manager/users/views.py:19
 msgid "username"
 msgstr "ИИмя пользователя"
 
-#: users/views.py:21
+#: task_manager/users/views.py:20
 msgid "full name"
 msgstr "Полное имя"
 
-#: users/views.py:22
+#: task_manager/users/views.py:21
 msgid "create at"
 msgstr "Дата создания"
 
-#: users/views.py:32
+#: task_manager/users/views.py:31
 msgid "Register"
 msgstr "Регистрация"
 
-#: users/views.py:33
+#: task_manager/users/views.py:32
 msgid "Register "
 msgstr "Зарегистрировать"
 
-#: users/views.py:35
+#: task_manager/users/views.py:34
 msgid "User created successfully"
 msgstr "Пользователь успешно зарегистрирован"
 
-#: users/views.py:53
+#: task_manager/users/views.py:45
 msgid "Edit user"
 msgstr "Изменение пользователя"
 
-#: users/views.py:54
+#: task_manager/users/views.py:46
 msgid "Update"
 msgstr "Изменить"
 
-#: users/views.py:58
-msgid "User update successfully"
-msgstr "Пользователь успешно изменён"
-
-#: users/views.py:69
-msgid "You cannot edit another user"
-msgstr "У вас нет прав для изменения другого пользователя."
-
-#: users/views.py:71
+#: task_manager/users/views.py:49
 msgid "Please login to modify user"
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
-#: users/views.py:85
+#: task_manager/users/views.py:50
+msgid "You cannot edit another user"
+msgstr "У вас нет прав для изменения другого пользователя."
+
+#: task_manager/users/views.py:51
+msgid "User update successfully"
+msgstr "Пользователь успешно изменён"
+
+#: task_manager/users/views.py:61
 msgid "Remove user"
 msgstr "Удаление пользователя"
 
-#: users/views.py:86
+#: task_manager/users/views.py:62
 msgid "Yes, remove"
 msgstr "Да, удалить"
 
-#: users/views.py:87
+#: task_manager/users/views.py:63
 msgid "Are you sure delete"
 msgstr "Вы уверены, что хотите удалить"
 
-#: users/views.py:99
-msgid "You cannot delete another user"
-msgstr "У вас нет прав для изменения другого пользователя."
-
-#: users/views.py:101
+#: task_manager/users/views.py:66
 msgid "Please login to delete user"
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
-#: users/views.py:114
-msgid "User can't be deleted - on use now"
-msgstr "Невозможно удалить пользователя, потому что он используется"
+#: task_manager/users/views.py:67
+msgid "You cannot delete another user"
+msgstr "У вас нет прав для изменения другого пользователя."
 
-#: users/views.py:116
+#: task_manager/users/views.py:68
 msgid "User was successfully deleted"
 msgstr "Пользователь успешно удалён"
+
+#: task_manager/users/views.py:69
+msgid "User can't be deleted - on use now"
+msgstr "Невозможно удалить пользователя, потому что он используется"
