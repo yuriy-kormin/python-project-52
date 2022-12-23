@@ -48,7 +48,7 @@ class StatusUpdateView(LoginRequiredCustomMixin, SuccessMessageMixin,
         'button_title': _('Update'),
     }
     success_message = _('Status updated successfully')
-    permission_denied_message = ('Please login')
+    permission_denied_message = _('Please login')
 
 
 class StatusDeleteView(LoginRequiredCustomMixin, DeleteProtectErrorMixin,
@@ -62,7 +62,6 @@ class StatusDeleteView(LoginRequiredCustomMixin, DeleteProtectErrorMixin,
         'button_title': _('Yes, remove'),
         'message': _('Are you sure delete'),
     }
-    raise_exception = False
-    permission_denied_message = ('Please login')
+    permission_denied_message = _('Please login')
     protected_error_message = _('Status can\'t be deleted - on use now')
     success_message = _('Status was deleted successfully')

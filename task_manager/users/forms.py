@@ -5,11 +5,38 @@ from django.core.validators import MinLengthValidator
 
 
 class UserForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        kwargs.setdefault('label_suffix', '')
-        super().__init__(*args, **kwargs)
-
     password_min_len = 3
+
+    first_name = forms.CharField(
+        label=_('First name'),
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': _('First name'),
+            }
+        )
+    )
+
+    last_name = forms.CharField(
+        label=_('Last name'),
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': _('Last name'),
+            }
+        )
+    )
+
+    username = forms.CharField(
+        label=_('Username'),
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': _('Username'),
+                'title': _('Not an option')
+            }
+        )
+    )
 
     password1 = forms.CharField(
         validators=[
@@ -46,32 +73,6 @@ class UserForm(forms.ModelForm):
                   'last_name',
                   'username',
                   )
-        widgets = {
-            'first_name': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': _('First name'),
-                }
-            ),
-            'last_name': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': _('Last name')
-                }
-            ),
-            'username': forms.TextInput(
-                attrs={
-                    'class': 'form-control',
-                    'placeholder': _('Username'),
-                    'title': _('Not an option')
-                }
-            ),
-        }
-        labels = {
-            'first_name': _('First name'),
-            'last_name': _('Last name'),
-            'username': _('Username'),
-        }
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
@@ -83,9 +84,11 @@ class UserForm(forms.ModelForm):
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
-        if username and User.objects.filter(username=username).exists():
-            raise forms.ValidationError(_('Username already exists'),
-                                        code='invalid')
+        if username and User.objects.filter(
+                username=username).exists():
+            raise forms.ValidationError(
+                _('Username already exists'),
+                code='invalid')
         return username
 
     def save(self, commit=True):

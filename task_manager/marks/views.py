@@ -1,7 +1,4 @@
-from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import ProtectedError
-from django.shortcuts import redirect
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -9,8 +6,10 @@ from .forms import MarkForm
 from .models import Mark
 from django.utils.translation import gettext_lazy as _
 
+from ..mixins import LoginRequiredCustomMixin, DeleteProtectErrorMixin
 
-class MarkCreateView(LoginRequiredMixin, CreateView):
+
+class MarkCreateView(LoginRequiredCustomMixin, CreateView):
     login_url = reverse_lazy('user_login')
     form_class = MarkForm
     template_name = "marks/create.html"
@@ -19,13 +18,11 @@ class MarkCreateView(LoginRequiredMixin, CreateView):
         'header': _('Create mark'),
         'button_title': _('Create'),
     }
-
-    def form_valid(self, form):
-        messages.success(self.request, _('Mark created successfully'))
-        return super().form_valid(form)
+    success_message = _('Mark created successfully')
+    permission_denied_message = _('Please login')
 
 
-class MarkListView(LoginRequiredMixin, ListView):
+class MarkListView(LoginRequiredCustomMixin, ListView):
     login_url = reverse_lazy('user_login')
     model = Mark
     template_name = "marks/list.html"
@@ -35,9 +32,11 @@ class MarkListView(LoginRequiredMixin, ListView):
         'name': _('Name'),
         'created_at': _('Created at'),
     }
+    permission_denied_message = _('Please login')
 
 
-class MarkUpdateView(LoginRequiredMixin, UpdateView):
+class MarkUpdateView(LoginRequiredCustomMixin, SuccessMessageMixin,
+                     UpdateView):
     login_url = reverse_lazy('user_login')
     model = Mark
     form_class = MarkForm
@@ -47,13 +46,12 @@ class MarkUpdateView(LoginRequiredMixin, UpdateView):
         'header': _('Update mark'),
         'button_title': _('Update'),
     }
-
-    def form_valid(self, form):
-        messages.success(self.request, _('Mark updated successfully'))
-        return super().form_valid(form)
+    success_message = _('Mark updated successfully')
+    permission_denied_message = _('Please login')
 
 
-class MarkDeleteView(LoginRequiredMixin, DeleteView):
+class MarkDeleteView(LoginRequiredCustomMixin, DeleteProtectErrorMixin,
+                     DeleteView):
     login_url = reverse_lazy('user_login')
     model = Mark
     template_name = "marks/delete.html"
@@ -64,13 +62,6 @@ class MarkDeleteView(LoginRequiredMixin, DeleteView):
         'message': _('Are you sure delete'),
     }
     raise_exception = False
-
-    def form_valid(self, form):
-        try:
-            self.object.delete()
-        except ProtectedError:
-            messages.error(self.request, _(
-                'Mark can\'t be deleted - on use now'))
-        else:
-            messages.info(self.request, _('Mark was deleted successfully'))
-        return redirect(self.get_success_url())
+    permission_denied_message = _('Please login')
+    protected_error_message = _('Mark can\'t be deleted - on use now')
+    success_message = _('Mark was deleted successfully')
