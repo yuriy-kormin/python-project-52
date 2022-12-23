@@ -10,7 +10,6 @@ from ..mixins import LoginRequiredCustomMixin, DeleteProtectErrorMixin
 
 class MarkCreateView(LoginRequiredCustomMixin, SuccessMessageMixin,
                      CreateView):
-    login_url = reverse_lazy('user_login')
     form_class = MarkForm
     template_name = "marks/create.html"
     success_url = reverse_lazy('mark_list')
@@ -23,7 +22,6 @@ class MarkCreateView(LoginRequiredCustomMixin, SuccessMessageMixin,
 
 
 class MarkListView(LoginRequiredCustomMixin, ListView):
-    login_url = reverse_lazy('user_login')
     model = Mark
     template_name = "marks/list.html"
     extra_context = {
@@ -37,7 +35,6 @@ class MarkListView(LoginRequiredCustomMixin, ListView):
 
 class MarkUpdateView(LoginRequiredCustomMixin, SuccessMessageMixin,
                      UpdateView):
-    login_url = reverse_lazy('user_login')
     model = Mark
     form_class = MarkForm
     template_name = "marks/create.html"
@@ -52,7 +49,6 @@ class MarkUpdateView(LoginRequiredCustomMixin, SuccessMessageMixin,
 
 class MarkDeleteView(LoginRequiredCustomMixin, DeleteProtectErrorMixin,
                      DeleteView):
-    login_url = reverse_lazy('user_login')
     model = Mark
     template_name = "marks/delete.html"
     success_url = reverse_lazy('mark_list')

@@ -26,7 +26,6 @@ class UserCreateView(SuccessMessageMixin, CreateView):
     form_class = UserForm
     template_name = 'users/create.html'
     success_url = reverse_lazy('user_login')
-
     extra_context = {
         'header': _('Register'),
         'button_title': _('Register '),
@@ -40,7 +39,7 @@ class UserUpdateView(LoginRequiredCustomMixin, UserTestCustomMixin,
     form_class = UserForm
     template_name = 'users/create.html'
     success_url = reverse_lazy('user_list')
-    login_url = reverse_lazy('user_login')
+    # login_url = reverse_lazy('user_login')
     extra_context = {
         'header': _('Edit user'),
         'button_title': _('Update'),
@@ -55,7 +54,7 @@ class UserDeleteView(LoginRequiredCustomMixin, UserTestCustomMixin,
     model = User
     template_name = 'users/delete.html'
     success_url = reverse_lazy('user_list')
-    login_url = reverse_lazy('user_login')
+    # login_url = reverse_lazy('user_login')
     extra_context = {
         'header': _('Remove user'),
         'button_title': _('Yes, remove'),

@@ -1,12 +1,13 @@
 from django.contrib import messages
 from django.db.models import ProtectedError
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.views.generic.edit import DeletionMixin
 
 
 class LoginRequiredCustomMixin:
     permission_denied_message = ''
-    login_url = ''
+    login_url = reverse_lazy('user_login')
 
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:

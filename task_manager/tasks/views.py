@@ -14,7 +14,6 @@ from task_manager.mixins import LoginRequiredCustomMixin
 
 class TaskCreateView(LoginRequiredCustomMixin, SuccessMessageMixin,
                      SetAuthorMixin, CreateView):
-    login_url = reverse_lazy('user_login')
     form_class = TaskForm
     template_name = 'tasks/create.html'
     success_url = reverse_lazy('task_list')
@@ -27,7 +26,6 @@ class TaskCreateView(LoginRequiredCustomMixin, SuccessMessageMixin,
 
 
 class TaskListView(LoginRequiredCustomMixin, FilterView, ListView):
-    login_url = reverse_lazy('user_login')
     filterset_class = MarkFilter
     model = Task
     template_name = "tasks/list.html"
@@ -50,7 +48,6 @@ class TaskUpdateView(LoginRequiredCustomMixin, SuccessMessageMixin,
     form_class = TaskForm
     template_name = 'tasks/create.html'
     success_url = reverse_lazy('task_list')
-    login_url = reverse_lazy('user_login')
     extra_context = {
         'header': _('Edit task'),
         'button_title': _('Update'),
@@ -64,7 +61,6 @@ class TaskDeleteView(LoginRequiredCustomMixin, DeleteTaskMixin,
     model = Task
     template_name = 'tasks/delete.html'
     success_url = reverse_lazy('task_list')
-    login_url = reverse_lazy('user_login')
     extra_context = {
         'header': _('Remove task'),
         'button_title': _('Remove '),
@@ -78,7 +74,6 @@ class TaskDeleteView(LoginRequiredCustomMixin, DeleteTaskMixin,
 class TaskView(LoginRequiredCustomMixin, DetailView):
     model = Task
     template_name = 'tasks/detail.html'
-    login_url = reverse_lazy('user_login')
     extra_context = {
         'header': _('Task view'),
         'author': _('author'),
