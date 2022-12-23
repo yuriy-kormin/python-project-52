@@ -6,7 +6,8 @@ from django.utils.translation import gettext_lazy as _
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .forms import UserForm
-from task_manager.mixins import LoginRequiredCustomMixin, DeleteProtectErrorMixin
+from task_manager.mixins import LoginRequiredCustomMixin,\
+    DeleteProtectErrorMixin
 
 
 class UserListView(ListView):
