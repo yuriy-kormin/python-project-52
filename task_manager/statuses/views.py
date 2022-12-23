@@ -5,6 +5,7 @@ from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from task_manager.mixins import DeleteProtectErrorMixin, LoginRequiredCustomMixin
 from task_manager.statuses.forms import StatusForm
 from task_manager.statuses.models import Status
 from django.utils.translation import gettext_lazy as _
@@ -53,7 +54,8 @@ class StatusUpdateView(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
 
-class StatusDeleteView(LoginRequiredMixin, DeleteView):
+class StatusDeleteView(LoginRequiredCustomMixin, DeleteProtectErrorMixin,
+                       DeleteView):
     login_url = reverse_lazy('user_login')
     model = Status
     template_name = "statuses/delete.html"
@@ -64,13 +66,5 @@ class StatusDeleteView(LoginRequiredMixin, DeleteView):
         'message': _('Are you sure delete'),
     }
     raise_exception = False
-
-    def form_valid(self, form):
-        try:
-            self.object.delete()
-        except ProtectedError:
-            messages.error(self.request, _(
-                'Status can\'t be deleted - on use now'))
-        else:
-            messages.info(self.request, _('Status was deleted successfully'))
-        return redirect(self.get_success_url())
+    protected_error_message = _('Status can\'t be deleted - on use now')
+    success_message = _('Status was deleted successfully')
