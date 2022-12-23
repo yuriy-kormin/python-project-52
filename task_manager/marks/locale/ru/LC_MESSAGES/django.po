@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-23 10:48+0000\n"
+"POT-Creation-Date: 2022-12-23 18:26+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,66 +20,66 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/marks/forms.py:15 task_manager/marks/forms.py:20
-#: task_manager/marks/views.py:35
+#: marks/forms.py:15 marks/forms.py:20 marks/views.py:32
 msgid "Name"
 msgstr "Имя"
 
-#: task_manager/marks/views.py:19
+#: marks/views.py:18
 msgid "Create mark"
 msgstr "Создать метку"
 
-#: task_manager/marks/views.py:20
+#: marks/views.py:19
 msgid "Create"
 msgstr "Создать"
 
-#: task_manager/marks/views.py:24
+#: marks/views.py:21
 msgid "Mark created successfully"
 msgstr "Метка успешно создана"
 
-#: task_manager/marks/views.py:33
+#: marks/views.py:22 marks/views.py:35 marks/views.py:50 marks/views.py:65
+msgid "Please login"
+msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
+
+#: marks/views.py:30
 msgid "Marks"
 msgstr "Метки"
 
-#: task_manager/marks/views.py:34
+#: marks/views.py:31
 msgid "ID"
 msgstr "ID"
 
-#: task_manager/marks/views.py:36
+#: marks/views.py:33
 msgid "Created at"
 msgstr "Дата создания"
 
-#: task_manager/marks/views.py:47
+#: marks/views.py:46
 msgid "Update mark"
 msgstr "Изменение метки"
 
-#: task_manager/marks/views.py:48
+#: marks/views.py:47
 msgid "Update"
 msgstr "Изменить"
 
-#: task_manager/marks/views.py:52
+#: marks/views.py:49
 msgid "Mark updated successfully"
 msgstr "Метка успешно изменена"
 
-#: task_manager/marks/views.py:62
+#: marks/views.py:60
 msgid "Remove mark"
 msgstr "Удаление метки"
 
-#: task_manager/marks/views.py:63
+#: marks/views.py:61
 msgid "Yes, remove"
 msgstr "Да, удалить"
 
-#: task_manager/marks/views.py:64
+#: marks/views.py:62
 msgid "Are you sure delete"
 msgstr "Вы уверены, что хотите удалить"
 
-#: task_manager/marks/views.py:73
+#: marks/views.py:66
 msgid "Mark can't be deleted - on use now"
 msgstr "Невозможно удалить метку, потому что она используется"
 
-#: task_manager/marks/views.py:75
+#: marks/views.py:67
 msgid "Mark was deleted successfully"
 msgstr "Метка успешно удалена"
-
-#~ msgid "Remove"
-#~ msgstr "Да, удалить"

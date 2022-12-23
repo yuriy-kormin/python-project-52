@@ -26,7 +26,7 @@ class TaskForm(forms.ModelForm):
             'description': forms.Textarea(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': _('description'),
+                    'placeholder': _('Description'),
                 }
             ),
             'status': forms.Select(
@@ -50,8 +50,8 @@ class TaskForm(forms.ModelForm):
         }
         labels = {
             'name': _('Name'),
-            'description': _('description'),
-            'status': _('status'),
+            'description': _('Description'),
+            'status': _('Status'),
             'executor': _('Executor'),
             'labels': _('Labels')
         }

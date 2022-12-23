@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-23 10:48+0000\n"
+"POT-Creation-Date: 2022-12-23 18:31+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,135 +20,130 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/tasks/filters.py:12 task_manager/tasks/views.py:47
+#: tasks/filters.py:12 tasks/forms.py:54 tasks/views.py:42
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/tasks/filters.py:16 task_manager/tasks/forms.py:55
+#: tasks/filters.py:16 tasks/forms.py:55
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: task_manager/tasks/filters.py:20
+#: tasks/filters.py:20
 msgid "Label"
 msgstr "Метка"
 
-#: task_manager/tasks/filters.py:25
+#: tasks/filters.py:25
 msgid "Only self tasks"
 msgstr "Только свои задачи"
 
-#: task_manager/tasks/forms.py:23 task_manager/tasks/forms.py:52
-#: task_manager/tasks/views.py:46
+#: tasks/forms.py:23 tasks/forms.py:52 tasks/views.py:41
 msgid "Name"
 msgstr "Имя"
 
-#: task_manager/tasks/forms.py:29 task_manager/tasks/forms.py:53
-msgid "description"
+#: tasks/forms.py:29 tasks/forms.py:53
+msgid "Description"
 msgstr "Описание"
 
-#: task_manager/tasks/forms.py:54 task_manager/tasks/views.py:117
-msgid "status"
-msgstr "Статус"
-
-#: task_manager/tasks/forms.py:56
+#: tasks/forms.py:56
 msgid "Labels"
 msgstr "Метки"
 
-#: task_manager/tasks/views.py:22
+#: tasks/views.py:25
 msgid "Add Task"
 msgstr "Создать задачу"
 
-#: task_manager/tasks/views.py:23
+#: tasks/views.py:26
 msgid "Create"
 msgstr "Создать"
 
-#: task_manager/tasks/views.py:29
+#: tasks/views.py:28
 msgid "Task created successfully"
 msgstr "Задача успешно создана"
 
-#: task_manager/tasks/views.py:33
-msgid "Please login to create tasks"
+#: tasks/views.py:29 tasks/views.py:47 tasks/views.py:62 tasks/views.py:76
+#: tasks/views.py:93
+msgid "Please login"
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
-#: task_manager/tasks/views.py:43
+#: tasks/views.py:38
 msgid "Select"
 msgstr "Показать"
 
-#: task_manager/tasks/views.py:44
+#: tasks/views.py:39
 msgid "Tasks"
 msgstr "Задачи"
 
-#: task_manager/tasks/views.py:45
+#: tasks/views.py:40
 msgid "ID"
 msgstr "ID"
 
-#: task_manager/tasks/views.py:48
+#: tasks/views.py:43
 msgid "Author"
 msgstr "Автор"
 
-#: task_manager/tasks/views.py:49
+#: tasks/views.py:44
 msgid "Performer"
 msgstr "Исполнитель"
 
-#: task_manager/tasks/views.py:50
+#: tasks/views.py:45
 msgid "Created at"
 msgstr "Дата создания"
 
-#: task_manager/tasks/views.py:54 task_manager/tasks/views.py:123
-msgid "Please login to view tasks"
-msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
-
-#: task_manager/tasks/views.py:65
+#: tasks/views.py:58
 msgid "Edit task"
 msgstr "Изменение задачи"
 
-#: task_manager/tasks/views.py:66
+#: tasks/views.py:59
 msgid "Update"
 msgstr "Изменить"
 
-#: task_manager/tasks/views.py:70
-msgid "Task update successfully"
+#: tasks/views.py:61
+msgid "Task updated successfully"
 msgstr "Задача успешно изменена"
 
-#: task_manager/tasks/views.py:79
+#: tasks/views.py:72
 msgid "Remove task"
 msgstr "Удаление задачи"
 
-#: task_manager/tasks/views.py:80
+#: tasks/views.py:73
 msgid "Remove "
 msgstr "Да, удалить"
 
-#: task_manager/tasks/views.py:81
+#: tasks/views.py:74
 msgid "Are you sure delete task "
 msgstr "Вы уверены, что хотите удалить"
 
-#: task_manager/tasks/views.py:94
+#: tasks/views.py:77
 msgid "You cannot delete another user tasks"
 msgstr "Задачу может удалить только её автор"
 
-#: task_manager/tasks/views.py:96
-msgid "Please login to delete tasks"
-msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
-
-#: task_manager/tasks/views.py:105
+#: tasks/views.py:78
 msgid "Task was successfully deleted"
 msgstr "Задача успешно удалена"
 
-#: task_manager/tasks/views.py:114
+#: tasks/views.py:86
 msgid "Task view"
 msgstr "Просмотр задачи"
 
-#: task_manager/tasks/views.py:115
+#: tasks/views.py:87
 msgid "author"
 msgstr "Автор"
 
-#: task_manager/tasks/views.py:116
+#: tasks/views.py:88
 msgid "executor"
 msgstr "Исполнитель"
 
-#: task_manager/tasks/views.py:118
+#: tasks/views.py:89
+msgid "status"
+msgstr "Статус"
+
+#: tasks/views.py:90
 msgid "created"
 msgstr "Дата создания"
 
-#: task_manager/tasks/views.py:119
+#: tasks/views.py:91
 msgid "labels"
 msgstr "Метки"
+
+#~ msgid "description"
+#~ msgstr "Описание"
