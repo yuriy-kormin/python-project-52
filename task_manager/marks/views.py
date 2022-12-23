@@ -5,11 +5,11 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .forms import MarkForm
 from .models import Mark
 from django.utils.translation import gettext_lazy as _
-
 from ..mixins import LoginRequiredCustomMixin, DeleteProtectErrorMixin
 
 
-class MarkCreateView(LoginRequiredCustomMixin, SuccessMessageMixin, CreateView):
+class MarkCreateView(LoginRequiredCustomMixin, SuccessMessageMixin,
+                     CreateView):
     login_url = reverse_lazy('user_login')
     form_class = MarkForm
     template_name = "marks/create.html"
