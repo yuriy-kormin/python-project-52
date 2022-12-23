@@ -1,6 +1,4 @@
-from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.shortcuts import redirect
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, \
     DeleteView, DetailView
@@ -8,12 +6,14 @@ from django.views.generic import ListView
 from django.utils.translation import gettext_lazy as _
 from .filters import MarkFilter
 from .forms import TaskForm
+from .mixins import DeleteTaskMixin, SetAuthorMixin
 from .models import Task
-from task_manager.users.models import TaskUser as User
 from django_filters.views import FilterView
+from task_manager.mixins import LoginRequiredCustomMixin
 
 
-class TaskCreateView(LoginRequiredMixin, CreateView):
+class TaskCreateView(LoginRequiredCustomMixin, SuccessMessageMixin,
+                     SetAuthorMixin, CreateView):
     login_url = reverse_lazy('user_login')
     form_class = TaskForm
     template_name = 'tasks/create.html'
@@ -22,19 +22,11 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
         'header': _('Add Task'),
         'button_title': _('Create'),
     }
-
-    def form_valid(self, form):
-        user = User.objects.get(pk=self.request.user.id)
-        form.instance.author = user
-        messages.success(self.request, _('Task created successfully'))
-        return super().form_valid(form)
-
-    def get_login_url(self):
-        messages.error(self.request, _('Please login to create tasks'))
-        return super().get_login_url()
+    success_message = _('Task created successfully')
+    permission_denied_message = _('Please login')
 
 
-class TaskListView(LoginRequiredMixin, FilterView, ListView):
+class TaskListView(LoginRequiredCustomMixin, FilterView, ListView):
     login_url = reverse_lazy('user_login')
     filterset_class = MarkFilter
     model = Task
@@ -49,13 +41,11 @@ class TaskListView(LoginRequiredMixin, FilterView, ListView):
         'performer_header': _('Performer'),
         'created_date_header': _('Created at')
     }
-
-    def get_login_url(self):
-        messages.error(self.request, _('Please login to view tasks'))
-        return super().get_login_url()
+    permission_denied_message = _('Please login')
 
 
-class TaskUpdateView(LoginRequiredMixin, UpdateView):
+class TaskUpdateView(LoginRequiredCustomMixin, SuccessMessageMixin,
+                     UpdateView):
     model = Task
     form_class = TaskForm
     template_name = 'tasks/create.html'
@@ -65,48 +55,27 @@ class TaskUpdateView(LoginRequiredMixin, UpdateView):
         'header': _('Edit task'),
         'button_title': _('Update'),
     }
-
-    def form_valid(self, form):
-        messages.success(self.request, _('Task update successfully'))
-        return super().form_valid(form)
+    success_message = _('Task updated successfully')
+    permission_denied_message = _('Please login')
 
 
-class TaskDeleteView(UserPassesTestMixin, DeleteView):
+class TaskDeleteView(LoginRequiredCustomMixin, DeleteTaskMixin,
+                     DeleteView):
     model = Task
     template_name = 'tasks/delete.html'
     success_url = reverse_lazy('task_list')
+    login_url = reverse_lazy('user_login')
     extra_context = {
         'header': _('Remove task'),
         'button_title': _('Remove '),
         'message': _('Are you sure delete task '),
     }
-    raise_exception = False
-
-    def test_func(self):
-        if self.request.user.is_authenticated:
-            author_id = self.get_object().author_id
-            author = User.objects.get(pk=author_id)
-            user_id = self.request.user.id
-            user = User.objects.get(pk=user_id)
-            if user == author:
-                return True
-            messages.error(self.request,
-                           _('You cannot delete another user tasks'))
-        else:
-            messages.error(self.request, _('Please login to delete tasks'))
-        return False
-
-    def handle_no_permission(self):
-        if self.request.user.is_authenticated:
-            return redirect(reverse_lazy('task_list'))
-        return redirect(reverse_lazy('user_login'))
-
-    def form_valid(self, form):
-        messages.info(self.request, _('Task was successfully deleted'))
-        return super().form_valid(form)
+    permission_denied_message = _('Please login')
+    delete_error_message = _('You cannot delete another user tasks')
+    success_message = _('Task was successfully deleted')
 
 
-class TaskView(LoginRequiredMixin, DetailView):
+class TaskView(LoginRequiredCustomMixin, DetailView):
     model = Task
     template_name = 'tasks/detail.html'
     login_url = reverse_lazy('user_login')
@@ -118,7 +87,4 @@ class TaskView(LoginRequiredMixin, DetailView):
         'created': _('created'),
         'labels': _('labels'),
     }
-
-    def get_login_url(self):
-        messages.error(self.request, _('Please login to view tasks'))
-        return super().get_login_url()
+    permission_denied_message = _('Please login')
