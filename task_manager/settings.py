@@ -20,8 +20,6 @@ import rollbar
 # dotenv_path = os.path.join(os.path.dirname(__file__), '.env_example')
 load_dotenv()
 
-# load_dotenv()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,11 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'jJ3iFu3yeKZnY9D9GzTq52SP46vA1m6KBOhXqF4U'
+# SECRET_KEY = 'jJ3iFu3yeKZnY9D9GzTq52SP46vA1m6KBOhXqF4U'
 
-SECRET_KEY_ENV = os.environ.get('DJANGO_SECRET')
-if SECRET_KEY_ENV:
-    SECRET_KEY = SECRET_KEY_ENV
+SECRET_KEY = os.environ.get('DJANGO_SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,7 +75,6 @@ ROLLBAR = {
     'code_version': '1.0',
     'root': BASE_DIR,
 }
-# rollbar.init(**ROLLBAR)
 
 ROOT_URLCONF = 'task_manager.urls'
 CSRF_TRUSTED_ORIGINS = ['https://task-manager.up.railway.app']
@@ -101,6 +96,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'task_manager.wsgi.application'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -228,5 +224,8 @@ BOOTSTRAP4 = {
 
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, "task_manager", "locale"),
-    # os.path.join(BASE_DIR, "yourapp/locale"),
+)
+
+FIXTURE_DIRS =(
+    os.path.join(BASE_DIR, "task_manager", "tests", "fixtures"),
 )
