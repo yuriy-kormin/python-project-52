@@ -1,17 +1,15 @@
-from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db.models import ProtectedError
-from django.shortcuts import redirect
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from task_manager.mixins import DeleteProtectErrorMixin, LoginRequiredCustomMixin
+from task_manager.mixins import DeleteProtectErrorMixin, \
+    LoginRequiredCustomMixin
 from task_manager.statuses.forms import StatusForm
 from task_manager.statuses.models import Status
 from django.utils.translation import gettext_lazy as _
 
 
-class StatusListView(LoginRequiredMixin, ListView):
+class StatusListView(LoginRequiredCustomMixin, ListView):
     login_url = reverse_lazy('user_login')
     model = Status
     template_name = "statuses/list.html"
@@ -21,9 +19,11 @@ class StatusListView(LoginRequiredMixin, ListView):
         'name': _('Name'),
         'created_at': _('Created at'),
     }
+    permission_denied_message = _('Please login')
 
 
-class StatusCreateView(LoginRequiredMixin, CreateView):
+class StatusCreateView(LoginRequiredCustomMixin, SuccessMessageMixin,
+                       CreateView):
     login_url = reverse_lazy('user_login')
     form_class = StatusForm
     template_name = "statuses/create.html"
@@ -32,13 +32,12 @@ class StatusCreateView(LoginRequiredMixin, CreateView):
         'header': _('Create status'),
         'button_title': _('Create'),
     }
-
-    def form_valid(self, form):
-        messages.success(self.request, _('Status created successfully'))
-        return super().form_valid(form)
+    success_message = _('Status created successfully')
+    permission_denied_message = _('Please login')
 
 
-class StatusUpdateView(LoginRequiredMixin, UpdateView):
+class StatusUpdateView(LoginRequiredCustomMixin, SuccessMessageMixin,
+                       UpdateView):
     login_url = reverse_lazy('user_login')
     model = Status
     form_class = StatusForm
@@ -48,10 +47,8 @@ class StatusUpdateView(LoginRequiredMixin, UpdateView):
         'header': _('Update status'),
         'button_title': _('Update'),
     }
-
-    def form_valid(self, form):
-        messages.success(self.request, _('Status updated successfully'))
-        return super().form_valid(form)
+    success_message = _('Status updated successfully')
+    permission_denied_message = ('Please login')
 
 
 class StatusDeleteView(LoginRequiredCustomMixin, DeleteProtectErrorMixin,
@@ -66,5 +63,6 @@ class StatusDeleteView(LoginRequiredCustomMixin, DeleteProtectErrorMixin,
         'message': _('Are you sure delete'),
     }
     raise_exception = False
+    permission_denied_message = ('Please login')
     protected_error_message = _('Status can\'t be deleted - on use now')
     success_message = _('Status was deleted successfully')
