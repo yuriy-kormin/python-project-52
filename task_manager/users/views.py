@@ -45,7 +45,6 @@ class UserUpdateView(LoginRequiredCustomMixin, UserTestCustomMixin,
         'header': _('Edit user'),
         'button_title': _('Update'),
     }
-    raise_exception = False
     permission_denied_message = _('Please login to modify user')
     modify_error_message = _('You cannot edit another user')
     success_message = _('User update successfully')
@@ -62,7 +61,6 @@ class UserDeleteView(LoginRequiredCustomMixin, UserTestCustomMixin,
         'button_title': _('Yes, remove'),
         'message': _('Are you sure delete'),
     }
-    raise_exception = False
     permission_denied_message = _('Please login to delete user')
     modify_error_message = _('You cannot delete another user')
     success_message = _('User was successfully deleted')
