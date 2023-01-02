@@ -14,7 +14,7 @@ It's a classic task manager project with opportunity to set marks and set perfor
 
 ## STATUS
 
-Project <red>in development</red> right now, but You can view work copy on [link](https://task-manager.tk/)
+You can view it on [link](https://task-manager.tk/)
 
 ## INSTALLATION
 ### Local option
@@ -43,13 +43,10 @@ can be set in environment or by rename file .env_example and set values in it.
 ### Docker
 Need to be [docker](https://www.docker.com/) is being installed 
 
-After complete install, just several commands
 
-
-    docker pull tork83/task-manager
     docker run -p 8000:8000 tork83/task-manager
 
 enjoy app on http://localhost:8000
 
-Currently the application uses sqlite as the database - I plan to rebuild this image to use Postgres as the default database in a separate image.
+App uses postgresql in separate image
 

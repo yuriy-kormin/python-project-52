@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+    pgdatabase:
+        image: postgres:latest
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=postgres
+        ports:
+            - "5432:5432"
+        restart: always
+        volumes:
+            - pgdata:/var/lib/postgresql/data/:rw
+    app_django:
+        build: .
+        working_dir: /app
+        environment:
+        - DATABASE_URL=postgresql://postgres:postgres@pgdatabase:5432/postgres
+        ports:
+        - "8000:8000"
+        depends_on:
+        - pgdatabase
+volumes:
+    pgdata:

@@ -34,12 +34,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG_ENV = os.getenv('DEBUG')
 DEBUG = DEBUG_ENV if DEBUG_ENV else True
 
-ALLOWED_HOSTS = ['127.0.0.1',
-                 'webserver',
-                 'task-manager.up.railway.app',
-                 'task-manager.tk',
-                 'testserver',
-                 ]
+ALLOWED_HOSTS = ['*',]
 
 # Application definition
 
