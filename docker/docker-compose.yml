@@ -7,20 +7,28 @@ services:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=postgres
             - POSTGRES_DB=postgres
-        ports:
-            - "5432:5432"
+        expose:
+            - 5432
         restart: always
         volumes:
             - pgdata:/var/lib/postgresql/data/:rw
-    app_django:
+    taskmanager:
         image: tork83/task-manager:latest
-#        build: .
+#        build:
+#            context: ../
+#            dockerfile: docker/services/task-manager/Dockerfile
 #        working_dir: /app
         environment:
         - DATABASE_URL=postgresql://postgres:postgres@pgdatabase:5432/postgres
-        ports:
-        - "8000:8000"
+        expose:
+        - 8000
         depends_on:
         - pgdatabase
+    nginx:
+        build: ./services/nginx
+        ports:
+            - 8000:80
+        depends_on:
+            - taskmanager
 volumes:
     pgdata:

@@ -54,7 +54,7 @@ can be set in environment or by rename file .env_example and set values in it.
 
 5. enjoy app on http://localhost:8000
 
-App uses postgresql in separate image
+App uses postgresql in separate image, nginx and gunicorn as a web-server
 
 ### ADD
 
