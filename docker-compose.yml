@@ -21,7 +21,7 @@ services:
         depends_on:
         - pgdatabase
     nginx:
-        build: ./services/nginx
+        image: tork83/task-nginx:latest
         ports:
             - 8000:80
         depends_on:
