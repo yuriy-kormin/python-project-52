@@ -13,8 +13,9 @@ services:
         volumes:
             - pgdata:/var/lib/postgresql/data/:rw
     app_django:
-        build: .
-        working_dir: /app
+        image: tork83/task-manager:latest
+#        build: .
+#        working_dir: /app
         environment:
         - DATABASE_URL=postgresql://postgres:postgres@pgdatabase:5432/postgres
         ports:
