@@ -45,7 +45,7 @@ can be set in environment or by rename file .env_example and set values in it.
 2. Download docker-compose.yml from this repository to work dir
 
       
-      wget https://github.com/yuriy-kormin/python-project-52/blob/main/docker-compose.yml 
+      wget https://raw.githubusercontent.com/yuriy-kormin/python-project-52/main/docker-compose.yml
 
 3. run command on work dir
 
@@ -56,3 +56,6 @@ can be set in environment or by rename file .env_example and set values in it.
 
 App uses postgresql in separate image
 
+### ADD
+
+You can run this image in few more steps using service https://labs.play-with-docker.com/
