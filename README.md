@@ -43,12 +43,16 @@ can be set in environment or by rename file .env_example and set values in it.
 ### Docker
 1. Need to be [docker](https://www.docker.com/) is being installed
 2. Download docker-compose.yml from this repository to work dir
-3. run in work dir
 
+      
+      wget https://github.com/yuriy-kormin/python-project-52/blob/main/docker-compose.yml 
 
-    docker-compose up 
+3. run command on work dir
 
-enjoy app on http://localhost:8000
+      
+      docker-compose up
+
+5. enjoy app on http://localhost:8000
 
 App uses postgresql in separate image
 
